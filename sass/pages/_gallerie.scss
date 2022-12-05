@@ -1,0 +1,122 @@
+/* ------------------------  Gallerie -------------------- */
+.body-gallerie {
+  max-width: 100%;
+  overflow: hidden;
+}
+.gallerie-home {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  height: 20vh;
+  @include respond(phonemiddle) {
+    height: 8vh;
+  }
+  @include respond(phonexs) {
+    height: 5vh;
+  }
+}
+.textarea--gallerie {
+  display: flex;
+  align-self: center;
+  width: 100%;
+  height: 30%;
+  flex-direction: column;
+
+  & h1 {
+    font-family: kimperly-kg, sans-serif;
+    text-align: center;
+    letter-spacing: 3.5rem;
+    font-size: 7rem;
+    line-height: 1.7;
+
+    @include respond(tab-land) {
+      font-size: 4rem;
+    }
+    @include respond(phone) {
+      font-size: 3rem;
+    }
+    @include respond(phonexlmiddle) {
+      letter-spacing: 1.9rem;
+      font-size: 2.5rem;
+    }
+    @include respond(phonemiddle) {
+      letter-spacing: 1.5rem;
+      font-size: 2rem;
+    }
+    @include respond(phonexs) {
+      font-size: 1.6rem;
+      letter-spacing: 1.1rem;
+    }
+  }
+}
+
+.grid-container {
+  margin-top: 5rem;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  max-height: 100%;
+  max-width: 100%;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 5px;
+  width: 100%;
+
+  @include respond(tab-land) {
+    grid-gap: 0.5rem;
+  }
+
+  @include respond(tab-port) {
+    grid-auto-columns: auto;
+    grid-auto-rows: auto;
+    margin-top: 3rem;
+  }
+  @include respond(phone) {
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: auto;
+    margin-top: 1rem;
+  }
+  @include respond(phonexs) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.item {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: all 1s;
+}
+
+.grid-container:hover .item {
+  opacity: 0.2;
+}
+
+.item:hover {
+  opacity: 1 !important;
+}
+
+.item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.r-span2 {
+  grid-row: span 2;
+  @include respond(phone) {
+    grid-column: span 2;
+  }
+}
+
+.c-span2 {
+  grid-column: span 2;
+}
+.fadein {
+  transition: all 2s;
+  transform: scale(1.3);
+  opacity: 1 !important;
+  border-radius: 5px;
+}

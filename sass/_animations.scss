@@ -1,0 +1,38 @@
+.border {
+  display: grid;
+  border-radius: 5px;
+  margin: 0 auto;
+  width: 80%;
+  grid-template-columns: 1fr;
+  padding: 1.2rem 0 1.2rem 0;
+  background-repeat: no-repeat;
+  background-size: 400% 400%;
+  background-position: 0 50%;
+  animation: color-border 15s alternate infinite;
+  z-index: 0;
+  background-image: linear-gradient(
+    60deg,
+    hsl(224, 85%, 66%),
+    hsl(269, 85%, 66%),
+    hsl(314, 85%, 66%),
+    hsl(359, 85%, 66%),
+    hsl(44, 85%, 66%),
+    hsl(89, 85%, 66%),
+    hsl(134, 85%, 66%),
+    hsl(179, 85%, 66%)
+  );
+
+  @keyframes color-border {
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  @include respond(phone) {
+    width: 90%;
+  }
+
+  @include respond(smallest) {
+    width: 100%;
+  }
+}

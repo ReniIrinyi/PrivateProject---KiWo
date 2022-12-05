@@ -1,0 +1,433 @@
+/* ----------------------- Programms ------------------------- */
+
+.programms {
+  &__container {
+    display: grid;
+    padding: 15rem 10rem 30rem 10rem;
+    grid-gap: 5rem;
+    margin: 0 auto;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    width: 100%;
+    height: 100%;
+    background-color: var(--white);
+    margin-bottom: 50px;
+
+    @include respond(tab-land) {
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr;
+    }
+    @include respond(tab-port) {
+      grid-gap: 2rem;
+      padding: 3rem;
+      padding-bottom: 20rem;
+    }
+    @include respond(phone) {
+      padding-bottom: 10rem;
+    }
+  }
+
+  &--text-area {
+    padding: 0rem 5rem 5rem 5rem;
+
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    grid-auto-rows: 1/-1;
+    grid-column: 1/2;
+
+    @include respond(phone) {
+      padding-right: 2rem;
+      padding-left: 2rem;
+    }
+    @include respond(smallest) {
+      padding: 1rem;
+    }
+  }
+
+  &--imgs {
+    padding: 5rem;
+    grid-row: 1/-1;
+    grid-column: 2/3;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    @include respond(tab-land) {
+      grid-row: 2/3;
+      grid-column: 1/-1;
+    }
+
+    @include respond(phone) {
+      padding: 2rem;
+    }
+    @include respond(smallest) {
+      padding: 1rem;
+    }
+  }
+}
+
+.composition {
+  display: flex;
+
+  &__photo {
+    overflow: hidden;
+
+    display: block;
+    margin-top: 10%;
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.4);
+    position: absolute;
+    z-index: 10;
+    transition: all 0.5s;
+    outline-offset: 1.3rem;
+    opacity: 0.8;
+    width: 25rem;
+    height: 25rem;
+    border-bottom: 50px solid #fff;
+
+    @include respond(phone) {
+      width: 20rem;
+      height: 20rem;
+      margin-top: 0;
+    }
+
+    @include respond(smallest) {
+      width: 10rem;
+      height: 10rem;
+      border-bottom: 25px solid #fff;
+    }
+
+    &--p1 {
+      left: 8rem;
+      top: -5rem;
+      transform: rotate(1deg);
+
+      @include respond(tab-land-bg) {
+        left: 8rem;
+        top: -5rem;
+        transform: rotate(1deg);
+      }
+
+      @include respond(tab-port) {
+        top: -12rem;
+        left: 14rem;
+      }
+      @include respond(phoneAIR) {
+        top: -10rem;
+        left: 8rem;
+      }
+      @include respond(phone) {
+        left: 11rem;
+        top: -5rem;
+      }
+      @include respond(phonexxl) {
+        transform: rotate(-5deg);
+        top: -2rem;
+        left: 2rem;
+      }
+      @include respond(smallest) {
+        left: 1rem;
+      }
+    }
+    &--p2 {
+      right: 42rem;
+      top: 19rem;
+      transform: rotate(-1deg);
+
+      @include respond(tab-land-bg) {
+        right: 28rem;
+      }
+
+      @include respond(pc-small) {
+        right: 15rem;
+      }
+
+      @include respond(tab-land) {
+        top: -5rem;
+      }
+
+      @include respond(tab-port) {
+        top: -10rem;
+        right: 40rem;
+      }
+
+      @include respond(phoneAIR) {
+        right: 30rem;
+      }
+      @include respond(phone) {
+        right: 28rem;
+        top: -6rem;
+      }
+      @include respond(phonexxl) {
+        right: 24rem;
+      }
+      @include respond(phonemiddle) {
+        right: 18rem;
+      }
+      @include respond(phonexs) {
+        right: 10rem;
+      }
+      @include respond(phonexxs) {
+        right: 3rem;
+      }
+      @include respond(minimum) {
+        right: 2rem;
+      }
+      @include respond(smallest) {
+        top: -2rem;
+      }
+    }
+    &--p3 {
+      right: 27rem;
+      top: -2rem;
+      transform: rotate(12deg);
+
+      @include respond(tab-land-bg) {
+        right: 4rem;
+      }
+
+      @include respond(tab-port) {
+        top: -10rem;
+        right: 16rem;
+      }
+
+      @include respond(phoneAIR) {
+        right: 8rem;
+      }
+      @include respond(phone) {
+        top: 6rem;
+        left: 11rem;
+      }
+      @include respond(phonexxl) {
+        left: 8rem;
+        top: 7rem;
+      }
+
+      @include respond(phonexs) {
+        left: 1rem;
+        top: 12rem;
+      }
+      @include respond(phonexxs) {
+        left: 1rem;
+        top: 20rem;
+      }
+      @include respond(smallest) {
+        top: 6rem;
+      }
+    }
+    &--p4 {
+      left: 2rem;
+      bottom: -4rem;
+      transform: rotate(10deg);
+
+      @include respond(tab-land-bg) {
+        bottom: 2rem;
+      }
+
+      @include respond(tab-land) {
+        left: 20rem;
+        bottom: 5rem;
+      }
+      @include respond(tab-port) {
+        left: 15rem;
+        bottom: -1rem;
+      }
+      @include respond(phoneAIR) {
+        top: 10rem;
+        left: 20rem;
+      }
+      @include respond(phone) {
+        left: 25rem;
+        top: 8rem;
+      }
+      @include respond(phonexlmiddle) {
+        left: 27rem;
+        bottom: 0rem;
+      }
+      @include respond(phonexxl) {
+        left: 17rem;
+      }
+      @include respond(phonexs) {
+        top: 12rem;
+        left: 20rem;
+        transform: rotate(-10deg);
+      }
+      @include respond(phonexxs) {
+        left: 13rem;
+        top: 18rem;
+      }
+      @include respond(minimumSE) {
+        left: 10rem;
+      }
+      @include respond(minimumSA) {
+        left: 9rem;
+      }
+      @include respond(minimum) {
+        left: 8rem;
+      }
+      @include respond(smallest) {
+        top: 6rem;
+        left: 9rem;
+      }
+    }
+
+    &--p6 {
+      right: 28rem;
+      bottom: -5em;
+      transform: rotate(-7deg);
+
+      @include respond(tab-land-bg) {
+        right: 6rem;
+        bottom: 0em;
+      }
+      @include respond(pc-small) {
+        bottom: 10rem;
+        right: 5rem;
+      }
+      @include respond(tab-land) {
+        right: 10rem;
+        bottom: 3rem;
+      }
+
+      @include respond(tab-port) {
+        bottom: -1rem;
+        right: 16rem;
+      }
+      @include respond(phoneAIR) {
+        right: 11rem;
+        bottom: 2rem;
+      }
+      @include respond(phone) {
+        right: 10rem;
+        bottom: 14rem;
+        transform: rotate(10deg);
+      }
+      @include respond(phonexxl) {
+        right: 5rem;
+      }
+
+      @include respond(phonexs) {
+        right: 1.5rem;
+        bottom: 23rem;
+      }
+      @include respond(smallest) {
+        bottom: 0rem;
+      }
+    }
+    &--p7 {
+      right: 41rem;
+      bottom: 11rem;
+      transform: rotate(-2deg);
+
+      @include respond(tab-land-bg) {
+        right: 19rem;
+        bottom: 20rem;
+      }
+
+      @include respond(tab-landXl) {
+        right: 7rem;
+        bottom: 25rem;
+      }
+      @include respond(tab-land) {
+        right: 45rem;
+        bottom: 10rem;
+        transform: rotate(-2deg);
+      }
+      @include respond(tab-port) {
+        bottom: -1rem;
+        right: 40rem;
+      }
+      @include respond(phoneAIR) {
+        right: 44rem;
+        bottom: 2rem;
+      }
+      @include respond(phone) {
+        right: 10rem;
+        top: 6rem;
+        transform: rotate(-4deg);
+      }
+      @include respond(phonexxl) {
+        right: 5rem;
+      }
+
+      @include respond(phonexs) {
+        right: 10rem;
+        top: 10rem;
+      }
+      @include respond(phonexxs) {
+        right: 8rem;
+        top: 13rem;
+      }
+    }
+
+    &--p1:hover {
+      outline: 0.5rem solid var(--color1);
+    }
+    &--p2:hover {
+      outline: 0.5rem solid var(--color6);
+    }
+    &--p3:hover {
+      outline: 0.5rem solid var(--color2);
+    }
+    &--p4:hover {
+      outline: 0.5rem solid var(--color4);
+    }
+    &--p5:hover {
+      outline: 0.5rem solid var(--color5);
+    }
+    &--p6:hover {
+      outline: 0.5rem solid var(--color6);
+    }
+    &--p7:hover {
+      outline: 0.5rem solid var(--secondary-color--light);
+    }
+  }
+
+  &__photo:hover {
+    transform: scale(1.05) translateY(-0.2rem);
+    box-shadow: 0 1.5rem 2rem rgba(0, 0, 0, 0.4);
+    z-index: 20;
+    opacity: 1;
+  }
+}
+
+.composition:hover .composition__photo:not(:hover) {
+  transform: scale(0.95);
+  opacity: 0.5;
+}
+
+//button
+.btn-text:link,
+.btn-text:visited {
+  font-family: kimperly-kg;
+  font-size: 2.2rem;
+  display: inline-block;
+  text-decoration: none;
+  padding: 1.5rem;
+  transition: all 1s;
+  color: var(--secondary-color--dark);
+
+  @include respond(smallest) {
+    font-size: 1rem;
+  }
+}
+.btn-text:hover {
+  transform: translateY(-2px);
+  background-image: linear-gradient(
+    60deg,
+    hsl(224, 85%, 66%),
+    hsl(269, 85%, 66%),
+    hsl(314, 85%, 66%),
+    hsl(359, 85%, 66%),
+    hsl(44, 85%, 66%),
+    hsl(89, 85%, 66%),
+    hsl(134, 85%, 66%),
+    hsl(179, 85%, 66%)
+  );
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.btn-text:active {
+  transform: traslateY(-2px);
+}
