@@ -568,6 +568,7 @@ const home = document.querySelector("#home");
 const navHeight = navigation.getBoundingClientRect().height;
 // console.log(navHeight);
 const callback = function(entries) {
+    document.querySelector(".document--container").style.paddingTop = `0`;
     const [entry] = entries;
     if (!entry.isIntersecting) {
         navigation.classList.add("sticky");
@@ -579,7 +580,7 @@ const callback = function(entries) {
 };
 const observer = new IntersectionObserver(callback, {
     root: null,
-    threshold: 0.2,
+    threshold: 0.1,
     rootMargin: `-${navHeight}px`
 });
 observer.observe(home);

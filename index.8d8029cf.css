@@ -17,7 +17,6 @@ body {
   max-width: 100%;
   color: var(--secondary-color--dark);
   background-repeat: no-repeat;
-  margin: 1rem;
   font-family: eb-garamod, serif;
   font-style: normal;
   font-weight: 400;
@@ -2449,27 +2448,33 @@ ul.share-buttons .sr-only {
   box-shadow: 0 1rem 3rem #02020210;
 }
 
-@media only screen and (max-width: 30rem) {
-  .navbar {
-    padding: 1rem 4rem;
-  }
-}
-
-@media only screen and (max-width: 26rem) {
+@media only screen and (max-width: 51rem) {
   .navbar {
     padding: 1rem 3rem;
   }
 }
 
-@media only screen and (max-width: 22.5rem) {
+@media only screen and (max-width: 30rem) {
+  .navbar {
+    padding: 1rem 2.5rem;
+  }
+}
+
+@media only screen and (max-width: 26rem) {
   .navbar {
     padding: 1rem 2rem;
   }
 }
 
+@media only screen and (max-width: 22.5rem) {
+  .navbar {
+    padding: 1rem 1.5rem;
+  }
+}
+
 @media only screen and (max-width: 16rem) {
   .navbar {
-    padding: 1rem 2rem;
+    padding: 1rem 1.3rem;
   }
 }
 
@@ -2480,21 +2485,27 @@ ul.share-buttons .sr-only {
   display: grid;
 }
 
-@media only screen and (max-width: 30rem) {
+@media only screen and (max-width: 51rem) {
   .navbar-icon {
-    height: 50px;
+    height: 60px;
   }
 }
 
-@media only screen and (max-width: 22.5rem) {
+@media only screen and (max-width: 30rem) {
   .navbar-icon {
     height: 40px;
   }
 }
 
-@media only screen and (max-width: 16rem) {
+@media only screen and (max-width: 22.5rem) {
   .navbar-icon {
     height: 30px;
+  }
+}
+
+@media only screen and (max-width: 16rem) {
+  .navbar-icon {
+    height: 20px;
   }
 }
 
@@ -2506,21 +2517,27 @@ ul.share-buttons .sr-only {
   width: 15rem;
 }
 
-@media only screen and (max-width: 30rem) {
+@media only screen and (max-width: 51rem) {
   .navbar-logo img {
     width: 9rem;
   }
 }
 
+@media only screen and (max-width: 30rem) {
+  .navbar-logo img {
+    width: 6rem;
+  }
+}
+
 @media only screen and (max-width: 22.5rem) {
   .navbar-logo img {
-    width: 7rem;
+    width: 5rem;
   }
 }
 
 @media only screen and (max-width: 16rem) {
   .navbar-logo img {
-    width: 5rem;
+    width: 4rem;
   }
 }
 
@@ -2542,6 +2559,27 @@ ul.share-buttons .sr-only {
   align-self: center;
 }
 
+@media only screen and (max-width: 51rem) {
+  .navbar-hamburger--button {
+    width: 4rem;
+    height: 4rem;
+  }
+}
+
+@media only screen and (max-width: 30rem) {
+  .navbar-hamburger--button {
+    width: 3rem;
+    height: 3rem;
+  }
+}
+
+@media only screen and (max-width: 23.5rem) {
+  .navbar-hamburger--button {
+    width: 2rem;
+    height: 2rem;
+  }
+}
+
 .navbar-hamburger--icon {
   height: 5.3rem;
   width: 5.3rem;
@@ -2551,9 +2589,32 @@ ul.share-buttons .sr-only {
   transition: all .5s;
 }
 
+@media only screen and (max-width: 51rem) {
+  .navbar-hamburger--icon {
+    width: 4rem;
+    height: 4rem;
+    padding: .3rem;
+  }
+}
+
+@media only screen and (max-width: 30rem) {
+  .navbar-hamburger--icon {
+    width: 3rem;
+    height: 3rem;
+    padding: 0;
+  }
+}
+
+@media only screen and (max-width: 23.5rem) {
+  .navbar-hamburger--icon {
+    width: 2rem;
+    height: 2rem;
+  }
+}
+
 .navbar-hamburger--icons {
   background-color: var(--secondary-color--dark);
-  height: 5px;
+  height: 4.5px;
   width: 100%;
   z-index: 16000;
   border-radius: 5px;
@@ -2561,10 +2622,24 @@ ul.share-buttons .sr-only {
   display: inline-block;
 }
 
+@media only screen and (max-width: 51rem) {
+  .navbar-hamburger--icons {
+    height: 4px;
+  }
+}
+
+@media only screen and (max-width: 30rem) {
+  .navbar-hamburger--icons {
+    height: 3px;
+    line-height: 8px;
+    transform: translateY(5px);
+  }
+}
+
 .navbar-hamburger--icons:before, .navbar-hamburger--icons:after {
   background-color: var(--secondary-color--dark);
   width: 100%;
-  height: 5px;
+  height: 4.5px;
   content: "";
   z-index: 16000;
   border-radius: 5px;
@@ -2573,8 +2648,22 @@ ul.share-buttons .sr-only {
   transform: translateY(.6rem);
 }
 
+@media only screen and (max-width: 51rem) {
+  .navbar-hamburger--icons:before, .navbar-hamburger--icons:after {
+    height: 4px;
+  }
+}
+
+@media only screen and (max-width: 30rem) {
+  .navbar-hamburger--icons:before, .navbar-hamburger--icons:after {
+    height: 3px;
+    line-height: 5px;
+    transform: translateY(3px);
+  }
+}
+
 .navbar-hamburger--checkbox:checked + .navbar-hamburger--button .navbar-hamburger--icons {
-  transform: rotate(124deg);
+  transform: rotate(124deg)translateY(-15px);
 }
 
 .navbar-hamburger--checkbox:checked + .navbar-hamburger--button .navbar-hamburger--icons:before {
