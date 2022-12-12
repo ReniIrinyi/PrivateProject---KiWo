@@ -3,6 +3,9 @@
   background-color: var(--white);
   align-self: center;
   padding: 8rem;
+  @include respond(smallest) {
+    padding: 2rem;
+  }
 
   &__copyright {
     margin: 0 auto;

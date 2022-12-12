@@ -11,6 +11,9 @@
       width: 100%;
     }
   }
+  @include respond(smallest) {
+    margin-top: 5rem;
+  }
 }
 
 .row {
