@@ -580,7 +580,7 @@ const callback = function(entries) {
 };
 const observer = new IntersectionObserver(callback, {
     root: null,
-    threshold: 0.1,
+    threshold: 0.6,
     rootMargin: `-${navHeight}px`
 });
 observer.observe(home);
