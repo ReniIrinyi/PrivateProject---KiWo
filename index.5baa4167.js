@@ -563,19 +563,19 @@ document.querySelector(".nav-items").addEventListener("click", function(e) {
     }
 });
 // Sticky Nav
+const navbar = document.querySelector(".navbar");
 const navigation = document.querySelector(".navigation__container");
 const home = document.querySelector("#home");
-const navHeight = navigation.getBoundingClientRect().height;
-// console.log(navHeight);
+const navHeight = navbar.getBoundingClientRect().height;
 const callback = function(entries) {
-    document.querySelector(".document--container").style.paddingTop = `0`;
+    home.style.marginTop = `0`;
     const [entry] = entries;
     if (!entry.isIntersecting) {
         navigation.classList.add("sticky");
-        document.querySelector(".document--container").style.paddingTop = `${navHeight}px`;
+        home.style.marginTop = `${navHeight}px`;
     } else {
         navigation.classList.remove("sticky");
-        document.querySelector(".document--container").style.paddingTop = `0`;
+        home.style.marginTop = `0px`;
     }
 };
 const observer = new IntersectionObserver(callback, {
@@ -595,7 +595,7 @@ const revealSection = function(entries, observer) {
 };
 const sectionObserver = new IntersectionObserver(revealSection, {
     root: null,
-    threshold: 0.15
+    threshold: 0.5
 });
 allSections.forEach((section)=>{
     sectionObserver.observe(section);
@@ -667,6 +667,103 @@ dots.addEventListener("click", function(e) {
         activateDots(slide);
     }
 });
+//Gallery
+const mainView = document.getElementById("main-view");
+const caption = document.getElementById("caption");
+const info = document.getElementById("info");
+const thumbnails = document.getElementById("thumbnails");
+let images = [
+    {
+        src: "source/gallery/img9.jpg",
+        caption: "",
+        info: ""
+    },
+    {
+        src: "source/gallery/Kiwo20221.jpg",
+        caption: "",
+        info: ""
+    },
+    {
+        src: "source/gallery/Kiwo20224.jpg",
+        caption: "",
+        info: ""
+    },
+    {
+        src: "source/gallery/Kiwo20222.jpg",
+        caption: "",
+        info: ""
+    },
+    {
+        src: "source/gallery/Kiwo20223.jpg",
+        caption: "",
+        info: ""
+    },
+    {
+        src: "source/gallery/img8.jpg",
+        caption: "",
+        info: ""
+    },
+    {
+        src: "source/gallery/Kiwo20226.jpg",
+        caption: "",
+        info: ""
+    }
+];
+for(let i = 0; i < images.length; i++){
+    let image = images[i];
+    let img = document.createElement("img");
+    img.src = images[i].src;
+    img.setAttribute("width", "170px");
+    img.setAttribute("height", "170px");
+    img.setAttribute("data-index", i);
+    img.setAttribute("alt", "img" + i);
+    img.addEventListener("click", changeImage);
+    thumbnails.appendChild(img);
+}
+function initGallery() {
+    loadImage(0);
+}
+function slideImage() {
+    let currentIndex = parseInt(mainView.getAttribute("data-index"));
+    currentIndex = currentIndex + 1 == images.length ? 1 : currentIndex + 1;
+    loadImage(currentIndex);
+    setTimeout(slideImage, 3000);
+}
+function changeImage(event) {
+    let target = event.currentTarget;
+    let index = target.getAttribute("data-index");
+    loadImage(index);
+}
+function loadImage(index) {
+    let image = images[index];
+    mainView.src = image.src;
+    mainView.setAttribute("width", "1000px");
+    mainView.setAttribute("height", "1000px");
+    mainView.setAttribute("data-index", index);
+    mainView.setAttribute("id", "image-" + index);
+    mainView.setAttribute("alt", "img" + index);
+    mainView.style.opacity = 1;
+    caption.textContent = image.caption;
+    info.textContent = image.info;
+}
+function fullScreenImage() {
+    toggleFullscreen(mainView);
+}
+function toggleFullscreen(el) {
+    if (document.fullscreenElement || document.mozFullScreenElement || document.webkitFullscreenElement || document.msFullscreenElement) {
+        if (document.exitFullscreen) document.exitFullscreen();
+        else if (document.mozCancelFullScreen) document.mozCancelFullScreen();
+        else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+        else if (document.msExitFullscreen) document.msExitFullscreen();
+    } else {
+        if (document.documentElement.requestFullscreen) el.requestFullscreen();
+        else if (document.documentElement.mozRequestFullScreen) el.mozRequestFullScreen();
+        else if (document.documentElement.webkitRequestFullscreen) el.webkitRequestFullscreen();
+        else if (document.documentElement.msRequestFullscreen) el.msRequestFullscreen();
+    }
+}
+initGallery();
+setTimeout(slideImage, 15000);
 
 },{}]},["euTuy","igcvL"], "igcvL", "parcelRequire054b")
 
