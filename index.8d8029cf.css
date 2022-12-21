@@ -44,6 +44,18 @@ html {
   }
 }
 
+@media screen and (max-width: 312px) {
+  html {
+    font-size: 33% !important;
+  }
+}
+
+@media screen and (max-width: 213px) {
+  html {
+    font-size: 22.8% !important;
+  }
+}
+
 body {
   max-width: 100%;
   color: var(--secondary-color--dark);
