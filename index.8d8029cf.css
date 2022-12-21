@@ -186,7 +186,7 @@ body {
 .section {
   opacity: 1;
   padding: 5rem;
-  transition: all 1s;
+  transition: all .5s;
   display: flex;
 }
 
@@ -1995,7 +1995,7 @@ ul.share-buttons .sr-only {
   opacity: .9;
   background: var(--color3);
   width: 30%;
-  height: 100vh;
+  height: 100%;
   z-index: 10000;
   flex-direction: column;
   transition: all .9s;
@@ -2008,6 +2008,18 @@ ul.share-buttons .sr-only {
 
 .nav {
   margin-top: 50%;
+}
+
+@media screen and (max-height: 400px) {
+  .nav {
+    margin-top: 30%;
+  }
+}
+
+@media screen and (max-height: 300px) {
+  .nav {
+    margin-top: 25%;
+  }
 }
 
 .nav-items {
@@ -2030,6 +2042,12 @@ ul.share-buttons .sr-only {
   line-height: 15px;
   display: flex;
   position: relative;
+}
+
+@media screen and (max-height: 350px) {
+  .nav-item {
+    margin-bottom: 1rem;
+  }
 }
 
 @media only screen and (max-width: 25.875em) {
