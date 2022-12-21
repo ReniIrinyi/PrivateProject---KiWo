@@ -427,7 +427,6 @@ body {
 
 @media only screen and (max-width: 64em) {
   .aboutus {
-    width: 70%;
     align-content: center;
   }
 }
@@ -438,17 +437,12 @@ body {
   justify-content: center;
   margin-top: 20rem;
   display: flex;
+  width: 100% !important;
 }
 
 @media only screen and (max-width: 64em) {
   .aboutus-slide {
     height: 120rem;
-  }
-}
-
-@media only screen and (max-width: 30em) {
-  .aboutus-slide {
-    display: flex;
   }
 }
 
@@ -515,25 +509,25 @@ body {
 
 @media only screen and (max-width: 64em) {
   .slider-btn--left {
-    left: 3%;
-  }
-}
-
-@media only screen and (max-width: 51.25em) {
-  .slider-btn--left {
-    left: -3%;
+    left: 10%;
   }
 }
 
 @media only screen and (max-width: 37.5em) {
   .slider-btn--left {
-    left: -16%;
+    left: 0%;
   }
 }
 
-@media only screen and (max-width: 30em) {
+@media only screen and (max-width: 31em) {
   .slider-btn--left {
-    left: -18%;
+    left: -3%;
+  }
+}
+
+@media only screen and (max-width: 23.5em) {
+  .slider-btn--left {
+    left: -8%;
   }
 }
 
@@ -549,25 +543,25 @@ body {
 
 @media only screen and (max-width: 64em) {
   .slider-btn--right {
-    right: 3%;
-  }
-}
-
-@media only screen and (max-width: 51.25em) {
-  .slider-btn--right {
-    right: -3%;
+    right: 9%;
   }
 }
 
 @media only screen and (max-width: 37.5em) {
   .slider-btn--right {
-    right: -16%;
+    right: 0%;
   }
 }
 
-@media only screen and (max-width: 30em) {
+@media only screen and (max-width: 31em) {
   .slider-btn--right {
-    right: -18%;
+    right: -3%;
+  }
+}
+
+@media only screen and (max-width: 23.5em) {
+  .slider-btn--right {
+    right: -9%;
   }
 }
 
