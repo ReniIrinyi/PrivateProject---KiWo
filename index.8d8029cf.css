@@ -1371,10 +1371,10 @@ hr {
   border-radius: 82px;
 }
 
-@media only screen and (max-width: 51.25em) {
+@media only screen and (max-width: 64em) {
   .toggle--label {
-    width: 13rem;
-    height: 13rem;
+    width: 12rem;
+    height: 12rem;
   }
 }
 
@@ -1385,10 +1385,17 @@ hr {
   }
 }
 
+@media only screen and (max-width: 30em) {
+  .toggle--label {
+    width: 8rem;
+    height: 8rem;
+  }
+}
+
 @media only screen and (max-width: 22.5em) {
   .toggle--label {
-    width: 7rem;
-    height: 7rem;
+    width: 6rem;
+    height: 6rem;
   }
 }
 
@@ -1413,7 +1420,7 @@ hr {
   }
 }
 
-@media only screen and (max-width: 51.25em) {
+@media only screen and (max-width: 64em) {
   .glow {
     width: 15rem;
     height: 15rem;
@@ -1427,10 +1434,17 @@ hr {
   }
 }
 
+@media only screen and (max-width: 30em) {
+  .glow {
+    width: 11rem;
+    height: 11rem;
+  }
+}
+
 @media only screen and (max-width: 22.5em) {
   .glow {
-    width: 10rem;
-    height: 10rem;
+    width: 9rem;
+    height: 9rem;
   }
 }
 
