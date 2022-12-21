@@ -516,7 +516,7 @@ body {
   left: 3%;
 }
 
-@media only screen and (max-width: 90em) {
+@media only screen and (max-width: 100em) {
   .slider-btn--left {
     left: -8%;
   }
@@ -532,7 +532,7 @@ body {
   right: 3%;
 }
 
-@media only screen and (max-width: 90em) {
+@media only screen and (max-width: 100em) {
   .slider-btn--right {
     right: -8%;
   }
@@ -616,7 +616,7 @@ body {
   overflow: hidden;
 }
 
-@media only screen and (max-width: 90em) {
+@media only screen and (max-width: 100em) {
   .component {
     width: 100%;
   }
@@ -749,7 +749,7 @@ body {
   }
 }
 
-@media only screen and (max-width: 90em) {
+@media only screen and (max-width: 100em) {
   .component-right {
     padding: 2rem 5rem;
     transform: translateY(-2rem);
@@ -1077,7 +1077,7 @@ hr {
   }
 }
 
-@media only screen and (max-width: 90em) {
+@media only screen and (max-width: 100em) {
   .gallery__container {
     width: 100%;
   }
@@ -1183,7 +1183,7 @@ hr {
   margin-top: 0 !important;
 }
 
-@media only screen and (max-width: 90em) {
+@media only screen and (max-width: 100em) {
   #home {
     height: 90rem;
   }
@@ -1582,7 +1582,7 @@ hr {
   }
 }
 
-@media only screen and (max-width: 90em) {
+@media only screen and (max-width: 100em) {
   .infos-content {
     grid-gap: 0;
     padding: 5rem;
@@ -1700,7 +1700,7 @@ ul.share-buttons .sr-only {
   display: flex;
 }
 
-@media only screen and (max-width: 90em) {
+@media only screen and (max-width: 100em) {
   .programms {
     height: 180rem;
     margin-bottom: 10rem;
@@ -1730,7 +1730,7 @@ ul.share-buttons .sr-only {
   display: flex;
 }
 
-@media only screen and (max-width: 90em) {
+@media only screen and (max-width: 100em) {
   .programms__container {
     height: 180rem;
   }
@@ -1761,7 +1761,7 @@ ul.share-buttons .sr-only {
   display: flex;
 }
 
-@media only screen and (max-width: 90em) {
+@media only screen and (max-width: 100em) {
   .programms--text-area {
     width: 100%;
   }
@@ -2082,7 +2082,7 @@ ul.share-buttons .sr-only {
 }
 
 .nav-links {
-  height: 100vh;
+  height: 100%;
   text-align: center;
   flex-direction: column;
   align-content: space-between;
