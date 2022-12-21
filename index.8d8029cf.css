@@ -1175,7 +1175,7 @@ hr {
 }
 
 #home {
-  height: 120rem;
+  height: 110rem;
   grid-template-rows: 1fr 90%;
   grid-template-columns: 1fr;
   display: grid;
@@ -1185,7 +1185,7 @@ hr {
 
 @media only screen and (max-width: 90em) {
   #home {
-    height: 95rem;
+    height: 90rem;
   }
 }
 
@@ -1216,6 +1216,12 @@ hr {
 @media only screen and (max-width: 37.5em) {
   #home {
     height: 52rem;
+  }
+}
+
+@media only screen and (max-width: 31em) {
+  #home {
+    height: 43rem;
   }
 }
 
