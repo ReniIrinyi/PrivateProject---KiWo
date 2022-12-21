@@ -1316,8 +1316,6 @@ hr {
 .bg-video__content {
   width: 100%;
   height: 100%;
-  background-position: center;
-  background-size: contain;
   grid-area: 1 / 1 / -1 / -1;
 }
 
