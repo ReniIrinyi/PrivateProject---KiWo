@@ -14,6 +14,12 @@ html {
   margin-top: 0 !important;
 }
 
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
+  html {
+    font-size: 55% !important;
+  }
+}
+
 @media screen and (max-width: 1280px) {
   html {
     font-size: 55% !important;
@@ -41,18 +47,6 @@ html {
 @media screen and (max-width: 414px) {
   html {
     font-size: 35% !important;
-  }
-}
-
-@media screen and (max-width: 312px) {
-  html {
-    font-size: 33% !important;
-  }
-}
-
-@media screen and (max-width: 270px) {
-  html {
-    font-size: 15% !important;
   }
 }
 

@@ -571,10 +571,8 @@ const navHeight = navbar.getBoundingClientRect().height;
 const callback = function(entries) {
     const [entry] = entries;
     doc.style.marginTop = `0px `;
-    if (!entry.isIntersecting) {
-        navigation.classList.add("sticky");
-        doc.style.marginTop = `${navHeight}px `;
-    } else {
+    if (!entry.isIntersecting) navigation.classList.add("sticky");
+    else {
         navigation.classList.remove("sticky");
         doc.style.marginTop = `0px `;
     }
