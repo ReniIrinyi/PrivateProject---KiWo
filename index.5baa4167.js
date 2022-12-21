@@ -570,16 +570,12 @@ const doc = document.querySelector("body");
 const navHeight = navbar.getBoundingClientRect().height;
 const callback = function(entries) {
     const [entry] = entries;
-    doc.style.marginTop = `0px `;
     if (!entry.isIntersecting) navigation.classList.add("sticky");
-    else {
-        navigation.classList.remove("sticky");
-        doc.style.marginTop = `0px `;
-    }
+    else navigation.classList.remove("sticky");
 };
 const observer = new IntersectionObserver(callback, {
     root: null,
-    threshold: 0.1,
+    threshold: 0.05,
     rootMargin: `-${navHeight}px`
 });
 observer.observe(home);
@@ -594,7 +590,7 @@ const revealSection = function(entries, observer) {
 };
 const sectionObserver = new IntersectionObserver(revealSection, {
     root: null,
-    threshold: 0.3
+    threshold: 0.2
 });
 allSections.forEach((section)=>{
     sectionObserver.observe(section);

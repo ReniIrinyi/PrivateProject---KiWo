@@ -1256,9 +1256,8 @@ hr {
 }
 
 #home {
-  grid-gap: 1rem;
-  height: 90rem;
-  grid-template-rows: 1fr;
+  height: 120rem;
+  grid-template-rows: 1fr 90%;
   grid-template-columns: 1fr;
   display: grid;
   position: relative;
@@ -1267,56 +1266,61 @@ hr {
 
 @media only screen and (max-width: 90em) {
   #home {
-    height: 80rem;
+    height: 95rem;
   }
 }
 
 @media only screen and (max-width: 80em) {
   #home {
-    height: 70rem;
+    height: 85rem;
   }
 }
 
 @media only screen and (max-width: 75em) {
   #home {
-    height: 65rem;
+    height: 80rem;
   }
 }
 
 @media only screen and (max-width: 64em) {
   #home {
-    height: 60rem;
+    height: 70rem;
   }
 }
 
-@media only screen and (max-width: 60em) {
+@media only screen and (max-width: 51.25em) {
   #home {
-    height: 40rem;
+    height: 64rem;
+  }
+}
+
+@media only screen and (max-width: 37.5em) {
+  #home {
+    height: 52rem;
   }
 }
 
 @media only screen and (max-width: 30em) {
   #home {
-    height: 37rem;
+    height: 42rem;
   }
 }
 
 @media only screen and (max-width: 22.5em) {
   #home {
-    height: 36rem;
+    height: 40rem;
+    height: 35rem;
   }
 }
 
-@media only screen and (max-width: 20em) {
-  #home {
-    height: 32rem;
-  }
+.bg-video {
+  display: flex;
 }
 
 .bg-video__content {
-  width: 100%;
-  height: 100%;
-  grid-area: 1 / 1 / -1 / -1;
+  width: 110%;
+  height: 110%;
+  grid-area: 2 / 1 / -2 / -1;
 }
 
 .hiddenClass {
@@ -1342,7 +1346,7 @@ hr {
 
 @media only screen and (max-width: 30em) {
   .text-area {
-    top: 40%;
+    top: 60%;
   }
 }
 
@@ -1404,29 +1408,19 @@ hr {
   transition: all .35s ease-in;
   display: flex;
   position: absolute;
-  top: 55px;
-  right: 70px;
+  top: 20%;
+  right: 10%;
 }
 
-@media only screen and (max-width: 80em) {
+@media only screen and (max-width: 75em) {
   .glow, .toggle--label {
-    width: 160px;
-    height: 160px;
-    top: 35px;
-    right: 65px;
+    top: 25%;
   }
 }
 
-@media only screen and (max-width: 51.25em) {
+@media only screen and (max-width: 30em) {
   .glow, .toggle--label {
-    top: 20px;
-    right: 50px;
-  }
-}
-
-@media only screen and (max-width: 26.75em) {
-  .glow, .toggle--label {
-    right: 20px;
+    top: 30%;
   }
 }
 
@@ -1869,22 +1863,24 @@ ul.share-buttons .sr-only {
 }
 
 .navigation__container {
+  grid-area: 1 / 1 / 2 / -1;
   transition: all, all .5s;
+  display: grid;
 }
 
 .navbar, .navigation__container, .navbar-icon {
-  height: 14rem;
+  height: 12rem;
 }
 
 @media only screen and (max-width: 50em) {
   .navbar, .navigation__container, .navbar-icon {
-    height: 12rem;
+    height: 9rem;
   }
 }
 
 @media only screen and (max-width: 26.75em) {
   .navbar, .navigation__container, .navbar-icon {
-    height: 8.8rem;
+    height: 7rem;
   }
 }
 
@@ -1943,6 +1939,20 @@ ul.share-buttons .sr-only {
   align-self: center;
 }
 
+@media only screen and (max-width: 50em) {
+  .navbar-hamburger--button {
+    height: 4.3rem;
+    width: 4.3rem;
+  }
+}
+
+@media only screen and (max-width: 26.75em) {
+  .navbar-hamburger--button {
+    height: 3.3rem;
+    width: 3.3rem;
+  }
+}
+
 .navbar-hamburger--icon {
   height: 5.3rem;
   width: 5.3rem;
@@ -1951,9 +1961,25 @@ ul.share-buttons .sr-only {
   transform: translateY(16%);
 }
 
+@media only screen and (max-width: 50em) {
+  .navbar-hamburger--icon {
+    height: 4.3rem;
+    width: 4.3rem;
+    padding: .3rem;
+  }
+}
+
+@media only screen and (max-width: 26.75em) {
+  .navbar-hamburger--icon {
+    height: 2rem;
+    width: 3.5rem;
+    padding: 0;
+  }
+}
+
 .navbar-hamburger--icons {
   background-color: var(--secondary-color--dark);
-  height: 3.5px;
+  height: 3px;
   width: 100%;
   z-index: 16000;
   border-radius: 5px;
@@ -1963,26 +1989,20 @@ ul.share-buttons .sr-only {
 
 @media only screen and (max-width: 50em) {
   .navbar-hamburger--icons {
-    height: 3px;
-  }
-}
-
-@media only screen and (max-width: 26.75em) {
-  .navbar-hamburger--icons {
-    height: 2.5px;
+    height: 2px;
   }
 }
 
 @media only screen and (max-width: 25.875em) {
   .navbar-hamburger--icons {
-    height: 2px;
+    height: 1px;
   }
 }
 
 .navbar-hamburger--icons:before, .navbar-hamburger--icons:after {
   background-color: var(--secondary-color--dark);
   width: 100%;
-  height: 3.5px;
+  height: 3px;
   content: "";
   z-index: 16000;
   border-radius: 5px;
@@ -1993,19 +2013,14 @@ ul.share-buttons .sr-only {
 
 @media only screen and (max-width: 50em) {
   .navbar-hamburger--icons:before, .navbar-hamburger--icons:after {
-    height: 3px;
-  }
-}
-
-@media only screen and (max-width: 26.75em) {
-  .navbar-hamburger--icons:before, .navbar-hamburger--icons:after {
-    height: 2.5px;
+    height: 2px;
   }
 }
 
 @media only screen and (max-width: 25.875em) {
   .navbar-hamburger--icons:before, .navbar-hamburger--icons:after {
-    height: 2px;
+    height: 1px;
+    transform: translateY(.2rem);
   }
 }
 
