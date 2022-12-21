@@ -474,6 +474,13 @@ body {
   }
 }
 
+@media only screen and (max-width: 12em) {
+  .aboutus {
+    height: 105rem;
+    transform: translateX(-40%);
+  }
+}
+
 .aboutus-slide {
   height: 100rem;
   background-color: #fff;
@@ -491,6 +498,12 @@ body {
   .aboutus-slide {
     width: 100%;
     display: flex;
+  }
+}
+
+@media only screen and (max-width: 12em) {
+  .aboutus-slide {
+    height: 130rem;
   }
 }
 
@@ -558,6 +571,12 @@ body {
   }
 }
 
+@media only screen and (max-width: 12em) {
+  .slider-btn {
+    top: 45%;
+  }
+}
+
 .slider-btn--left {
   left: 3%;
 }
@@ -592,6 +611,12 @@ body {
   }
 }
 
+@media only screen and (max-width: 12em) {
+  .slider-btn--left {
+    left: -22%;
+  }
+}
+
 .slider-btn--right {
   right: 3%;
 }
@@ -623,6 +648,12 @@ body {
 @media only screen and (max-width: 30em) {
   .slider-btn--right {
     right: -18%;
+  }
+}
+
+@media only screen and (max-width: 12em) {
+  .slider-btn--right {
+    right: -22%;
   }
 }
 
@@ -666,6 +697,12 @@ body {
   .slider-dots {
     bottom: -20%;
     left: 30%;
+  }
+}
+
+@media only screen and (max-width: 12em) {
+  .slider-dots {
+    left: 20%;
   }
 }
 
@@ -713,6 +750,12 @@ body {
 @media only screen and (max-width: 20em) {
   .component {
     width: 40rem;
+  }
+}
+
+@media only screen and (max-width: 12em) {
+  .component {
+    width: 25rem;
   }
 }
 
@@ -813,6 +856,12 @@ body {
 @media only screen and (max-width: 20em) {
   .component-left--photo {
     width: 40rem;
+  }
+}
+
+@media only screen and (max-width: 12em) {
+  .component-left--photo {
+    width: 25rem;
   }
 }
 
