@@ -1213,6 +1213,18 @@ hr {
   }
 }
 
+@media only screen and (max-width: 45em) {
+  #home {
+    height: 60rem;
+  }
+}
+
+@media only screen and (max-width: 40em) {
+  #home {
+    height: 55rem;
+  }
+}
+
 @media only screen and (max-width: 37.5em) {
   #home {
     height: 52rem;
@@ -1366,7 +1378,7 @@ hr {
   }
 }
 
-@media only screen and (max-width: 37.5em) {
+@media only screen and (max-width: 40em) {
   .toggle--label {
     width: 10rem;
     height: 10rem;
@@ -1408,7 +1420,7 @@ hr {
   }
 }
 
-@media only screen and (max-width: 37.5em) {
+@media only screen and (max-width: 40em) {
   .glow {
     width: 13rem;
     height: 13rem;
