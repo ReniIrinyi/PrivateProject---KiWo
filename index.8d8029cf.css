@@ -50,9 +50,9 @@ html {
   }
 }
 
-@media screen and (max-width: 213px) {
+@media screen and (max-width: 270px) {
   html {
-    font-size: 22.8% !important;
+    font-size: 15% !important;
   }
 }
 
