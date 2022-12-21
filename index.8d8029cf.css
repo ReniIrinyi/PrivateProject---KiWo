@@ -418,11 +418,30 @@ body {
   flex-direction: column;
   place-content: center;
   margin: 0 auto;
+  padding: 0 !important;
 }
 
 @media only screen and (max-width: 64em) {
   .aboutus {
-    align-content: center;
+    width: 60%;
+  }
+}
+
+@media only screen and (max-width: 37.5em) {
+  .aboutus {
+    width: 70%;
+  }
+}
+
+@media only screen and (max-width: 31em) {
+  .aboutus {
+    width: 90%;
+  }
+}
+
+@media only screen and (max-width: 26.75em) {
+  .aboutus {
+    width: 95%;
   }
 }
 
@@ -505,25 +524,7 @@ body {
 
 @media only screen and (max-width: 64em) {
   .slider-btn--left {
-    left: 10%;
-  }
-}
-
-@media only screen and (max-width: 37.5em) {
-  .slider-btn--left {
-    left: 0%;
-  }
-}
-
-@media only screen and (max-width: 31em) {
-  .slider-btn--left {
-    left: -3%;
-  }
-}
-
-@media only screen and (max-width: 23.5em) {
-  .slider-btn--left {
-    left: -8%;
+    left: 0;
   }
 }
 
@@ -539,25 +540,7 @@ body {
 
 @media only screen and (max-width: 64em) {
   .slider-btn--right {
-    right: 9%;
-  }
-}
-
-@media only screen and (max-width: 37.5em) {
-  .slider-btn--right {
-    right: 0%;
-  }
-}
-
-@media only screen and (max-width: 31em) {
-  .slider-btn--right {
-    right: -3%;
-  }
-}
-
-@media only screen and (max-width: 23.5em) {
-  .slider-btn--right {
-    right: -9%;
+    right: 0;
   }
 }
 
