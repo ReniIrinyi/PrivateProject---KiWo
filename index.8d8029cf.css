@@ -1153,12 +1153,17 @@ hr {
 }
 
 #home {
-  height: 110rem;
   grid-template-rows: 1fr 90%;
   grid-template-columns: 1fr;
   display: grid;
   position: relative;
   margin-top: 0 !important;
+}
+
+@media only screen and (max-width: 110em) {
+  #home {
+    height: 110rem;
+  }
 }
 
 @media only screen and (max-width: 100em) {
