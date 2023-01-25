@@ -771,15 +771,16 @@ body {
 
 .contact {
   background-color: var(--secondary-color--light);
+  height: auto;
   flex-direction: column;
   justify-content: center;
+  padding-bottom: 5rem;
   display: flex;
-  height: 70rem !important;
 }
 
 @media only screen and (max-width: 26.75em) {
   .contact {
-    height: 90rem !important;
+    height: auto;
   }
 }
 
@@ -795,6 +796,36 @@ body {
   .contact__container {
     width: 100%;
   }
+}
+
+.hidden {
+  display: none;
+}
+
+.contact-helper {
+  padding-top: 5rem;
+}
+
+.contact-helper--question {
+  color: var(--secondary-color--dark);
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+  font-family: eb-garamod;
+}
+
+.contact-helper--question h3 {
+  cursor: pointer;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: .5rem;
+  padding-bottom: 1rem;
+  font-size: 2.3rem;
+}
+
+.contact-helper--question h4 {
+  text-align: center;
+  letter-spacing: .3rem;
+  font-size: 1.8rem;
 }
 
 .row {
@@ -892,6 +923,56 @@ body {
 
 .form__control::placeholder {
   color: #b2b2b2 !important;
+}
+
+.form-check {
+  flex-direction: row;
+  font-family: eb-garamod;
+  display: flex;
+}
+
+.form-check p {
+  letter-spacing: .3rem;
+  align-self: center;
+  margin-left: 1rem;
+  padding: 2rem 0;
+  font-size: 1.5rem;
+}
+
+.form-check-toggle:before {
+  content: "";
+  width: .5rem;
+  height: .5rem;
+  box-shadow: inset 1rem 1rem var(--secondary-color--dark);
+  transform-origin: center;
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+  border-radius: 1px;
+  transition: transform .4s ease-in-out;
+  transform: scale(0);
+}
+
+.form-check-toggle:checked:before {
+  transform: scale(1.5);
+}
+
+.form-check-toggle {
+  appearance: none;
+  font: inherit;
+  color: currentColor;
+  border: .05rem solid var(--secondary-color--dark);
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 3px;
+  place-content: center;
+  margin-top: 1.7rem;
+  margin-left: .2rem;
+  padding-left: 0;
+  display: grid;
+}
+
+.form-check-btn {
+  grid-template-columns: 1fr auto;
+  display: grid;
 }
 
 .form__control:focus {

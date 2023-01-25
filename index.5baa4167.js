@@ -552,6 +552,12 @@ async function handleSubmit(event) {
     });
 }
 form.addEventListener("submit", handleSubmit);
+//Helper-contact
+const helperContact = document.querySelector(".contact-helper");
+document.querySelector(".contact-helper--button").addEventListener("click", function(e) {
+    e.preventDefault();
+    helperContact.classList.toggle("hidden");
+});
 //Page Navigation
 document.querySelector(".nav-items").addEventListener("click", function(e) {
     e.preventDefault();
