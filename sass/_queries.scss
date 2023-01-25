@@ -27,6 +27,16 @@
 @mixin respond($breakpoint) {
   // Smartphones
 
+  @if $breakpoint == IphonMiniXs {
+    @media only screen and (max-width: 6.6em) {
+      @content;
+    }
+  }
+  @if $breakpoint == IphonMini {
+    @media only screen and (max-width: 17em) {
+      @content;
+    }
+  }
   @if $breakpoint == IPhone5 {
     @media only screen and (max-width: 20em) {
       @content;
@@ -64,12 +74,23 @@
       @content;
     }
   }
+  @if $breakpoint == AmazonKindle8 {
+    @media only screen and (max-width: 31em) {
+      @content;
+    }
+  }
+
   @if $breakpoint == SamsungGalaxyTab2 {
     @media only screen and (max-width: 37.5em) {
       @content;
     }
   }
 
+  @if $breakpoint == tab-port-small {
+    @media only screen and (max-width: 40em) {
+      @content;
+    }
+  }
   @if $breakpoint == MicrosoftSurface {
     @media only screen and (max-width: 45em) {
       @content;
@@ -115,7 +136,7 @@
   }
 
   @if $breakpoint == MacBookAir {
-    @media only screen and (max-width: 90em) {
+    @media only screen and (max-width: 100em) {
       @content;
     }
   }
@@ -124,11 +145,6 @@
 
   @if $breakpoint == pc-small {
     @media only screen and (max-width: 110em) {
-      @content;
-    }
-  }
-  @if $breakpoint == pc-medium {
-    @media only screen and (max-width: 120em) {
       @content;
     }
   }

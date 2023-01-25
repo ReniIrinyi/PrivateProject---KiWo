@@ -1,7 +1,7 @@
 .section {
   display: flex;
   padding: 5rem;
-  transition: all 1s;
+  transition: all 0.5s;
   opacity: 1;
   @include respond(SamsungGalaxyTab2) {
     padding: 1rem;

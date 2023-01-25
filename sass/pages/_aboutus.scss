@@ -1,51 +1,39 @@
 /* ----------------------- About us Slider ------------------------- */
 
 .aboutus {
-  height: 80rem;
+  height: 100%;
+  width: 80%;
+  margin: 0 auto;
   flex-direction: column;
-  @include respond(IpadPro12) {
-    height: 90rem;
-  }
+  justify-content: center;
+  align-content: center;
+  padding: 0 !important;
 
-  @include respond(SamsungGalaxyTab2) {
-    height: 80rem;
+  @include respond(IpadPro12) {
+    width: 60%;
   }
-  @include respond(AmazonKindle7) {
-    width: 100%;
-    align-content: center;
-    width: 60rem;
-    transform: translateX(-11%);
+  @include respond(SamsungGalaxyTab2) {
+    width: 70%;
+  }
+  @include respond(AmazonKindle8) {
+    width: 90%;
   }
   @include respond(IPhone12) {
-    height: 95rem;
-  }
-  @include respond(IPhone8) {
-    transform: translateX(-3%);
-  }
-  @include respond(IPhoneSE) {
-    transform: translateX(-10%);
-  }
-  @include respond(SamsungS8) {
-    transform: translateX(-13%);
-  }
-  @include respond(IPhone5) {
-    transform: translateX(-17%);
+    width: 95%;
   }
 
   &-slide {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
     height: 100rem;
-    padding: 15rem 15rem 5rem 15rem;
+    width: 100%;
     background-color: white;
     margin-top: 20rem;
 
     @include respond(IpadPro12) {
       height: 120rem;
     }
-    @include respond(AmazonKindle7) {
-      display: flex;
-      width: 100%;
-    }
- 
   }
 }
 
@@ -65,13 +53,32 @@
 }
 
 .slider {
-  margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   height: 60%;
   width: 100%;
   position: relative;
 
+  @include respond(IpadPro12) {
+    height: 90rem;
+  }
+
   &-btn img {
     transition: all 0.3s;
+    @include respond(AmazonKindle7) {
+      width: 20px;
+      height: 20px;
+    }
+
+    @include respond(IPhone8) {
+      width: 15px;
+      height: 15px;
+    }
+    @include respond(IphonMini) {
+      width: 10px;
+      height: 10px;
+    }
   }
 
   &-btn img:hover {
@@ -81,64 +88,22 @@
   &-btn {
     position: absolute;
     display: flex;
-    top: 35%;
-    z-index: 50;
+    top: 42%;
+    z-index: 200000;
     padding: 2rem;
-
     cursor: pointer;
-
-    @include respond(IpadPro12) {
-      top: 50%;
-    }
-    @include respond(IPadAir) {
-      top: 45%;
-    }
-
-    @include respond(SamsungGalaxyTab2) {
-      top: 56%;
-    }
-    @include respond(IPhone12) {
-      top: 50%;
-      padding: 1rem;
-    }
 
     &--left {
       left: 3%;
-      @include respond(MacBookAir) {
-        left: -8%;
-      }
       @include respond(IpadPro12) {
-        left: 3%;
-      }
-      @include respond(IPadAir) {
-        left: -3%;
-      }
-
-      @include respond(SamsungGalaxyTab2) {
-        left: -16%;
-      }
-      @include respond(AmazonKindle7) {
-        left: -18%;
+        left: 0%;
       }
     }
 
     &--right {
       right: 3%;
-
-      @include respond(MacBookAir) {
-        right: -8%;
-      }
       @include respond(IpadPro12) {
-        right: 3%;
-      }
-      @include respond(IPadAir) {
-        right: -3%;
-      }
-      @include respond(SamsungGalaxyTab2) {
-        right: -16%;
-      }
-      @include respond(AmazonKindle7) {
-        right: -18%;
+        right: 0%;
       }
     }
   }
@@ -146,27 +111,13 @@
     transform: translateX(0.5rem);
   }
   &-dots {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
     margin: 0 auto;
     position: absolute;
     bottom: 0%;
-    left: 45%;
-    @include respond(IpadPro12) {
-      bottom: -40%;
-      left: 42%;
-    }
-    @include respond(IPadAir) {
-      left: 40%;
-    }
-    @include respond(MicrosoftSurface) {
-      left: 38%;
-    }
-    @include respond(SamsungGalaxyTab2) {
-      left: 34%;
-    }
-    @include respond(IPhone12) {
-      bottom: -20%;
-      left: 30%;
-    }
   }
   &-dot {
     height: 1rem;
@@ -175,6 +126,9 @@
     cursor: pointer;
     transition: all 1s;
     border: 2px solid var(--secondary-color--dark);
+    @include respond(AmazonKindle7) {
+      border: 1px solid var(--secondary-color--dark);
+    }
 
     &__active {
       background-color: var(--secondary-color--dark);
@@ -184,9 +138,13 @@
 
 .component {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
   position: relative;
   height: 90%;
-  width: 80%;
+  width: 100%;
+  z-index: 50;
   overflow: hidden;
   margin: 0 auto;
 
@@ -195,14 +153,8 @@
   }
 
   @include respond(IpadPro12) {
-    width: 40rem;
-    height: 70rem;
-  }
-  @include respond(AmazonKindle7) {
-    width: 45rem;
-  }
-  @include respond(IPhone5) {
-    width: 40rem;
+    width: 60rem;
+    height: 80rem;
   }
 }
 
@@ -235,7 +187,7 @@
   display: grid;
   background-color: var(--white);
   overflow: hidden;
-  width: 100%;
+  width: 80%;
   height: 37rem;
   margin: 0 auto;
   grid-template-columns: 30% 70%;
@@ -245,14 +197,15 @@
   @include respond(IpadPro12) {
     grid-template-columns: 1fr;
     grid-template-rows: 40% 60%;
-    width: 100%;
-    height: 100%;
+    width: 70%;
+    height: 90%;
   }
   @include respond(MicrosoftSurface) {
     grid-template-rows: 45% 55%;
+    border: 1px solid var(--secondary-color--dark);
   }
-  @include respond(IPhone8) {
-    grid-template-rows: 35% 65%;
+  @include respond(IphonMini) {
+    width: 60%;
   }
 }
 .component-left {
@@ -269,14 +222,11 @@
     height: 40rem;
 
     @include respond(IpadPro12) {
-      max-height: 30rem;
-      width: 40rem;
+      max-height: 32rem;
+      width: 42rem;
     }
-    @include respond(AmazonKindle7) {
-      width: 45rem;
-    }
-    @include respond(IPhone5) {
-      width: 40rem;
+    @include respond(IphonMini) {
+      width: 35rem;
     }
   }
 }
@@ -287,7 +237,8 @@
   flex-direction: column;
   text-align: center;
   justify-content: center;
-  align-content: center;
+  align-content: flex-end;
+
   @include respond(pc-small) {
     padding: 2.5rem;
   }
@@ -299,12 +250,11 @@
   @include respond(IpadPro12) {
     justify-content: center;
     padding: 1rem;
+
+    margin-top: 5rem;
   }
   @include respond(MicrosoftSurface) {
     padding: 1rem 2rem 2rem 2rem;
-  }
-  @include respond(IPhone5) {
-    padding: 0;
   }
 
   &--text {

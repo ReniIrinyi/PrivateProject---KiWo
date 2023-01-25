@@ -3,14 +3,14 @@
 .infos {
   height: 100rem;
   @include respond(MacBook13) {
-    width: 100%;
-    height: 80rem;
+    width: 90%;
+    margin: 0 auto;
   }
   @include respond(tab-land-small) {
+    height: 140rem;
+  }
+  @include respond(IpadPro12) {
     height: 130rem;
-  }
-  @include respond(tab-land-small) {
-    height: 125rem;
   }
 }
 
@@ -92,6 +92,10 @@
   }
   @include respond(SamsungGalaxyTab2) {
     padding: 1rem;
+    border: 1px solid var(--secondary-color--dark);
+  }
+  @include respond(IPhone8) {
+    border: 0.5px solid var(--secondary-color--dark);
   }
   &__container {
     display: flex;
