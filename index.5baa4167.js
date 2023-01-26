@@ -532,26 +532,36 @@ function hmrAcceptRun(bundle, id) {
 }
 
 },{}],"igcvL":[function(require,module,exports) {
-//Email
-const form = document.getElementById("my-form");
-async function handleSubmit(event) {
-    event.preventDefault();
-    const status = document.getElementById("status");
-    const data = new FormData(event.target);
-    fetch(event.target.action, {
-        method: form.method,
-        body: data,
-        headers: {
-            Accept: "application/json"
-        }
-    }).then((response)=>{
-        status.innerHTML = "Vielen Dank f\xfcr Ihre Nachricht. Wir werden Sie in K\xfcrze kontaktieren!";
-        form.reset();
-    }).catch((error)=>{
-        status.innerHTML = "Oops! Es gab ein Problem beim Absenden Ihres Formulars. Bitte versuchen Sie es erneut! ";
-    });
-}
-form.addEventListener("submit", handleSubmit);
+// //Email
+// const form = document.getElementById("my-form");
+// async function handleSubmit(event) {
+//   event.preventDefault();
+//   const status = document.getElementById("status");
+//   const data = new FormData(event.target);
+//   fetch(event.target.action, {
+//     method: form.method,
+//     body: data,
+//     headers: {
+//       Accept: "application/json",
+//     },
+//   })
+//     .then((response) => {
+//       status.innerHTML =
+//         "Vielen Dank für Ihre Nachricht. Wir werden Sie in Kürze kontaktieren!";
+//       form.reset();
+//     })
+//     .catch((error) => {
+//       status.innerHTML =
+//         "Oops! Es gab ein Problem beim Absenden Ihres Formulars. Bitte versuchen Sie es erneut! ";
+//     });
+// }
+// form.addEventListener("submit", handleSubmit);
+//Helper-contact
+const helperContact = document.querySelector(".contact-helper");
+document.querySelector(".contact-helper--button").addEventListener("click", function(e) {
+    e.preventDefault();
+    helperContact.classList.toggle("hidden");
+});
 //Page Navigation
 document.querySelector(".nav-items").addEventListener("click", function(e) {
     e.preventDefault();
