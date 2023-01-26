@@ -6,7 +6,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 0 auto;
   display: flex;
   height: 90rem;
   @include respond(IpadPro12) {
@@ -14,7 +13,6 @@
   }
   @include respond(IPhone5) {
     height: 60rem;
-    width: 90%;
   }
 }
 
@@ -24,7 +22,7 @@
   width: 80%;
   height: 100%;
   border: 3px solid var(--secondary-color--dark);
-
+  border-radius: 5px;
   overflow: hidden;
 
   @include respond(pc-small) {
@@ -32,11 +30,6 @@
   }
   @include respond(MacBookAir) {
     width: 100%;
-  }
-  @include respond(SamsungGalaxyTab2) {
-    border: 2px solid var(--secondary-color--dark);
-
-    border-radius: 0;
   }
   @include respond(IPhone5) {
     border: 1px solid var(--secondary-color--dark);

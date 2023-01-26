@@ -532,36 +532,26 @@ function hmrAcceptRun(bundle, id) {
 }
 
 },{}],"igcvL":[function(require,module,exports) {
-// //Email
-// const form = document.getElementById("my-form");
-// async function handleSubmit(event) {
-//   event.preventDefault();
-//   const status = document.getElementById("status");
-//   const data = new FormData(event.target);
-//   fetch(event.target.action, {
-//     method: form.method,
-//     body: data,
-//     headers: {
-//       Accept: "application/json",
-//     },
-//   })
-//     .then((response) => {
-//       status.innerHTML =
-//         "Vielen Dank für Ihre Nachricht. Wir werden Sie in Kürze kontaktieren!";
-//       form.reset();
-//     })
-//     .catch((error) => {
-//       status.innerHTML =
-//         "Oops! Es gab ein Problem beim Absenden Ihres Formulars. Bitte versuchen Sie es erneut! ";
-//     });
-// }
-// form.addEventListener("submit", handleSubmit);
-//Helper-contact
-const helperContact = document.querySelector(".contact-helper");
-document.querySelector(".contact-helper--button").addEventListener("click", function(e) {
-    e.preventDefault();
-    helperContact.classList.toggle("hidden");
-});
+//Email
+const form = document.getElementById("my-form");
+async function handleSubmit(event) {
+    event.preventDefault();
+    const status = document.getElementById("status");
+    const data = new FormData(event.target);
+    fetch(event.target.action, {
+        method: form.method,
+        body: data,
+        headers: {
+            Accept: "application/json"
+        }
+    }).then((response)=>{
+        status.innerHTML = "Vielen Dank f\xfcr Ihre Nachricht. Wir werden Sie in K\xfcrze kontaktieren!";
+        form.reset();
+    }).catch((error)=>{
+        status.innerHTML = "Oops! Es gab ein Problem beim Absenden Ihres Formulars. Bitte versuchen Sie es erneut! ";
+    });
+}
+form.addEventListener("submit", handleSubmit);
 //Page Navigation
 document.querySelector(".nav-items").addEventListener("click", function(e) {
     e.preventDefault();
@@ -580,12 +570,18 @@ const doc = document.querySelector("body");
 const navHeight = navbar.getBoundingClientRect().height;
 const callback = function(entries) {
     const [entry] = entries;
-    if (!entry.isIntersecting) navigation.classList.add("sticky");
-    else navigation.classList.remove("sticky");
+    doc.style.marginTop = `0px `;
+    if (!entry.isIntersecting) {
+        navigation.classList.add("sticky");
+        doc.style.marginTop = `${navHeight}px `;
+    } else {
+        navigation.classList.remove("sticky");
+        doc.style.marginTop = `0px `;
+    }
 };
 const observer = new IntersectionObserver(callback, {
     root: null,
-    threshold: 0.05,
+    threshold: 0.1,
     rootMargin: `-${navHeight}px`
 });
 observer.observe(home);
@@ -600,7 +596,7 @@ const revealSection = function(entries, observer) {
 };
 const sectionObserver = new IntersectionObserver(revealSection, {
     root: null,
-    threshold: 0.2
+    threshold: 0.3
 });
 allSections.forEach((section)=>{
     sectionObserver.observe(section);
