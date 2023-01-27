@@ -1,0 +1,291 @@
+/* ------------- Navigation ---------------------- */
+
+.sticky {
+  position: fixed;
+  z-index: 20000;
+  top: 0;
+  right: 0;
+  width: 100%;
+  opacity: 0.9;
+}
+.extramargin {
+  padding: 40rem;
+}
+.navigation__container {
+  display: grid;
+  grid-row: 1/2;
+  grid-column: 1/-1;
+  transition: all, 0.5s;
+}
+
+.navbar,
+.navigation__container,
+.navbar-icon {
+  z-index: 2000;
+  height: 12rem;
+  @include respond(SamsungGalaxyTab3) {
+    height: 9rem;
+  }
+}
+.navbar {
+  padding: 0rem 4rem;
+  background-color: var(--white);
+  box-shadow: 0 1rem 3rem rgba(2, 2, 2, 0.063);
+}
+.navbar-icon {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+
+.navbar-logo {
+  height: 100%;
+  display: flex;
+  justify-self: flex-start;
+  align-self: center;
+
+  & a {
+    display: flex;
+  }
+  & img {
+    align-self: center;
+    width: 10rem;
+    height: 10rem;
+
+    @include respond(SamsungGalaxyTab3) {
+      width: 7rem;
+      height: 7rem;
+    }
+  }
+}
+
+.navbar-hamburger {
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+.navbar-hamburger--checkbox {
+  display: none;
+}
+.navbar-hamburger--button {
+  height: 5.3rem;
+  width: 5.3rem;
+  grid: 1/-1;
+  cursor: pointer;
+  align-self: center;
+  z-index: 20000;
+}
+.navbar-hamburger--icon {
+  padding: 0.6rem;
+  transform: translateY(16%);
+  transition: all 0.5s;
+  height: 5.3rem;
+  width: 5.3rem;
+}
+.navbar-hamburger--icons {
+  background-color: var(--secondary-color--dark);
+  height: 2px;
+  width: 100%;
+  transition: all 0.5s;
+  z-index: 16000;
+  border-radius: 5px;
+  display: inline-block;
+
+  @include respond(AmazonKindle8) {
+    height: 1.5px;
+    width: 110%;
+  }
+  @include respond(IPhone12) {
+    border-radius: 2px;
+    width: 90%;
+    height: 1px;
+  }
+  @include respond(IPhone5) {
+    width: 100%;
+    height: 0.5px;
+  }
+}
+
+.navbar-hamburger--icons::before,
+.navbar-hamburger--icons::after {
+  background-color: var(--secondary-color--dark);
+  width: 100%;
+  height: 2px;
+  content: "";
+  transition: all 0.5s;
+  transform: translateY(0.5rem);
+  z-index: 16000;
+  border-radius: 5px;
+  display: inline-block;
+  @include respond(AmazonKindle8) {
+    height: 1.5px;
+  }
+  @include respond(IPhone12) {
+    transform: translateY(-0.15rem);
+    height: 1px;
+  }
+  @include respond(IPhone5) {
+    transform: translateY(-0.1rem);
+    height: 0.5px;
+  }
+  @include respond(IphonMini) {
+    transform: translateY(-0.8rem);
+  }
+}
+.navbar-hamburger--icons::after {
+  @include respond(AmazonKindle7) {
+    transform: translateY(0.3rem);
+  }
+  @include respond(IPhone12) {
+    transform: translateY(-0.8rem);
+  }
+  @include respond(IPhone5) {
+    transform: translateY(-1rem);
+  }
+  @include respond(IphonMini) {
+    transform: translateY(-2.5rem);
+  }
+}
+.navbar-hamburger--checkbox:checked
+  + .navbar-hamburger--button
+  .navbar-hamburger--icons {
+  transform: rotate(135deg) translateY(-10px) translateX(7px) !important;
+}
+
+.navbar-hamburger--checkbox:checked
+  + .navbar-hamburger--button
+  .navbar-hamburger--icons::before {
+  transform: rotate(-90deg) translateX(5px) !important;
+}
+.navbar-hamburger--checkbox:checked
+  + .navbar-hamburger--button
+  .navbar-hamburger--icons::after {
+  background-color: transparent;
+}
+.navbar-hamburger--checkbox:checked ~ .nav-main {
+  transform: translateX(0);
+}
+
+.nav-main {
+  opacity: 0.9;
+  transform: translateX(100rem);
+  transition: all 0.9s;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  background: var(--color3);
+  top: 0;
+  right: 0;
+  width: 30%;
+  height: 100%;
+  z-index: 10000;
+}
+.nav {
+  margin-top: 50%;
+
+  @media screen and (max-height: 400px) {
+    margin-top: 30%;
+  }
+  @media screen and (max-height: 300px) {
+    margin-top: 25%;
+  }
+
+  &-items {
+    display: grid;
+    grid-gap: 2rem;
+    @include respond(SamsungGalaxyTab2) {
+      grid-gap: 0rem;
+    }
+  }
+  &-item {
+    position: relative;
+    display: flex;
+    margin: 0 auto;
+    line-height: 15px;
+    margin-bottom: 2rem;
+    justify-self: center;
+    font-family: kimperly-kg, sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    @media screen and (max-height: 350px) {
+      margin-bottom: 1rem;
+    }
+    @include respond(IPhone8) {
+      margin-bottom: 1rem;
+    }
+    @include respond(IPhone5) {
+      margin-bottom: 0rem;
+    }
+
+    &::after {
+      position: absolute;
+      display: inline-block;
+      content: "";
+      text-decoration: none;
+      left: 0;
+      width: 0%;
+      bottom: -10px;
+      transition: 1s;
+      border-bottom: 3px dashed var(--color8);
+    }
+
+    &--gallerie {
+      position: relative;
+      display: flex;
+      margin: 0 auto;
+      line-height: 15px;
+      margin-top: 2rem;
+      font-family: kimperly-kg, sans-serif;
+      list-style: none;
+      &::after {
+        position: absolute;
+        content: "";
+        display: inline-block;
+        text-decoration: none;
+        left: 0;
+        width: 0%;
+        bottom: -10px;
+        transition: 1s;
+        border-bottom: 3px dashed var(--color8);
+      }
+    }
+    &--gallerie:hover:after {
+      width: 100%;
+    }
+  }
+  &-item:hover:after {
+    width: 100%;
+  }
+}
+.nav-links {
+  height: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  overflow-y: scroll;
+
+  a {
+    font-size: 3.5em;
+    letter-spacing: 2px;
+    text-decoration: none;
+    color: var(--secondary-color--dark);
+    padding: 0.3em 0;
+    @include respond(IpadPro12) {
+      font-size: 2.5rem;
+    }
+    @include respond(SamsungGalaxyTab2) {
+      font-size: 2rem;
+    }
+    @include respond(IPhone12) {
+      font-size: 1.8rem;
+    }
+    @include respond(IPhone8) {
+      font-size: 1.6rem;
+    }
+    @include respond(IPhone5) {
+      font-size: 1.4rem;
+    }
+  }
+}

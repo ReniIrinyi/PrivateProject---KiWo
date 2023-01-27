@@ -10,4 +10,4 @@ I created this beautiful Landing Page for a local organisation. The project is c
 - [SASS]
 - [JavaScript]
 
-
+![Bildschirmfoto am 2022-12-05 um 15 14 37](https://user-images.githubusercontent.com/103267773/205658807-bcc32d7e-195d-4adb-b9b8-2d59be03da48.png)
