@@ -1,4 +1,19 @@
 {
+  "name": "kiwo",
+  "version": "1.0.0",
+  "description": "<h1 align=\"center\">Renáta Irinyi</h1>",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ReniIrinyi/KiWo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ReniIrinyi/KiWo/issues"
+  },
   "dependencies": {
     "abortcontroller-polyfill": "^1.7.5",
     "acorn": "^8.8.1",
@@ -56,7 +71,7 @@
     "node-gyp-build": "^4.5.0",
     "node-gyp-build-optional-packages": "^5.0.3",
     "node-releases": "^2.0.6",
-    "nodemailer": "^6.9.0",
+    "nodemailer": "^6.9.1",
     "nth-check": "^2.1.1",
     "nullthrows": "^1.1.1",
     "ordered-binary": "^1.4.0",
@@ -113,17 +128,10 @@
     "util": "^0.12.5"
   },
   "scripts": {
-    "start": "parcel index.html",
-    "build": "parcel build index.html"
+    "start": "parcel ./public/index.html",
+    "build": "parcel build ./public/index.html",
+    "dev": "nodemon ./public/server.js",
+    "startserver": "node ./public/server.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ReniIrinyi/KIWO-Webpage.git"
-  },
-  "author": "reniirinyi",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ReniIrinyi/KIWO-Webpage/issues"
-  },
-  "homepage": "https://github.com/ReniIrinyi/KIWO-Webpage#readme"
+  "homepage": "https://github.com/ReniIrinyi/KiWo#readme"
 }
