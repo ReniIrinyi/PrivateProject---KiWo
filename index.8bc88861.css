@@ -794,7 +794,7 @@ body {
 
 @media only screen and (max-width: 50em) {
   .contact__container {
-    width: 100%;
+    width: 90%;
   }
 }
 
@@ -1613,19 +1613,31 @@ hr {
 
 @media only screen and (max-width: 75em) {
   .infos {
-    height: 140rem;
+    height: 152rem;
   }
 }
 
 @media only screen and (max-width: 64em) {
   .infos {
-    height: 130rem;
+    height: 163rem;
+  }
+}
+
+@media only screen and (max-width: 51.25em) {
+  .infos {
+    height: 160rem;
+  }
+}
+
+@media only screen and (max-width: 50em) {
+  .infos {
+    height: 150rem;
   }
 }
 
 .border {
   height: 100rem;
-  width: 80%;
+  width: 90%;
   z-index: 0;
   background-image: linear-gradient(60deg, #5f86f2, #a65ff2, #f25fd0, #f25f61, #f2cb5f, #abf25f, #5ff281, #5ff2f0);
   background-position: 0;
@@ -1641,19 +1653,20 @@ hr {
 
 @media only screen and (max-width: 75em) {
   .border {
-    height: 140rem;
+    height: 152rem;
   }
 }
 
 @media only screen and (max-width: 64em) {
   .border {
-    height: 130rem;
+    height: 165rem;
   }
 }
 
 @media only screen and (max-width: 51.25em) {
   .border {
-    height: 135rem;
+    width: 95%;
+    height: 160rem;
   }
 }
 
@@ -1691,15 +1704,19 @@ hr {
 
 @media only screen and (max-width: 100em) {
   .infos-content {
-    grid-gap: 0;
     padding: 5rem;
+  }
+}
+
+@media only screen and (max-width: 51.25em) {
+  .infos-content {
+    padding: 1rem;
   }
 }
 
 @media only screen and (max-width: 37.5em) {
   .infos-content {
     border: 1px solid var(--secondary-color--dark);
-    padding: 1rem;
   }
 }
 
