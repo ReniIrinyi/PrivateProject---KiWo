@@ -1,0 +1,265 @@
+/* ------------------------ Home ------------------------ */
+#home {
+  margin-top: 0 !important;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 90%;
+  position: relative;
+
+  @include respond(pc-small) {
+    height: 110rem;
+  }
+
+  @include respond(MacBookAir) {
+    height: 90rem;
+  }
+  @include respond(MacBook13) {
+    height: 85rem;
+  }
+  @include respond(tab-land-small) {
+    height: 80rem;
+  }
+  @include respond(IpadPro12) {
+    height: 70rem;
+  }
+  @include respond(IPadAir) {
+    height: 64rem;
+  }
+
+  @include respond(MicrosoftSurface) {
+    height: 60rem;
+  }
+  @include respond(tab-port-small) {
+    height: 55rem;
+  }
+
+  @include respond(AmazonKindle8) {
+    height: 59rem;
+  }
+  @include respond(IPhone12) {
+    height: 59rem;
+  }
+  @include respond(IPhone5) {
+    height: 60rem;
+  }
+  @include respond(IphonMini) {
+    height: 50rem;
+  }
+  @include respond(IphonMiniXs) {
+    height: 39rem;
+  }
+}
+
+.bg-video {
+  display: flex;
+}
+.bg-video__content {
+  display: flex;
+  align-self: center;
+  grid-row: 2/-2;
+  grid-column: 1/-1;
+  width: 110%;
+  height: 110%;
+}
+
+.hiddenClass {
+  display: none;
+}
+
+.text-area {
+  top: 50%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  justify-self: center;
+  text-align: center;
+  align-items: center;
+  z-index: 1000;
+  @include respond(pc-small) {
+    width: 80%;
+  }
+  @include respond(AmazonKindle7) {
+    top: 60%;
+  }
+}
+.banner-btn-container {
+  display: flex;
+  @include respond(SamsungGalaxyTab2) {
+    height: 4.5rem;
+  }
+}
+.banner-btn {
+  cursor: pointer;
+  font-size: 1.4rem;
+  letter-spacing: 0.5rem;
+  padding: 2.5rem 3.5rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 2px solid var(--secondary-color--dark);
+  background-color: transparent;
+  color: var(--secondary-color--dark);
+  box-shadow: 0.3em 0.3em 0 0 var(--color8), inset 0.3em 0.3em 0 0 var(--color5);
+  z-index: 1000;
+  @include respond(IPadAir) {
+    font-size: 1.2rem;
+    padding: 2rem 2rem;
+  }
+  @include respond(SamsungGalaxyTab2) {
+    font-size: 1.1rem;
+    letter-spacing: 0.4rem;
+    padding: 1.7rem 1.7rem;
+    border: 1px solid var(--secondary-color--dark);
+  }
+}
+.banner-btn:link,
+.banner-btn:visited {
+  transition: all 1s;
+}
+
+.banner-btn:hover {
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.5), inset 6em 5em 0 0 var(--color5);
+  color: var(--tertiary-color);
+}
+
+//Day/Night Switcher
+.toggle--checkbox {
+  display: none;
+  position: relative;
+}
+.glow,
+.toggle--label {
+  top: 20%;
+  right: 10%;
+  display: flex;
+  position: absolute;
+  transition: all 350ms ease-in;
+
+  @include respond(tab-land-small) {
+    top: 25%;
+  }
+
+  @include respond(AmazonKindle7) {
+    top: 30%;
+  }
+  @include respond(SamsungS8) {
+  }
+  @include respond(SamsungS8) {
+  }
+}
+
+.toggle--label {
+  cursor: pointer;
+  z-index: 5;
+  width: 15rem;
+  height: 15rem;
+  border: 1px solid var(--yellow-border);
+  border-radius: 82px;
+  background: var(--yellow-background);
+
+  @include respond(IpadPro12) {
+    width: 12rem;
+    height: 12rem;
+  }
+  @include respond(tab-port-small) {
+    width: 10rem;
+    height: 10rem;
+  }
+  @include respond(AmazonKindle7) {
+    width: 8rem;
+    height: 8rem;
+  }
+  @include respond(SamsungS8) {
+    width: 6rem;
+    height: 6rem;
+  }
+}
+
+.glow {
+  width: 17rem;
+  height: 17rem;
+  filter: blur(3rem);
+  z-index: 4;
+  background-repeat: no-repeat;
+  background-size: 400% 400%;
+  background-position: 0 50%;
+  border-radius: 50%;
+  animation: color-border 4s ease-in-out infinite;
+  z-index: 0;
+  opacity: 1;
+  background-image: linear-gradient(
+    60deg,
+    hsl(56, 97%, 55%),
+    hsl(64, 100%, 73%),
+    hsl(55, 100%, 76%)
+  );
+
+  @keyframes color-border {
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+  @include respond(IpadPro12) {
+    width: 15rem;
+    height: 15rem;
+  }
+  @include respond(tab-port-small) {
+    width: 13rem;
+    height: 13rem;
+  }
+  @include respond(AmazonKindle7) {
+    width: 11rem;
+    height: 11rem;
+  }
+  @include respond(SamsungS8) {
+    width: 9rem;
+    height: 9rem;
+  }
+}
+
+.toggle--label:after {
+  transition-delay: 0ms;
+  transition: all 250ms ease-in;
+  position: absolute;
+  content: "";
+  box-shadow: var(--gray-dots) -13px 0 0 2px, var(--gray-dots) -24px 14px 0 -2px;
+  top: 15px;
+  left: 35px;
+  width: 10px;
+  height: 10px;
+  background: transparent;
+  border-radius: 50%;
+  opacity: 0;
+
+  @include respond(IpadPro12) {
+    top: 15px;
+    left: 35px;
+    width: 6px;
+    height: 6px;
+    box-shadow: var(--gray-dots) -13px 0 0 2px,
+      var(--gray-dots) -16px 9px 0 0.2px;
+  }
+
+  @include respond(MicrosoftSurface) {
+    top: 15px;
+    left: 35px;
+    width: 2px;
+    height: 2px;
+    box-shadow: var(--gray-dots) -12px 0 0 1px,
+      var(--gray-dots) -14px 4px 0 0.2px;
+  }
+}
+.toggle--checkbox:checked + .toggle--label:after {
+  transition-delay: 350ms;
+  opacity: 1;
+}
+
+.toggle--checkbox:checked + .toggle--label + .glow {
+  background: var(--white) !important;
+  border-color: var(--gray-border) !important;
+  opacity: 0;
+}
+.toggle--checkbox:checked + .toggle--label {
+  background: var(--white) !important;
+  border-color: var(--gray-border) !important;
+}

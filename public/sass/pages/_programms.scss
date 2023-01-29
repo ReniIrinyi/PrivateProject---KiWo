@@ -1,0 +1,97 @@
+/* ----------------------- Programms ------------------------- */
+
+.programms {
+  height: 200rem;
+  background-color: var(--white);
+  padding-top: 5rem;
+  margin-bottom: 20rem;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  @include respond(MacBookAir) {
+    margin-bottom: 10rem;
+    height: 180rem;
+  }
+  @include respond(SamsungGalaxyTab2) {
+    height: 160rem;
+  }
+  @include respond(IPhone5) {
+    height: 150rem;
+  }
+
+  &__container {
+    height: 200rem;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    width: 90%;
+    margin: 0 auto;
+    flex-direction: column;
+    @include respond(MacBookAir) {
+      height: 180rem;
+    }
+    @include respond(SamsungGalaxyTab2) {
+      height: 160rem;
+    }
+    @include respond(IPhone5) {
+      padding: 0 !important;
+      margin: 0 !important;
+      width: 100%;
+    }
+  }
+
+  &--text-area {
+    width: 90%;
+    padding: 5rem;
+    justify-content: center;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    @include respond(MacBookAir) {
+      width: 100%;
+    }
+
+    & a {
+      @include respond(IPhone5) {
+        font-size: 1.8rem !important;
+      }
+    }
+  }
+}
+
+//button
+.btn-text:link,
+.btn-text:visited {
+  font-family: kimperly-kg;
+  font-size: 2.2rem;
+  display: inline-block;
+  text-decoration: none;
+  padding: 1.5rem;
+  transition: all 1s;
+  color: var(--secondary-color--dark);
+
+  @include respond(IPhone5) {
+    font-size: 1rem;
+  }
+}
+.btn-text:hover {
+  transform: translateY(-2px);
+  background-image: linear-gradient(
+    60deg,
+    hsl(224, 85%, 66%),
+    hsl(269, 85%, 66%),
+    hsl(314, 85%, 66%),
+    hsl(359, 85%, 66%),
+    hsl(44, 85%, 66%),
+    hsl(89, 85%, 66%),
+    hsl(134, 85%, 66%),
+    hsl(179, 85%, 66%)
+  );
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.btn-text:active {
+  transform: traslateY(-2px);
+}
