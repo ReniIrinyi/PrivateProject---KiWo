@@ -557,23 +557,121 @@ function hmrAccept(bundle, id) {
 }
 
 },{}],"1q1S1":[function(require,module,exports) {
-const e = document.querySelector("#my-form");
+const form = document.querySelector("#my-form");
 let t = document.getElementById("name");
 let email = document.getElementById("email");
 let n = document.getElementById("message");
 const status = document.getElementById("status");
-e.addEventListener("submit", (e)=>{
-    e.preventDefault(), console.log("submitted");
-    let l = {
-        name: t.value,
-        email: email.value,
-        subject: "neue Anmeldung",
-        message: n.value
-    }, o = new XMLHttpRequest();
-    o.open("POST", "/"), o.setRequestHeader("content-type", "application/json"), o.onload = function() {
-        console.log(o.responseText), "sucess" == o.responseText ? (status.innerHTML = "Vielen Dank f\xfcr Ihre Nachricht. Wir werden Sie in K\xfcrze kontaktieren!", t.value = "", email.value = "", n.value = "") : status.innerHTML = "Oops! Es gab ein Problem beim Absenden Ihres Formulars. Bitte versuchen Sie es erneut!";
-    }, o.send(JSON.stringify(l));
-});
+//
+// e.addEventListener("submit", (e) => {
+//   e.preventDefault(), console.log("submitted");
+//   let l = {
+//       name: t.value,
+//       email: email.value,
+//       subject: "neue Anmeldung",
+//       message: n.value,
+//     },
+//     o = new XMLHttpRequest();
+//   o.open("POST", "/"),
+//     o.setRequestHeader("content-type", "application/json"),
+//     (o.onload = function () {
+//       console.log(o.responseText),
+//         "sucess" == o.responseText
+//           ? ((status.innerHTML =
+//               "Vielen Dank für Ihre Nachricht. Wir werden Sie in Kürze kontaktieren!"),
+//             (t.value = ""),
+//             (email.value = ""),
+//             (n.value = ""))
+//           : (status.innerHTML =
+//               "Oops! Es gab ein Problem beim Absenden Ihres Formulars. Bitte versuchen Sie es erneut!");
+//     }),
+//     o.send(JSON.stringify(l));
+// });
+(function() {
+    // get all data in form and return object
+    function getFormData(form) {
+        var elements = form.elements;
+        var honeypot;
+        var fields = Object.keys(elements).filter(function(k) {
+            if (elements[k].name === "honeypot") {
+                honeypot = elements[k].value;
+                return false;
+            }
+            return true;
+        }).map(function(k) {
+            if (elements[k].name !== undefined) return elements[k].name;
+            else if (elements[k].length > 0) return elements[k].item(0).name;
+        }).filter(function(item, pos, self) {
+            return self.indexOf(item) == pos && item;
+        });
+        var formData = {};
+        fields.forEach(function(name) {
+            var element = elements[name];
+            // singular form elements just have one value
+            formData[name] = element.value;
+            // when our element has multiple items, get their values
+            if (element.length) {
+                var data = [];
+                for(var i = 0; i < element.length; i++){
+                    var item = element.item(i);
+                    if (item.checked || item.selected) data.push(item.value);
+                }
+                formData[name] = data.join(", ");
+            }
+        });
+        // add form-specific values into the data
+        formData.formDataNameOrder = JSON.stringify(fields);
+        formData.formGoogleSheetName = form.dataset.sheet || "responses"; // default sheet name
+        formData.formGoogleSendEmail = form.dataset.email || ""; // no email by default
+        return {
+            data: formData,
+            honeypot: honeypot
+        };
+    }
+    function handleFormSubmit(event) {
+        event.preventDefault();
+        var form = event.target;
+        var formData = getFormData(form);
+        var data = formData.data;
+        status.innerHTML = "Vielen Dank f\xfcr Ihre Nachricht. Wir werden Sie in K\xfcrze kontaktieren!";
+        t.value = "";
+        email.value = "";
+        n.value = "";
+        // If a honeypot field is filled, assume it was done so by a spam bot.
+        if (formData.honeypot) {
+            status.innerHTML = "Oops! Es gab ein Problem beim Absenden Ihres Formulars. Bitte versuchen Sie es erneut!";
+            return false;
+        }
+        disableAllButtons(form);
+        var url = form.action;
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", url);
+        // xhr.withCredentials = true;
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                form.reset();
+                var formElements = form.querySelector(".form-elements");
+                if (formElements) formElements.style.display = "none"; // hide form
+                var thankYouMessage = form.querySelector(".thankyou_message");
+                if (thankYouMessage) thankYouMessage.style.display = "block";
+            }
+        };
+        // url encode form data for sending as post data
+        var encoded = Object.keys(data).map(function(k) {
+            return encodeURIComponent(k) + "=" + encodeURIComponent(data[k]);
+        }).join("&");
+        xhr.send(encoded);
+    }
+    function loaded() {
+        form.addEventListener("submit", handleFormSubmit, false);
+    }
+    document.addEventListener("DOMContentLoaded", loaded, false);
+    function disableAllButtons(form) {
+        var buttons = form.querySelectorAll("button");
+        for(var i = 0; i < buttons.length; i++)buttons[i].disabled = true;
+    }
+})();
 
 },{}]},["6qthk","1q1S1"], "1q1S1", "parcelRequire054b")
 
