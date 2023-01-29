@@ -557,41 +557,22 @@ function hmrAccept(bundle, id) {
 }
 
 },{}],"1q1S1":[function(require,module,exports) {
-const contactForm = document.querySelector("#my-form");
-contactForm.addEventListener("submit", (e)=>{
-    e.preventDefault();
-    let name = document.getElementById("name");
-    let email = document.getElementById("email");
-    let subject = "neue Anmeldung";
-    let message = document.getElementById("message");
-    console.log("submitted");
-    //formData works fine
-    let formData = "";
-    formData += "name=" + name.value;
-    formData += "&email=" + email.value;
-    formData += "&message=" + message.value;
-    formData += "&subject=" + subject;
-    /*
-	formData.append('name', name.value);
-	formData.append('email', email.value);
-	formData.append('subject', subject);
-	formData.append('message', message.value);
-	*/ let xhr = new XMLHttpRequest();
-    xhr.open("POST", "/mailer.php", true);
-    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
-    xhr.onload = function() {
-        console.log(this.responseText);
-    /*
-    if (xhr.responseText == "sucess") {
-      alert("Email sent");
-      name.value = "";
-      email.value = "";
-      message.value = "";
-    } else {
-      console.log("Something went wrong");
-    }
-*/ }; //ERROR  mailer.js:29          POST http://localhost:8080/ net::ERR_EMPTY_RESPONSE
-    xhr.send(formData);
+const e = document.querySelector("#my-form");
+let t = document.getElementById("name");
+let email = document.getElementById("email");
+let n = document.getElementById("message");
+const status = document.getElementById("status");
+e.addEventListener("submit", (e)=>{
+    e.preventDefault(), console.log("submitted");
+    let l = {
+        name: t.value,
+        email: email.value,
+        subject: "neue Anmeldung",
+        message: n.value
+    }, o = new XMLHttpRequest();
+    o.open("POST", "/"), o.setRequestHeader("content-type", "application/json"), o.onload = function() {
+        console.log(o.responseText), "sucess" == o.responseText ? (status.innerHTML = "Vielen Dank f\xfcr Ihre Nachricht. Wir werden Sie in K\xfcrze kontaktieren!", t.value = "", email.value = "", n.value = "") : status.innerHTML = "Oops! Es gab ein Problem beim Absenden Ihres Formulars. Bitte versuchen Sie es erneut!";
+    }, o.send(JSON.stringify(l));
 });
 
 },{}]},["6qthk","1q1S1"], "1q1S1", "parcelRequire054b")
