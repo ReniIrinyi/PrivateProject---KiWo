@@ -704,12 +704,17 @@ const info = document.getElementById("info");
 const thumbnails = document.getElementById("thumbnails");
 let images = [
     {
-        src: "source/gallery/img9.jpg",
+        src: "source/gallery/Kiwo20221.jpg",
         caption: "",
         info: ""
     },
     {
-        src: "source/gallery/Kiwo20221.jpg",
+        src: "source/gallery/Kiwo20229.jpg",
+        caption: "",
+        info: ""
+    },
+    {
+        src: "source/gallery/img9.jpg",
         caption: "",
         info: ""
     },
@@ -737,6 +742,16 @@ let images = [
         src: "source/gallery/Kiwo20226.jpg",
         caption: "",
         info: ""
+    },
+    {
+        src: "source/gallery/Kiwo20227.jpg ",
+        caption: "",
+        info: ""
+    },
+    {
+        src: "source/gallery/Kiwo20228.jpg",
+        caption: "",
+        info: ""
     }
 ];
 for(let i = 0; i < images.length; i++){
@@ -757,7 +772,7 @@ function slideImage() {
     let currentIndex = parseInt(mainView.getAttribute("data-index"));
     currentIndex = currentIndex + 1 == images.length ? 1 : currentIndex + 1;
     loadImage(currentIndex);
-    setTimeout(slideImage, 3000);
+    setTimeout(slideImage, 8000);
 }
 function changeImage(event) {
     let target = event.currentTarget;
@@ -793,7 +808,7 @@ function toggleFullscreen(el) {
     }
 }
 initGallery();
-setTimeout(slideImage, 15000);
+setTimeout(slideImage, 8000);
 
 },{}]},["gnkiX","iI2BD"], "iI2BD", "parcelRequire054b")
 

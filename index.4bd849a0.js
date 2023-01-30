@@ -633,13 +633,13 @@ const status = document.getElementById("status");
         var form = event.target;
         var formData = getFormData(form);
         var data = formData.data;
-        status.innerHTML = "Vielen Dank f\xfcr Ihre Nachricht. Wir werden Sie in K\xfcrze kontaktieren!";
+        status.innerHTML = "Vielen Dank f\xfcr deine Nachricht. Wir werden dich in K\xfcrze kontaktieren!";
         t.value = "";
         email.value = "";
         n.value = "";
         // If a honeypot field is filled, assume it was done so by a spam bot.
         if (formData.honeypot) {
-            status.innerHTML = "Oops! Es gab ein Problem beim Absenden Ihres Formulars. Bitte versuchen Sie es erneut!";
+            status.innerHTML = "Oops! Es gab ein Problem beim Absenden deines Formulars. Bitte versuche es erneut!";
             return false;
         }
         disableAllButtons(form);
