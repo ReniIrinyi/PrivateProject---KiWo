@@ -976,12 +976,12 @@ body {
 }
 
 .form__control:focus {
-  border-bottom: 4px solid var(--color4);
+  border-bottom: 4px solid var(--color6);
   outline: none;
 }
 
 .form__control:focus:invalid {
-  border-bottom: 4px solid var(--color6);
+  border-bottom: 4px solid var(--color4);
 }
 
 .form__label {
