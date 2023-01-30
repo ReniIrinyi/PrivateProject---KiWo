@@ -922,7 +922,7 @@ body {
 }
 
 .form__control::placeholder {
-  color: #b2b2b2 !important;
+  color: #80808099 !important;
 }
 
 .form-check {
