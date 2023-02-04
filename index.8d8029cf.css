@@ -68,7 +68,7 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none;
   background-repeat: no-repeat;
-  font-family: serif;
+  font-family: Lato, san-serif;
   font-style: normal;
   font-weight: 400;
   position: relative;
@@ -253,7 +253,7 @@ body::-webkit-scrollbar {
   letter-spacing: 1rem;
   margin-top: 1rem;
   margin-bottom: 3rem;
-  font-family: serif;
+  font-family: Lato, san-serif;
   font-size: 3rem;
   font-weight: 700;
 }
@@ -285,13 +285,14 @@ body::-webkit-scrollbar {
   font-size: 1.8rem;
   font-weight: 400;
   line-height: 1.2;
+  font-family: Lato, san-serif !important;
 }
 
 .paragraph-regular__copy {
   letter-spacing: .4rem;
   margin-left: 1rem;
   margin-right: 1rem;
-  font-size: 1.6rem;
+  font-size: 1.3rem;
   line-height: 1.5;
 }
 
@@ -695,7 +696,7 @@ body::-webkit-scrollbar {
 
 @media only screen and (max-width: 20em) {
   .components {
-    width: 45%;
+    width: 40%;
   }
 }
 
@@ -742,7 +743,7 @@ body::-webkit-scrollbar {
 }
 
 .component-right {
-  text-align: center;
+  text-align: left;
   flex-direction: column;
   place-content: flex-end center;
   padding: 2rem;
@@ -764,6 +765,7 @@ body::-webkit-scrollbar {
 
 @media only screen and (max-width: 64em) {
   .component-right {
+    text-align: center;
     justify-content: center;
     margin-top: 5rem;
     padding: 1rem;
@@ -797,6 +799,7 @@ body::-webkit-scrollbar {
   flex-direction: column;
   justify-content: center;
   padding-bottom: 5rem;
+  font-family: Lato, san-serif;
   display: flex;
 }
 
@@ -822,7 +825,7 @@ body::-webkit-scrollbar {
 
 .contact-header {
   text-align: center;
-  color: #f25f61;
+  color: #fff;
   font-size: 1.6rem;
 }
 
@@ -916,7 +919,7 @@ body::-webkit-scrollbar {
 #my-form {
   grid-gap: .5rem;
   padding: 2rem;
-  font-family: serif;
+  font-family: Lato, san-serif;
   display: grid;
 }
 
@@ -927,7 +930,7 @@ body::-webkit-scrollbar {
 }
 
 .form {
-  font-family: serif;
+  font-family: Lato, san-serif;
 }
 
 .form__control {
@@ -957,7 +960,7 @@ body::-webkit-scrollbar {
 input[type="date" i] {
   align-items: center;
   padding-left: 2rem;
-  font-family: serif;
+  font-family: Lato, san-serif;
   color: #4e4d4d99 !important;
 }
 
@@ -974,7 +977,7 @@ input[type="date" i] {
   border-radius: 5px;
   align-items: center;
   padding-left: 1rem;
-  font-family: serif;
+  font-family: Lato, san-serif;
   font-size: 1.3rem;
   transition: all .7s;
   display: block;
@@ -995,7 +998,7 @@ input[type="date" i] {
 .form-option label {
   padding-bottom: .5rem;
   padding-left: .5rem;
-  font-family: serif;
+  font-family: Lato, san-serif;
   font-size: 1.4rem;
   line-height: 1;
 }
@@ -1138,7 +1141,7 @@ label {
 
 .contacts--paragraph-regular {
   color: #25252587;
-  font-family: serif;
+  font-family: Lato, san-serif;
   font-size: 1.7rem;
   font-weight: 700;
 }
@@ -1227,7 +1230,7 @@ hr {
 .footer {
   background-color: var(--white);
   align-self: center;
-  height: 15rem !important;
+  height: 10rem !important;
 }
 
 @media only screen and (max-width: 20em) {
@@ -1467,6 +1470,7 @@ hr {
   border: .5px solid #3a393965;
   border-radius: 5px;
   padding: 2.5rem 3.5rem;
+  font-family: Lato, san-serif;
   font-size: 1.4rem;
   text-decoration: none;
 }
@@ -1724,8 +1728,10 @@ hr {
 
 .infos-content__flyer {
   color: var(--secondary-color--dark);
-  font-family: chubby;
+  text-transform: uppercase;
+  font-size: 5rem;
   text-decoration: none;
+  font-family: kimperly-kg, sans-serif !important;
 }
 
 .infos-content__flyer:hover {
@@ -1768,6 +1774,8 @@ ul.share-buttons .sr-only {
 
 .share-buttons li img {
   border: 1px solid var(--secondary-color--dark);
+  width: 4rem;
+  height: 4rem;
   border-radius: 50%;
 }
 
@@ -1789,6 +1797,7 @@ ul.share-buttons .sr-only {
   grid-column: 1 / -1;
   justify-content: center;
   margin: 0 auto;
+  padding-top: 5rem;
   display: flex;
 }
 
@@ -1818,7 +1827,7 @@ ul.share-buttons .sr-only {
   background-color: var(--white);
   place-items: center;
   padding-top: 5rem;
-  font-family: inherit;
+  font-family: Lato, san-serif;
   display: flex;
 }
 
@@ -2207,6 +2216,7 @@ ul.share-buttons .sr-only {
   letter-spacing: 2px;
   color: var(--secondary-color--dark);
   padding: .3em 0;
+  font-family: Lato, san-serif;
   font-size: 3.5em;
   text-decoration: none;
 }
