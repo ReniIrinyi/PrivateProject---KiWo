@@ -1,0 +1,82 @@
+/* ----------------------- Programms ------------------------- */
+
+.programms {
+  font-family: inherit;
+  height: auto;
+  background-color: var(--white);
+  padding-top: 5rem;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+
+  &__container {
+    height: auto;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    width: 90%;
+    margin: 0 auto;
+    flex-direction: column;
+
+    @include respond(IPhone5) {
+      padding: 0 !important;
+      margin: 0 !important;
+      width: 100%;
+    }
+  }
+
+  &--text-area {
+    width: 80%;
+    padding: 5rem;
+    justify-content: center;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    @include respond(MacBookAir) {
+      width: 100%;
+    }
+
+    & .paragraph-regular {
+      width: 90%;
+      align-self: center;
+    }
+
+    & a {
+      @include respond(IPhone5) {
+        font-size: 1.8rem !important;
+      }
+    }
+  }
+}
+
+//button
+.btn-text:link,
+.btn-text:visited {
+  font-size: 2.6rem;
+  display: inline-block;
+  text-decoration: none;
+  padding: 1.5rem;
+
+  color: var(--secondary-color--dark);
+  transition: ease-in 0.5s;
+  @include respond(IPhone5) {
+    font-size: 1rem;
+  }
+}
+.btn-text:hover {
+  background-image: linear-gradient(
+    60deg,
+    hsl(224, 85%, 66%),
+    hsl(269, 85%, 66%),
+    hsl(314, 85%, 66%),
+    hsl(359, 85%, 66%),
+    hsl(44, 85%, 66%),
+    hsl(89, 85%, 66%),
+    hsl(134, 85%, 66%),
+    hsl(179, 85%, 66%)
+  );
+  -webkit-background-clip: text;
+  color: transparent;
+}

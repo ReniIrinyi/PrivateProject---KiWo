@@ -839,40 +839,10 @@ function toggleFullscreen(el) {
 initGallery();
 setTimeout(slideImage, 8000);
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./source/gallery/Kiwo20220.jpg":"lEEKf","./source/gallery/Kiwo20221.jpg":"kT0VN","./source/gallery/Kiwo20222.jpg":"6q4t4","./source/gallery/Kiwo20223.jpg":"gvxzb","./source/gallery/Kiwo20224.jpg":"ybJ5v","./source/gallery/Kiwo20225.jpg":"2rp7b","./source/gallery/Kiwo20226.jpg":"nSUMP","./source/gallery/Kiwo20227.jpg":"6A2C9","./source/gallery/Kiwo20228.jpg":"ckhBj","./source/gallery/img7.jpg":"iejwy","./source/gallery/img2.jpg":"agVhP","./source/gallery/img6.jpg":"8FiqQ","./source/gallery/img8.jpg":"bLUu9"}],"gkKU3":[function(require,module,exports) {
-exports.interopDefault = function(a) {
-    return a && a.__esModule ? a : {
-        default: a
-    };
-};
-exports.defineInteropFlag = function(a) {
-    Object.defineProperty(a, "__esModule", {
-        value: true
-    });
-};
-exports.exportAll = function(source, dest) {
-    Object.keys(source).forEach(function(key) {
-        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
-        Object.defineProperty(dest, key, {
-            enumerable: true,
-            get: function() {
-                return source[key];
-            }
-        });
-    });
-    return dest;
-};
-exports.export = function(dest, destName, get) {
-    Object.defineProperty(dest, destName, {
-        enumerable: true,
-        get: get
-    });
-};
+},{"./source/gallery/Kiwo20220.jpg":"lEEKf","./source/gallery/Kiwo20221.jpg":"kT0VN","./source/gallery/Kiwo20222.jpg":"6q4t4","./source/gallery/Kiwo20223.jpg":"gvxzb","./source/gallery/Kiwo20224.jpg":"ybJ5v","./source/gallery/Kiwo20225.jpg":"2rp7b","./source/gallery/Kiwo20226.jpg":"nSUMP","./source/gallery/Kiwo20227.jpg":"6A2C9","./source/gallery/Kiwo20228.jpg":"ckhBj","./source/gallery/img7.jpg":"iejwy","./source/gallery/img2.jpg":"agVhP","./source/gallery/img6.jpg":"8FiqQ","./source/gallery/img8.jpg":"bLUu9","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"lEEKf":[function(require,module,exports) {
+module.exports = require("909e23a21af75231").getBundleURL("1G2bZ") + "Kiwo20220.579201ac.jpg" + "?" + Date.now();
 
-},{}],"lEEKf":[function(require,module,exports) {
-module.exports = require("c2a2490eeed8c364").getBundleURL("1G2bZ") + "Kiwo20220.579201ac.jpg" + "?" + Date.now();
-
-},{"c2a2490eeed8c364":"lgJ39"}],"lgJ39":[function(require,module,exports) {
+},{"909e23a21af75231":"lgJ39"}],"lgJ39":[function(require,module,exports) {
 "use strict";
 var bundleURL = {};
 function getBundleURLCached(id) {
@@ -907,41 +877,71 @@ exports.getBaseURL = getBaseURL;
 exports.getOrigin = getOrigin;
 
 },{}],"kT0VN":[function(require,module,exports) {
-module.exports = require("490172fa356de875").getBundleURL("1G2bZ") + "Kiwo20221.61995a03.jpg" + "?" + Date.now();
+module.exports = require("65bbc3c5748fd4f9").getBundleURL("1G2bZ") + "Kiwo20221.61995a03.jpg" + "?" + Date.now();
 
-},{"490172fa356de875":"lgJ39"}],"6q4t4":[function(require,module,exports) {
-module.exports = require("7285a1f659c72c20").getBundleURL("1G2bZ") + "Kiwo20222.d6a4a212.jpg" + "?" + Date.now();
+},{"65bbc3c5748fd4f9":"lgJ39"}],"6q4t4":[function(require,module,exports) {
+module.exports = require("161c780f5e0dd26f").getBundleURL("1G2bZ") + "Kiwo20222.d6a4a212.jpg" + "?" + Date.now();
 
-},{"7285a1f659c72c20":"lgJ39"}],"gvxzb":[function(require,module,exports) {
-module.exports = require("e807101298540e0e").getBundleURL("1G2bZ") + "Kiwo20223.c9a3a093.jpg" + "?" + Date.now();
+},{"161c780f5e0dd26f":"lgJ39"}],"gvxzb":[function(require,module,exports) {
+module.exports = require("edb2a24a8de1d33e").getBundleURL("1G2bZ") + "Kiwo20223.c9a3a093.jpg" + "?" + Date.now();
 
-},{"e807101298540e0e":"lgJ39"}],"ybJ5v":[function(require,module,exports) {
-module.exports = require("810efd4eff0f1316").getBundleURL("1G2bZ") + "Kiwo20224.e6cd8a31.jpg" + "?" + Date.now();
+},{"edb2a24a8de1d33e":"lgJ39"}],"ybJ5v":[function(require,module,exports) {
+module.exports = require("10cea0c7faae314b").getBundleURL("1G2bZ") + "Kiwo20224.e6cd8a31.jpg" + "?" + Date.now();
 
-},{"810efd4eff0f1316":"lgJ39"}],"2rp7b":[function(require,module,exports) {
-module.exports = require("bf1b6eaadecea947").getBundleURL("1G2bZ") + "Kiwo20225.97752b8b.jpg" + "?" + Date.now();
+},{"10cea0c7faae314b":"lgJ39"}],"2rp7b":[function(require,module,exports) {
+module.exports = require("ebff5f89a85501cb").getBundleURL("1G2bZ") + "Kiwo20225.97752b8b.jpg" + "?" + Date.now();
 
-},{"bf1b6eaadecea947":"lgJ39"}],"nSUMP":[function(require,module,exports) {
-module.exports = require("9a4036f35e104809").getBundleURL("1G2bZ") + "Kiwo20226.010fb9be.jpg" + "?" + Date.now();
+},{"ebff5f89a85501cb":"lgJ39"}],"nSUMP":[function(require,module,exports) {
+module.exports = require("fd794c776447ac4e").getBundleURL("1G2bZ") + "Kiwo20226.010fb9be.jpg" + "?" + Date.now();
 
-},{"9a4036f35e104809":"lgJ39"}],"6A2C9":[function(require,module,exports) {
-module.exports = require("52e30d49821c6a64").getBundleURL("1G2bZ") + "Kiwo20227.ace90dbd.jpg" + "?" + Date.now();
+},{"fd794c776447ac4e":"lgJ39"}],"6A2C9":[function(require,module,exports) {
+module.exports = require("1e1a17f23c71f5a2").getBundleURL("1G2bZ") + "Kiwo20227.ace90dbd.jpg" + "?" + Date.now();
 
-},{"52e30d49821c6a64":"lgJ39"}],"ckhBj":[function(require,module,exports) {
-module.exports = require("6922c711b2f909").getBundleURL("1G2bZ") + "Kiwo20228.c2b81eab.jpg" + "?" + Date.now();
+},{"1e1a17f23c71f5a2":"lgJ39"}],"ckhBj":[function(require,module,exports) {
+module.exports = require("9782922c3feb27e4").getBundleURL("1G2bZ") + "Kiwo20228.c2b81eab.jpg" + "?" + Date.now();
 
-},{"6922c711b2f909":"lgJ39"}],"iejwy":[function(require,module,exports) {
-module.exports = require("9d696cafbacaba5d").getBundleURL("1G2bZ") + "img7.859e5cf5.jpg" + "?" + Date.now();
+},{"9782922c3feb27e4":"lgJ39"}],"iejwy":[function(require,module,exports) {
+module.exports = require("c77405ec7277fee3").getBundleURL("1G2bZ") + "img7.859e5cf5.jpg" + "?" + Date.now();
 
-},{"9d696cafbacaba5d":"lgJ39"}],"agVhP":[function(require,module,exports) {
-module.exports = require("34ff9428b4ab023f").getBundleURL("1G2bZ") + "img2.9d3ac8de.jpg" + "?" + Date.now();
+},{"c77405ec7277fee3":"lgJ39"}],"agVhP":[function(require,module,exports) {
+module.exports = require("381623e49e8648b0").getBundleURL("1G2bZ") + "img2.9d3ac8de.jpg" + "?" + Date.now();
 
-},{"34ff9428b4ab023f":"lgJ39"}],"8FiqQ":[function(require,module,exports) {
-module.exports = require("7b9abf56fc2f0245").getBundleURL("1G2bZ") + "img6.581ea9ae.jpg" + "?" + Date.now();
+},{"381623e49e8648b0":"lgJ39"}],"8FiqQ":[function(require,module,exports) {
+module.exports = require("aaf28fcc17d947").getBundleURL("1G2bZ") + "img6.581ea9ae.jpg" + "?" + Date.now();
 
-},{"7b9abf56fc2f0245":"lgJ39"}],"bLUu9":[function(require,module,exports) {
-module.exports = require("d81e7b84ff2e94fa").getBundleURL("1G2bZ") + "img8.d06069c1.jpg" + "?" + Date.now();
+},{"aaf28fcc17d947":"lgJ39"}],"bLUu9":[function(require,module,exports) {
+module.exports = require("d976aa439128a66e").getBundleURL("1G2bZ") + "img8.d06069c1.jpg" + "?" + Date.now();
 
-},{"d81e7b84ff2e94fa":"lgJ39"}]},["2waQk","igcvL"], "igcvL", "parcelRequire054b")
+},{"d976aa439128a66e":"lgJ39"}],"gkKU3":[function(require,module,exports) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, "__esModule", {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
+
+},{}]},["2waQk","igcvL"], "igcvL", "parcelRequire054b")
 
 //# sourceMappingURL=index.5baa4167.js.map
