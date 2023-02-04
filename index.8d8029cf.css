@@ -1910,7 +1910,6 @@ ul.share-buttons .sr-only {
 .navbar, .navigation__container, .navbar-icon {
   z-index: 2000;
   height: 12rem;
-  height: auto;
 }
 
 .navbar {
