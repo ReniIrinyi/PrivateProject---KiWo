@@ -1298,6 +1298,11 @@ iframe {
 .footer a {
   color: var(--secondary-color--dark);
   text-decoration: none;
+  transition: all 1s;
+}
+
+.footer a:hover {
+  transform: scale(1.1);
 }
 
 .gallery {
@@ -1805,6 +1810,7 @@ ul.share-buttons .sr-only {
 
 .share-buttons li {
   margin-left: 3rem;
+  transition: all 1s;
 }
 
 .share-buttons li img {
@@ -1819,6 +1825,10 @@ ul.share-buttons .sr-only {
     width: 3rem;
     height: 3rem;
   }
+}
+
+.share-buttons li:hover {
+  transform: scale(1.2);
 }
 
 .share-buttons li:first-child {
@@ -1930,6 +1940,7 @@ ul.share-buttons .sr-only {
   background-image: linear-gradient(60deg, #5f86f2, #a65ff2, #f25fd0, #f25f61, #f2cb5f, #abf25f, #5ff281, #5ff2f0);
   -webkit-background-clip: text;
   color: #0000;
+  transform: scale(1.2);
 }
 
 .sticky {
