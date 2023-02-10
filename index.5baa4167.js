@@ -837,7 +837,147 @@ function toggleFullscreen(el) {
     }
 }
 initGallery();
-setTimeout(slideImage, 8000);
+setTimeout(slideImage, 8000); //canvas
+ // const canvas = document.querySelector("canvas");
+ // const form = document.querySelector("#my-form");
+ // const clearButton = document.querySelector(".clear-button");
+ // const ctx = canvas.getContext("2d");
+ // let writingMode = false;
+ // const imgsender = document.querySelector(".img-sender");
+ // const handlePointerDown = (event) => {
+ //   writingMode = true;
+ //   ctx.beginPath();
+ //   const [positionX, positionY] = getCursorPosition(event);
+ //   ctx.moveTo(positionX, positionY);
+ // };
+ // const handlePointerUp = () => {
+ //   writingMode = false;
+ // };
+ // const handlePointerMove = (event) => {
+ //   if (!writingMode) return;
+ //   const [positionX, positionY] = getCursorPosition(event);
+ //   ctx.lineTo(positionX, positionY);
+ //   ctx.stroke();
+ // };
+ // const getCursorPosition = (event) => {
+ //   positionX = event.clientX - event.target.getBoundingClientRect().x;
+ //   positionY = event.clientY - event.target.getBoundingClientRect().y;
+ //   return [positionX, positionY];
+ // };
+ // ctx.lineWidth = 2;
+ // ctx.lineJoin = ctx.lineCap = "round";
+ // form.addEventListener("submit", (event) => {
+ //   event.preventDefault();
+ //   const imageURL = canvas.toDataURL();
+ //   const image = document.createElement("img");
+ //   image.src = imageURL;
+ //   image.height = canvas.height;
+ //   image.width = canvas.width;
+ //   image.style.display = "block";
+ //   // imgsender.src = image;
+ //   console.log(image);
+ //   clearPad();
+ // });
+ // const clearPad = () => {
+ //   ctx.clearRect(0, 0, canvas.width, canvas.height);
+ // };
+ // clearButton.addEventListener("click", (event) => {
+ //   event.preventDefault();
+ //   clearPad();
+ // });
+ // canvas.addEventListener("pointerdown", handlePointerDown, { passive: true });
+ // canvas.addEventListener("pointerup", handlePointerUp, { passive: true });
+ // canvas.addEventListener("pointermove", handlePointerMove, { passive: true });
+ //file upload
+ // var reader;
+ // var progress = document.querySelector(".percent");
+ // // on error
+ // function errorHandler(evt) {
+ //   switch (evt.target.error.code) {
+ //     case evt.target.error.NOT_FOUND_ERR:
+ //       alert("File Not Found!");
+ //       break;
+ //     case evt.target.error.NOT_READABLE_ERR:
+ //       alert("File is not readable");
+ //       break;
+ //     case evt.target.error.ABORT_ERR:
+ //       break; // noop
+ //     default:
+ //       alert("An error occurred reading this file.");
+ //   }
+ // }
+ // // close html-window: https://developers.google.com/apps-script/guides/html/communication
+ // function closeMe() {
+ //   google.script.host.close();
+ // }
+ // // onprogress
+ // function updateProgress(evt) {
+ //   // evt is an ProgressEvent.
+ //   if (evt.lengthComputable) {
+ //     var percentLoaded = Math.round((evt.loaded / evt.total) * 100);
+ //     // Increase the progress bar length.
+ //     if (percentLoaded < 100) {
+ //       progress.style.width = percentLoaded + "%";
+ //       progress.textContent = percentLoaded + "%";
+ //     }
+ //   }
+ // }
+ // // to forse click-event. The form with file-select will open automatically
+ // function clickForse_() {
+ //   var element = document.getElementById("uploadfile");
+ //   element.click();
+ // }
+ // // on file selected by user
+ // function handleFileSelect(evt) {
+ //   // Reset progress indicator on new file selection.
+ //   progress.style.width = "0%";
+ //   progress.textContent = "0%";
+ //   reader = new FileReader();
+ //   // remember selected file (first selected)
+ //   var file = this.files[0];
+ //   reader.fileName = file.name; // save name
+ //   reader.onerror = errorHandler;
+ //   reader.onprogress = updateProgress;
+ //   reader.onabort = function (e) {
+ //     alert("File read cancelled");
+ //   };
+ //   reader.onloadstart = function (e) {
+ //     document.getElementById("progress_bar").className = "loading";
+ //   };
+ //   reader.onload = function (e) {
+ //     // create data object
+ //     // form will send data via #data element
+ //     // https://gist.github.com/tanaikech/2f16f467c94612dc83920a3158614d95
+ //     html =
+ //       '<input type="hidden" name="data" value="' +
+ //       e.target.result.replace(/^.*,/, "") +
+ //       '" >';
+ //     html +=
+ //       '<input type="hidden" name="mimetype" value="' +
+ //       e.target.result.match(/^.*(?=;)/)[0] +
+ //       '" >';
+ //     html +=
+ //       '<input type="hidden" name="filename" value="' +
+ //       e.target.fileName +
+ //       '" >';
+ //     $("#data").empty().append(html);
+ //     // Ensure that the progress bar displays 100% at the end.
+ //     progress.style.width = "100%";
+ //     progress.textContent = "100%";
+ //     // The form will close automatically when load to Google Drive is finished
+ //     google.script.run
+ //       .withSuccessHandler(closeMe)
+ //       .clientSideFunctionToProcessReturnedData();
+ //   };
+ //   // Read in the image file as a Data URL
+ //   reader.readAsDataURL(file);
+ // }
+ // // when user clicks button #uploadfile, add event handleFileSelect
+ // document
+ //   .getElementById("uploadfile")
+ //   .addEventListener("change", handleFileSelect, false);
+ // // when document is loaded, add event
+ // document.addEventListener("DOMContentLoaded", clickForse_, false); // gives error
 
 },{"./source/gallery/Kiwo20220.jpg":"lEEKf","./source/gallery/Kiwo20221.jpg":"kT0VN","./source/gallery/Kiwo20222.jpg":"6q4t4","./source/gallery/Kiwo20223.jpg":"gvxzb","./source/gallery/Kiwo20224.jpg":"ybJ5v","./source/gallery/Kiwo20225.jpg":"2rp7b","./source/gallery/Kiwo20226.jpg":"nSUMP","./source/gallery/Kiwo20227.jpg":"6A2C9","./source/gallery/Kiwo20228.jpg":"ckhBj","./source/gallery/img7.jpg":"iejwy","./source/gallery/img2.jpg":"agVhP","./source/gallery/img6.jpg":"8FiqQ","./source/gallery/img8.jpg":"bLUu9","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"lEEKf":[function(require,module,exports) {
 module.exports = require("909e23a21af75231").getBundleURL("1G2bZ") + "Kiwo20220.579201ac.jpg" + "?" + Date.now();
