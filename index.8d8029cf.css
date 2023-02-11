@@ -507,6 +507,13 @@ body::-webkit-scrollbar {
   }
 }
 
+@media only screen and (max-width: 22.5em) {
+  .components {
+    width: 70%;
+    height: 90%;
+  }
+}
+
 .component-left {
   place-items: center;
   display: flex;
@@ -712,7 +719,7 @@ body::-webkit-scrollbar {
   border: 1px solid #615c5c65;
   border-radius: 5px;
   padding: 1rem;
-  font-family: serif;
+  font-family: Lato, san-serif;
   font-size: 1.3rem;
   transition: all .7s;
   display: block;
@@ -1020,10 +1027,10 @@ hr {
 }
 
 iframe {
-  height: 20rem;
-  border: none;
-  overflow-clip-margin: content-box !important;
-  overflow: clip !important;
+  height: auto;
+  border: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .paragraph-regular--rights {
@@ -1372,7 +1379,8 @@ iframe {
 
 .infos {
   height: auto;
-  align-items: center;
+  width: auto;
+  place-items: center;
   margin: 0 auto;
 }
 
