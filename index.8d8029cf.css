@@ -26,31 +26,25 @@ html {
   }
 }
 
-@media only screen and (min-device-width: 441px) and (max-device-width: 767px) and (-webkit-device-pixel-ratio: 2) {
-  html {
-    font-size: 40% !important;
-  }
-}
-
 @media only screen and (min-device-width: 390px) and (max-device-width: 844px) and (-webkit-device-pixel-ratio: 3) {
-  html {
-    font-size: 50% !important;
-  }
-}
-
-@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-device-pixel-ratio: 3) {
-  html {
-    font-size: 40% !important;
-  }
-}
-
-@media only screen and (min-device-width: 361px) and (max-device-width: 667px) and (-webkit-device-pixel-ratio: 2) {
   html {
     font-size: 30% !important;
   }
 }
 
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-device-pixel-ratio: 2) {
+  html {
+    font-size: 30% !important;
+  }
+}
+
+@media only screen and (min-device-width: 360px) and (max-device-width: 800px) and (-webkit-device-pixel-ratio: 4) {
+  html {
+    font-size: 30% !important;
+  }
+}
+
+@media only screen and (min-device-width: 360px) and (max-device-width: 640px) and (-webkit-device-pixel-ratio: 3) {
   html {
     font-size: 30% !important;
   }
@@ -71,10 +65,6 @@ body {
 
 body::-webkit-scrollbar {
   display: none;
-}
-
-.blur {
-  filter: blur(1.3px);
 }
 
 :root {
@@ -1276,7 +1266,7 @@ iframe {
   }
 }
 
-@media only screen and (min-device-width: 23.4375em) and (max-device-width: 41.6875em) and (-webkit-min-device-pixel-ratio: 2) {
+@media only screen and (min-device-width: 23.4375em) and (max-device-width: 50.75em) and (-webkit-min-device-pixel-ratio: 3) {
   .toggle--label {
     width: 10rem;
     height: 10rem;
@@ -1311,7 +1301,7 @@ iframe {
   }
 }
 
-@media only screen and (min-device-width: 23.4375em) and (max-device-width: 41.6875em) and (-webkit-min-device-pixel-ratio: 2) {
+@media only screen and (min-device-width: 23.4375em) and (max-device-width: 50.75em) and (-webkit-min-device-pixel-ratio: 3) {
   .glow {
     width: 12rem;
     height: 12rem;
@@ -1539,12 +1529,6 @@ ul.share-buttons .sr-only {
   align-self: center;
 }
 
-@media only screen and (max-width: 20em) and (-webkit-min-device-pixel-ratio: 2) {
-  .programms--text-area a {
-    font-size: 1.8rem !important;
-  }
-}
-
 .btn-text:link, .btn-text:visited {
   color: var(--secondary-color--dark);
   padding: 1.5rem;
@@ -1552,12 +1536,6 @@ ul.share-buttons .sr-only {
   text-decoration: none;
   transition: all .5s ease-in;
   display: inline-block;
-}
-
-@media only screen and (max-width: 20em) and (-webkit-min-device-pixel-ratio: 2) {
-  .btn-text:link, .btn-text:visited {
-    font-size: 1rem;
-  }
 }
 
 .btn-text:hover {
@@ -1721,12 +1699,6 @@ ul.share-buttons .sr-only {
   font-weight: 400;
   display: flex;
   position: relative;
-}
-
-@media screen and (max-height: 350rem) {
-  .nav-item {
-    margin-bottom: 0;
-  }
 }
 
 .nav-item:after {
