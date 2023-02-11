@@ -646,12 +646,6 @@ body::-webkit-scrollbar {
   }
 }
 
-@media only screen and (max-width: 50em) {
-  .row {
-    grid-gap: 1rem;
-  }
-}
-
 @media only screen and (max-width: 26.75em) {
   .row {
     grid-template-columns: 1fr;
@@ -731,6 +725,13 @@ body::-webkit-scrollbar {
   box-shadow: 0 2px 8px #63636333;
 }
 
+@media only screen and (max-width: 30em) {
+  .form__control {
+    height: 2.3em;
+    font-size: 1.2rem;
+  }
+}
+
 .form__control::placeholder {
   align-items: center;
   padding-left: 1rem;
@@ -764,6 +765,13 @@ input[type="date" i] {
   display: block;
   box-shadow: 0 2px 8px #63636333;
   color: #4e4d4d99 !important;
+}
+
+@media only screen and (max-width: 30em) {
+  #option {
+    height: 2.3rem;
+    font-size: 1.2rem;
+  }
 }
 
 #option:focus {
@@ -1021,6 +1029,7 @@ iframe {
   height: auto;
   width: 100%;
   border: none;
+  overflow: hidden;
   overflow-clip-margin: content-box !important;
   overflow: clip !important;
 }
