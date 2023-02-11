@@ -26,6 +26,12 @@ html {
   }
 }
 
+@media only screen and (min-device-width: 441px) and (max-device-width: 767px) and (-webkit-device-pixel-ratio: 2) {
+  html {
+    font-size: 40% !important;
+  }
+}
+
 @media only screen and (min-device-width: 390px) and (max-device-width: 844px) and (-webkit-device-pixel-ratio: 3) {
   html {
     font-size: 50% !important;
@@ -38,15 +44,15 @@ html {
   }
 }
 
-@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-device-pixel-ratio: 2) {
+@media only screen and (min-device-width: 361px) and (max-device-width: 667px) and (-webkit-device-pixel-ratio: 2) {
   html {
     font-size: 30% !important;
   }
 }
 
-@media screen and (max-width: 360px) {
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-device-pixel-ratio: 2) {
   html {
-    font-size: 25% !important;
+    font-size: 30% !important;
   }
 }
 
@@ -103,15 +109,14 @@ body::-webkit-scrollbar {
 
 .section {
   opacity: 1;
+  max-width: 100%;
   padding: 5rem;
   transition: all .5s;
   display: flex;
 }
 
-@media only screen and (max-width: 37.5em) and (-webkit-min-device-pixel-ratio: 2) {
-  .section {
-    padding: 1rem;
-  }
+section {
+  max-width: 100%;
 }
 
 .section--hidden {
@@ -123,7 +128,9 @@ body::-webkit-scrollbar {
   max-width: 210rem;
   background-color: var(--tertiary-color);
   border: 1px solid #615c5c65;
+  flex-direction: column;
   margin: 0 auto;
+  display: flex;
   overflow: hidden;
   box-shadow: 0 2px 8px #63636333;
   margin-top: 0 !important;
@@ -1246,6 +1253,12 @@ iframe {
   right: 10%;
 }
 
+@media only screen and (max-width: 110em) and (-webkit-min-device-pixel-ratio: 2) {
+  .glow, .toggle--label {
+    margin-top: 5%;
+  }
+}
+
 .toggle--label {
   cursor: pointer;
   z-index: 5;
@@ -1260,6 +1273,13 @@ iframe {
   .toggle--label {
     width: 12rem;
     height: 12rem;
+  }
+}
+
+@media only screen and (min-device-width: 23.4375em) and (max-device-width: 41.6875em) and (-webkit-min-device-pixel-ratio: 2) {
+  .toggle--label {
+    width: 10rem;
+    height: 10rem;
   }
 }
 
@@ -1286,8 +1306,15 @@ iframe {
 
 @media only screen and (max-width: 64em) and (-webkit-min-device-pixel-ratio: 2) {
   .glow {
-    width: 15rem;
-    height: 15rem;
+    width: 14rem;
+    height: 14rem;
+  }
+}
+
+@media only screen and (min-device-width: 23.4375em) and (max-device-width: 41.6875em) and (-webkit-min-device-pixel-ratio: 2) {
+  .glow {
+    width: 12rem;
+    height: 12rem;
   }
 }
 
