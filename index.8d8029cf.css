@@ -110,6 +110,7 @@ body::-webkit-scrollbar {
 }
 
 .section {
+  width: 100%;
   opacity: 1;
   padding: 5rem;
   transition: all .5s;
@@ -1479,12 +1480,13 @@ iframe {
 
 .infos {
   height: auto;
+  width: 100%;
   align-items: center;
 }
 
 .border {
   height: auto;
-  width: auto;
+  width: 90%;
   z-index: 0;
   background-image: linear-gradient(60deg, #5f86f2, #a65ff2, #f25fd0, #f25f61, #f2cb5f, #abf25f, #5ff281, #5ff2f0);
   background-position: 0;
@@ -1492,7 +1494,8 @@ iframe {
   background-size: 400% 400%;
   border-radius: 5px;
   grid-template-columns: 1fr;
-  margin: 5rem;
+  place-self: center;
+  margin: 0 auto;
   padding: 1.2rem 0;
   animation: 15s infinite alternate color-border;
   display: grid;
@@ -1509,6 +1512,7 @@ iframe {
   flex-direction: column;
   grid-template-rows: 70% 15% 15%;
   grid-template-columns: 1fr 1fr;
+  align-self: center;
   align-items: center;
   margin: 0 auto;
   padding: 5rem;
