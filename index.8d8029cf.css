@@ -1776,6 +1776,12 @@ ul.share-buttons .sr-only {
   box-shadow: 0 1rem 3rem #02020210;
 }
 
+@media only screen and (max-width: 50em) {
+  .navigation__container {
+    height: 9rem;
+  }
+}
+
 .navigation__container > * {
   width: 33.3vw;
 }
@@ -1821,13 +1827,13 @@ nav input[name="toggle-nav"], nav label[for="toggle-nav"] {
   nav input[name="toggle-nav"], nav label[for="toggle-nav"] {
     width: 30px;
     height: 30px;
-    top: 25%;
+    top: 23%;
   }
 }
 
 @media only screen and (max-width: 22.5em) {
   nav input[name="toggle-nav"], nav label[for="toggle-nav"] {
-    top: 23%;
+    top: 13%;
   }
 }
 
@@ -1835,7 +1841,7 @@ nav input[name="toggle-nav"], nav label[for="toggle-nav"] {
   nav input[name="toggle-nav"], nav label[for="toggle-nav"] {
     width: 25px;
     height: 25px;
-    top: 20%;
+    top: 10%;
   }
 }
 
