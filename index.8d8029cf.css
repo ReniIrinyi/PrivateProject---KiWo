@@ -50,7 +50,7 @@ html {
   }
 }
 
-@media screen and (max-width: 192px) {
+@media screen and (max-width: 196px) {
   html {
     font-size: 15% !important;
   }
@@ -473,7 +473,7 @@ body::-webkit-scrollbar {
 
 @media only screen and (max-width: 64em) {
   .component {
-    width: 80%;
+    width: 90%;
   }
 }
 
@@ -870,7 +870,6 @@ label {
 
 .contacts {
   width: auto;
-  color: var(--secondary-color--dark);
   grid-gap: 2rem;
   grid-template-rows: 1fr;
   grid-template-columns: repeat(3, 1fr);
@@ -890,7 +889,7 @@ label {
 
 .contacts--adresse__header {
   text-transform: uppercase;
-  color: #25252587;
+  color: #fff;
   font-size: 1.8rem;
 }
 
@@ -906,7 +905,7 @@ label {
 
 .contacts--nav-items li a {
   text-transform: uppercase;
-  color: #25252587;
+  color: #fff;
   font-family: Lato, san-serif;
   font-size: 1.7rem;
   font-weight: 700;
@@ -920,7 +919,7 @@ label {
 }
 
 .contacts svg {
-  fill: #25252587;
+  fill: #fff;
   width: 2rem;
   height: 2rem;
   margin-right: 1rem;
@@ -933,8 +932,15 @@ label {
   }
 }
 
+@media only screen and (max-width: 22.5em) {
+  .contacts svg {
+    width: .8rem;
+    height: .8rem;
+  }
+}
+
 .contacts--paragraph-regular {
-  color: #25252587;
+  color: #fff;
   font-family: Lato, san-serif;
   font-size: 1.7rem;
   font-weight: 700;
@@ -947,7 +953,7 @@ label {
 }
 
 .contacts--paragraph-regular a {
-  color: #25252587;
+  color: #fff;
   text-decoration: none;
 }
 
@@ -985,10 +991,9 @@ label {
 
 hr {
   height: 1px;
-  background: #40404065;
+  background: #fff;
   border: none;
   border-radius: 5px;
-  box-shadow: 0 2px 8px #63636333;
 }
 
 .banner-btn--2 {
@@ -1786,6 +1791,13 @@ ul.share-buttons .sr-only {
   align-self: center;
 }
 
+@media only screen and (max-width: 50em) {
+  .navbar-logo img {
+    width: 11rem;
+    height: 11rem;
+  }
+}
+
 nav {
   height: 100%;
   position: relative;
@@ -1804,6 +1816,12 @@ nav input[name="toggle-nav"], nav label[for="toggle-nav"] {
     width: 30px;
     height: 30px;
     top: 25%;
+  }
+}
+
+@media only screen and (max-width: 22.5em) {
+  nav input[name="toggle-nav"], nav label[for="toggle-nav"] {
+    top: 23%;
   }
 }
 
@@ -1837,6 +1855,12 @@ nav label[for="toggle-nav"] {
   border-radius: 10px;
   transition: all .7s;
   display: block;
+}
+
+@media only screen and (max-width: 22.5em) {
+  .menu-icon, .menu-icon:before, .menu-icon:after {
+    height: 2.5px;
+  }
 }
 
 @media only screen and (max-width: 20em) {
@@ -2002,19 +2026,38 @@ input[name="toggle-nav"]:checked + label[for="toggle-nav"] .menu-icon:after {
   width: 100%;
   grid-column: 1 / -1;
   justify-content: flex-end;
-  margin-right: 4rem;
+  margin-right: 2.5rem;
   list-style: none;
   display: flex;
 }
 
+.nav-buttons li {
+  transition: all 1s;
+  margin-left: 2rem !important;
+}
+
 .header-buttons li {
-  margin-left: 1.1rem;
+  margin-left: 0;
   transition: all 1s;
 }
 
 .header-buttons li img {
   width: 4rem;
   height: 4rem;
+}
+
+@media only screen and (max-width: 37.5em) {
+  .header-buttons li img {
+    width: 3rem;
+    height: 3rem;
+  }
+}
+
+@media only screen and (max-width: 22.5em) {
+  .header-buttons li img {
+    width: 2rem;
+    height: 2rem;
+  }
 }
 
 .header-buttons li:hover {
