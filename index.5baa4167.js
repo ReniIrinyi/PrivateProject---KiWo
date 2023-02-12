@@ -616,7 +616,7 @@ var _img8JpgDefault = parcelHelpers.interopDefault(_img8Jpg);
 //     e.preventDefault();
 //     helperContact.classList.toggle("hidden");
 //   });
-//Page Navigation
+// //Page Navigation
 document.querySelector(".nav-items").addEventListener("click", function(e) {
     e.preventDefault();
     if (e.target.classList.contains("slide-out")) {
@@ -627,7 +627,7 @@ document.querySelector(".nav-items").addEventListener("click", function(e) {
     }
 });
 // Sticky Nav
-const navbar = document.querySelector(".navbar");
+const navbar = document.querySelector("nav");
 const navigation = document.querySelector(".navigation__container");
 const home = document.querySelector("#home");
 const doc = document.querySelector("body");
