@@ -157,7 +157,7 @@ body::-webkit-scrollbar {
 
 .header--h1 {
   text-transform: uppercase;
-  letter-spacing: 3.5rem;
+  letter-spacing: 3rem;
   font-family: kimperly-kg, sans-serif;
   font-size: 10rem;
   line-height: 1;
@@ -177,13 +177,13 @@ body::-webkit-scrollbar {
 
 @media only screen and (max-width: 37.5em) {
   .header--h1 {
-    letter-spacing: 2.5rem;
+    letter-spacing: 2rem;
   }
 }
 
 @media only screen and (max-width: 30em) {
   .header--h1 {
-    letter-spacing: 2rem;
+    letter-spacing: 1.6rem;
     font-size: 4rem;
   }
 }
@@ -199,7 +199,7 @@ body::-webkit-scrollbar {
 }
 
 .header--h2__big {
-  letter-spacing: 1.5rem;
+  letter-spacing: 1.1rem;
   margin-bottom: 5rem;
   font-family: kimperly-kg, sans-serif;
   font-size: 4rem;
@@ -215,7 +215,7 @@ body::-webkit-scrollbar {
 
 @media only screen and (max-width: 51.25em) {
   .header--h2__big {
-    letter-spacing: 1rem;
+    letter-spacing: .8rem;
     margin-bottom: 2.5rem;
     font-size: 2.4rem;
   }
@@ -223,7 +223,7 @@ body::-webkit-scrollbar {
 
 @media only screen and (max-width: 37.5em) {
   .header--h2__big {
-    letter-spacing: 1rem;
+    letter-spacing: .7rem;
     margin-bottom: 1rem;
     font-size: 2rem;
   }
@@ -231,14 +231,14 @@ body::-webkit-scrollbar {
 
 @media only screen and (max-width: 30em) {
   .header--h2__big {
-    letter-spacing: .8rem;
+    letter-spacing: .6rem;
     font-size: 1.6rem;
   }
 }
 
 @media only screen and (max-width: 22.5em) {
   .header--h2__big {
-    letter-spacing: .7rem;
+    letter-spacing: .4rem;
     font-size: 1.6rem;
   }
 }
@@ -251,7 +251,7 @@ body::-webkit-scrollbar {
 
 .header--h2 {
   text-transform: uppercase;
-  letter-spacing: 1rem;
+  letter-spacing: .7rem;
   margin-top: 1rem;
   margin-bottom: 3rem;
   font-family: Lato, san-serif;
@@ -261,10 +261,28 @@ body::-webkit-scrollbar {
 
 .header--h3 {
   text-transform: uppercase;
-  letter-spacing: 1rem;
+  letter-spacing: .7rem;
   margin-bottom: 3rem;
   font-size: 2.2rem;
   font-weight: 400;
+}
+
+@media only screen and (max-width: 75em) {
+  .header--h3 {
+    margin-bottom: 2rem;
+  }
+}
+
+@media only screen and (max-width: 51.25em) {
+  .header--h3 {
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media only screen and (max-width: 37.5em) {
+  .header--h3 {
+    margin-bottom: 1rem;
+  }
 }
 
 .header--h5 {
@@ -275,7 +293,7 @@ body::-webkit-scrollbar {
 }
 
 .header--h5--small {
-  letter-spacing: .6rem;
+  letter-spacing: .5rem;
   margin-top: 2rem;
   margin-bottom: 1rem;
   font-size: 1.8rem;
@@ -285,16 +303,16 @@ body::-webkit-scrollbar {
   margin-bottom: 3rem;
   font-size: 1.8rem;
   font-weight: 400;
-  line-height: 1.2;
+  line-height: 1.1;
   font-family: Lato, san-serif !important;
 }
 
 .paragraph-regular__copy {
-  letter-spacing: .4rem;
+  letter-spacing: .3rem;
   margin-left: 1rem;
   margin-right: 1rem;
-  font-size: 1.3rem;
-  line-height: 1.5;
+  font-size: 1.2rem;
+  line-height: 1.3;
 }
 
 .paragraph-regular__small {
@@ -1013,6 +1031,27 @@ hr {
   transition: all 1s;
 }
 
+@media only screen and (max-width: 75em) {
+  .banner-btn--2 {
+    padding: 2rem;
+    font-size: 1.2rem;
+  }
+}
+
+@media only screen and (max-width: 51.25em) {
+  .banner-btn--2 {
+    padding: 1.6rem;
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (max-width: 37.5em) {
+  .banner-btn--2 {
+    border-radius: 2.5px;
+    padding: 1.5rem;
+  }
+}
+
 .banner-btn--2:hover {
   box-shadow: 0 0 0 0 var(--color8), inset 6em 3.5em 0 0 var(--color1);
 }
@@ -1218,6 +1257,7 @@ iframe {
 }
 
 #home {
+  max-width: 210rem;
   height: auto;
   grid-template-rows: 1fr 90%;
   grid-template-columns: 1fr;
@@ -1236,13 +1276,8 @@ iframe {
   height: 110%;
   grid-area: 2 / 1 / -2 / -1;
   align-self: center;
+  margin-top: -2%;
   display: flex;
-}
-
-@media only screen and (max-width: 110em) {
-  .bg-video__content {
-    margin-top: -2%;
-  }
 }
 
 .hiddenClass {
@@ -1260,26 +1295,8 @@ iframe {
   top: 50%;
 }
 
-@media only screen and (max-width: 110em) {
-  .text-area {
-    width: 80%;
-  }
-}
-
-@media only screen and (max-width: 30em) {
-  .text-area {
-    top: 60%;
-  }
-}
-
 .banner-btn-container {
   display: flex;
-}
-
-@media only screen and (max-width: 37.5em) {
-  .banner-btn-container {
-    height: 4.5rem;
-  }
 }
 
 .banner-btn {
@@ -1298,18 +1315,34 @@ iframe {
   text-decoration: none;
 }
 
-@media only screen and (max-width: 51.25em) {
+@media only screen and (max-width: 75em) {
   .banner-btn {
     padding: 2rem;
     font-size: 1.2rem;
   }
 }
 
+@media only screen and (max-width: 51.25em) {
+  .banner-btn {
+    padding: 1.6rem;
+    font-size: 1rem;
+  }
+}
+
 @media only screen and (max-width: 37.5em) {
   .banner-btn {
-    letter-spacing: .4rem;
-    padding: 1.7rem;
-    font-size: 1.1rem;
+    letter-spacing: .3rem;
+    border-radius: 2.5px;
+    padding: 1.5rem;
+    font-size: .8rem;
+  }
+}
+
+@media only screen and (max-width: 22.5em) {
+  .banner-btn {
+    letter-spacing: .2rem;
+    border-radius: 1.2px;
+    padding: 1.1rem;
   }
 }
 
@@ -1331,27 +1364,15 @@ iframe {
   transition: all .35s ease-in;
   display: flex;
   position: absolute;
-  top: 20%;
+  top: 30%;
   right: 10%;
-}
-
-@media only screen and (max-width: 75em) {
-  .glow, .toggle--label {
-    top: 25%;
-  }
-}
-
-@media only screen and (max-width: 30em) {
-  .glow, .toggle--label {
-    top: 30%;
-  }
 }
 
 .toggle--label {
   cursor: pointer;
   z-index: 5;
-  width: 15rem;
-  height: 15rem;
+  width: 14rem;
+  height: 14rem;
   border: 1px solid var(--yellow-border);
   background: var(--yellow-background);
   border-radius: 82px;
@@ -1359,29 +1380,15 @@ iframe {
 
 @media only screen and (max-width: 64em) {
   .toggle--label {
-    width: 12rem;
-    height: 12rem;
-  }
-}
-
-@media only screen and (max-width: 40em) {
-  .toggle--label {
     width: 10rem;
     height: 10rem;
   }
 }
 
-@media only screen and (max-width: 30em) {
+@media only screen and (max-width: 40em) {
   .toggle--label {
-    width: 8rem;
-    height: 8rem;
-  }
-}
-
-@media only screen and (max-width: 22.5em) {
-  .toggle--label {
-    width: 6rem;
-    height: 6rem;
+    width: 9rem;
+    height: 9rem;
   }
 }
 
@@ -1728,6 +1735,7 @@ ul.share-buttons .sr-only {
   position: fixed;
   top: 0;
   right: 0;
+  max-width: 100% !important;
 }
 
 .nav-main {
@@ -1767,6 +1775,7 @@ ul.share-buttons .sr-only {
 
 .navigation__container {
   z-index: 20000;
+  max-width: 210rem;
   height: 11rem;
   background-color: var(--white);
   flex-direction: row;
