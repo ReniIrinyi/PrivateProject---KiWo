@@ -356,7 +356,7 @@ body::-webkit-scrollbar {
 }
 
 .highligted-bunt {
-  background-image: linear-gradient(60deg, #5f86f2, #a65ff2, #f25fd0, #f25f61, #f2cb5f, #abf25f, #5ff281, #5ff2f0);
+  background-image: linear-gradient(60deg, #5f86f2, #a65ff2, #f25fd0, #f25f61, #ceac50, #93d053, #4bc367, #4fc4c2);
   -webkit-background-clip: text;
   color: #0000;
 }
@@ -1607,7 +1607,7 @@ ul.share-buttons .sr-only {
 
 .share-buttons li {
   margin-left: 3rem;
-  transition: all .15s;
+  transition: all .1s;
 }
 
 .share-buttons li img {
