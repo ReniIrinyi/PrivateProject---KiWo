@@ -562,35 +562,7 @@ let t = document.getElementById("name");
 let email = document.getElementById("email");
 let n = document.getElementById("message");
 const status = document.getElementById("status");
-//
-// e.addEventListener("submit", (e) => {
-//   e.preventDefault(), console.log("submitted");
-//   let l = {
-//       name: t.value,
-//       email: email.value,
-//       subject: "neue Anmeldung",
-//       message: n.value,
-//     },
-//     o = new XMLHttpRequest();
-//   o.open("POST", "/"),
-//     o.setRequestHeader("content-type", "application/json"),
-//     (o.onload = function () {
-//       console.log(o.responseText),
-//         "sucess" == o.responseText
-//           ? ((status.innerHTML =
-//               "Vielen Dank für Ihre Nachricht. Wir werden Sie in Kürze kontaktieren!"),
-//             (t.value = ""),
-//             (email.value = ""),
-//             (n.value = ""))
-//           : (status.innerHTML =
-//               "Oops! Es gab ein Problem beim Absenden Ihres Formulars. Bitte versuchen Sie es erneut!");
-//     }),
-//     o.send(JSON.stringify(l));
-// });
-//
-//
 (function() {
-    // get all data in form and return object
     function getFormData(form) {
         var elements = form.elements;
         var honeypot;
@@ -610,7 +582,6 @@ const status = document.getElementById("status");
         var formData = {};
         fields.forEach(function(name) {
             var element = elements[name];
-            // singular form elements just have one value
             formData[name] = element.value;
             // when our element has multiple items, get their values
             if (element.length) {

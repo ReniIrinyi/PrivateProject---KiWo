@@ -739,6 +739,11 @@ let images = [
         src: (0, _img7JpgDefault.default),
         caption: "",
         info: ""
+    },
+    {
+        src: (0, _img8JpgDefault.default),
+        caption: "",
+        info: ""
     }
 ];
 for(let i = 1; i < images.length; i++){
