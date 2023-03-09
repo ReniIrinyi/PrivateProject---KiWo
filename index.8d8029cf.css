@@ -384,6 +384,12 @@ body::-webkit-scrollbar {
   font-size: 1.8rem;
 }
 
+@media only screen and (max-width: 64em) {
+  .p-last {
+    margin-bottom: 0 !important;
+  }
+}
+
 .paragraph-regular {
   margin-bottom: 3rem;
   font-size: 1.8rem;
@@ -1326,10 +1332,10 @@ iframe {
   }
 }
 
-@media only screen and (max-width: 20em) {
+@media only screen and (max-width: 26.75em) {
   .gallery {
     max-height: 50rem;
-    width: 90%;
+    width: 98%;
   }
 }
 
@@ -1505,6 +1511,12 @@ iframe {
   }
 }
 
+@media only screen and (max-width: 26.75em) {
+  .border {
+    width: 98%;
+  }
+}
+
 .infos-content {
   text-align: center;
   width: 98%;
@@ -1530,7 +1542,8 @@ iframe {
 
 @media only screen and (max-width: 64em) {
   .infos-content {
-    padding: 3rem;
+    grid-gap: 1rem;
+    padding: 2rem;
   }
 }
 
