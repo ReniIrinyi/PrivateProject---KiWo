@@ -612,12 +612,20 @@ const doc = document.querySelector("body");
 const navHeight = navbar.getBoundingClientRect().height;
 const callback = function(entries) {
     const [entry] = entries;
-    if (!entry.isIntersecting) navigation.classList.add("sticky");
-    else navigation.classList.remove("sticky");
+    if (!entry.isIntersecting) {
+        navigation.classList.add("sticky");
+        home.classList.add("plusmargin");
+        home.classList.remove("nomargin");
+        document.querySelector("bg-video").classList.remove("minusmargin");
+    } else {
+        navigation.classList.remove("sticky");
+        home.classList.remove("plusmargin");
+        home.classList.add("nomargin");
+    }
 };
 const observer = new IntersectionObserver(callback, {
     root: null,
-    threshold: 0.05,
+    threshold: 0.01,
     rootMargin: `-${navHeight}px`
 });
 observer.observe(home);

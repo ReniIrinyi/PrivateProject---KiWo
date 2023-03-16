@@ -651,20 +651,8 @@ body::-webkit-scrollbar {
   left: 10%;
 }
 
-@media only screen and (max-width: 64em) {
-  .slider-btn--left {
-    left: 1%;
-  }
-}
-
 .slider-btn--right {
   right: 10%;
-}
-
-@media only screen and (max-width: 64em) {
-  .slider-btn--right {
-    right: 1%;
-  }
 }
 
 .slider-dots {
@@ -704,13 +692,7 @@ body::-webkit-scrollbar {
 
 @media only screen and (max-width: 64em) {
   .component {
-    width: 70%;
-  }
-}
-
-@media only screen and (max-width: 26.75em) {
-  .component {
-    width: 80%;
+    width: 90%;
   }
 }
 
@@ -749,6 +731,7 @@ body::-webkit-scrollbar {
 @media only screen and (max-width: 64em) {
   .components {
     height: 90%;
+    width: 50%;
   }
 }
 
@@ -1447,7 +1430,24 @@ iframe {
   grid-template-columns: 1fr;
   display: grid;
   position: relative;
+}
+
+.nomargin {
   margin-top: 0 !important;
+}
+
+.plusmargin {
+  margin-top: 11rem !important;
+}
+
+@media only screen and (max-width: 50em) {
+  .plusmargin {
+    margin-top: 9rem !important;
+  }
+}
+
+.minusmargin {
+  margin-top: -2%;
 }
 
 .bg-video {
@@ -1460,7 +1460,6 @@ iframe {
   height: 110%;
   grid-area: 2 / 1 / -2 / -1;
   align-self: center;
-  margin-top: -2%;
   display: flex;
 }
 
@@ -1738,6 +1737,8 @@ iframe {
 
 nav {
   height: 100%;
+  justify-tracks: center;
+  display: flex;
   position: relative;
 }
 
@@ -1751,23 +1752,15 @@ nav input[name="toggle-nav"], nav label[for="toggle-nav"] {
 
 @media only screen and (max-width: 50em) {
   nav input[name="toggle-nav"], nav label[for="toggle-nav"] {
-    width: 30px;
-    height: 30px;
-    top: 23%;
+    width: 25px;
+    height: 25px;
   }
 }
 
 @media only screen and (max-width: 31em) {
   nav input[name="toggle-nav"], nav label[for="toggle-nav"] {
-    top: 13%;
-  }
-}
-
-@media only screen and (max-width: 20em) {
-  nav input[name="toggle-nav"], nav label[for="toggle-nav"] {
-    width: 25px;
-    height: 25px;
-    top: 10%;
+    width: 20px;
+    height: 23px;
   }
 }
 
@@ -1786,30 +1779,34 @@ nav label[for="toggle-nav"] {
   display: flex;
 }
 
+@media only screen and (max-width: 31em) {
+  nav label[for="toggle-nav"] {
+    transform: translateY(-10%);
+  }
+}
+
+@media only screen and (max-width: 25.875em) {
+  nav label[for="toggle-nav"] {
+    transform: translateY(-20%);
+  }
+}
+
+input[name="toggle-nav"]:checked ~ label[for="toggle-nav"] {
+  top: 50%;
+}
+
 .menu-icon, .menu-icon:before, .menu-icon:after {
   width: 100%;
   height: 3px;
   background-color: var(--secondary-color--dark);
   border-radius: 10px;
-  transition: all .5s;
+  transition: all .2s ease-out;
   display: block;
 }
 
-@media only screen and (max-width: 31em) {
-  .menu-icon, .menu-icon:before, .menu-icon:after {
-    height: 2.5px;
-  }
-}
-
-@media only screen and (max-width: 20em) {
+@media only screen and (max-width: 50em) {
   .menu-icon, .menu-icon:before, .menu-icon:after {
     height: 2px;
-  }
-}
-
-@media only screen and (max-width: 17em) {
-  .menu-icon, .menu-icon:before, .menu-icon:after {
-    height: 1px;
   }
 }
 
@@ -1845,19 +1842,13 @@ input[name="toggle-nav"]:checked + label[for="toggle-nav"] .menu-icon:before {
 
 @media only screen and (max-width: 50em) {
   input[name="toggle-nav"]:checked + label[for="toggle-nav"] .menu-icon:before {
-    top: 11px;
-  }
-}
-
-@media only screen and (max-width: 20em) {
-  input[name="toggle-nav"]:checked + label[for="toggle-nav"] .menu-icon:before {
     top: 7px;
   }
 }
 
-@media only screen and (max-width: 17em) {
+@media only screen and (max-width: 31em) {
   input[name="toggle-nav"]:checked + label[for="toggle-nav"] .menu-icon:before {
-    top: 8px;
+    top: 5px;
   }
 }
 
