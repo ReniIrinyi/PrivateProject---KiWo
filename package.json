@@ -1,0 +1,32 @@
+{
+  "name": "kiwo",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "staticFiles": {
+    "staticPath": "source"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ReniIrinyi/KiWo.git"
+  },
+  "author": "reniirinyi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ReniIrinyi/KiWo/issues"
+  },
+  "homepage": "https://github.com/ReniIrinyi/KiWo#readme",
+  "dependencies": {
+    "@parcel/transformer-sass": "^2.8.2",
+    "jquery": "^3.6.3",
+    "jquery-ui-dist": "^1.13.2",
+    "parcel": "^2.8.3",
+    "sass": "^1.57.1"
+  },
+  "devDependencies": {
+    "parcel-plugin-static-files-copy": "^2.6.0"
+  }
+}
