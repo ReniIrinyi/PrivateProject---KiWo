@@ -1,0 +1,46 @@
+/* ------------------------ Home ------------------------ */
+#home {
+  display: grid;
+  max-width: 210rem;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 90%;
+  position: relative;
+  height: auto;
+}
+.nomargin {
+  margin-top: 0px !important;
+}
+.plusmargin {
+  margin-top: 11rem !important;
+  @include respond(SamsungGalaxyTab3) {
+    margin-top: 9rem !important;
+  }
+}
+.minusmargin {
+  margin-top: -3%;
+}
+.bg-video {
+  display: flex;
+  justify-items: stretch;
+  align-items: stretch;
+}
+.bg-video__content {
+  display: flex;
+  align-self: center;
+  grid-row: 2/-2;
+  grid-column: 1/-1;
+  width: 110%;
+  height: 110%;
+}
+
+.text-area {
+  top: 50%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  justify-self: center;
+  text-align: center;
+  align-items: center;
+  z-index: 1000;
+}
