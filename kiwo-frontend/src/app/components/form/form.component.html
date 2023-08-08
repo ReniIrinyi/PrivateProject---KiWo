@@ -86,8 +86,17 @@
             Löschen
           </button>
         </div>
+        <div *ngIf="showStatus" class="status">
+          <p *ngIf="serverStatus">
+            Vielen Dank für deine Nachricht. Wir werden dich in Kürze
+            kontaktieren!
+          </p>
+          <p *ngIf="!serverStatus">
+            Oops! Es gab ein Problem beim Absenden deines Formulars. Bitte
+            versuche es erneut!
+          </p>
+        </div>
       </div>
-      <div id="status"></div>
     </div>
   </div>
 </form>

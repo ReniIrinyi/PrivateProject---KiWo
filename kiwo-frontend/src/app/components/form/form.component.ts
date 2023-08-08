@@ -20,6 +20,8 @@ export class FormComponent implements OnInit {
   daysArray: any[] = [];
   optionsArray: any[] = [];
   signaturePad: SignaturePad | undefined;
+  serverStatus: boolean = false;
+  showStatus: boolean = false;
 
   constructor(
     private fb: FormBuilder,
@@ -37,12 +39,13 @@ export class FormComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       telefon: ['', Validators.required],
       nachricht: ['', Validators.required],
+      montag: [false],
       dienstag: [false],
       mittwoch: [false],
       donnerstag: [false],
       freitag: [false],
       fahrdienst: ['Ja', Validators.required],
-      zvieriDienstag: ['Ja', Validators.required],
+      zvieri: ['Ja', Validators.required],
       fotosErlaubnis: ['Ja', Validators.required],
       verbindlich: [false, Validators.required],
       signature: [''],
@@ -104,7 +107,23 @@ export class FormComponent implements OnInit {
       const formData = new FormData();
       formData.append('anmeldung', this.form.value.anmeldung);
       formData.append('name', this.form.value.name);
-      // ... (add other form values)
+      formData.append('vorname', this.form.value.vorname);
+      formData.append('geburtsdatum', this.form.value.geburtsdatum);
+      formData.append('klasse', this.form.value.klasse);
+      formData.append('anschrift', this.form.value.anschrift);
+      formData.append('wohnort', this.form.value.wohnort);
+      formData.append('email', this.form.value.email);
+      formData.append('telefon', this.form.value.telefon);
+      formData.append('nachricht', this.form.value.nachricht);
+      formData.append('montag', this.form.value.montag);
+      formData.append('dienstag', this.form.value.dienstag);
+      formData.append('mittwoch', this.form.value.mittwoch);
+      formData.append('donnerstag', this.form.value.donnerstag);
+      formData.append('freitag', this.form.value.freitag);
+      formData.append('fahrdienst', this.form.value.fahrdienst);
+      formData.append('zvieri', this.form.value.zvieri);
+      formData.append('fotosErlaubnis', this.form.value.fotosErlaubnis);
+      formData.append('verbindlich', this.form.value.verbindlich);
 
       // Append the signature file to the formData
       formData.append('signature', signatureFile);
@@ -112,11 +131,13 @@ export class FormComponent implements OnInit {
       // Send the formData to the server
       this.http.post('your-server-endpoint', formData).subscribe(
         (response) => {
-          // Handle response from the server
+          this.serverStatus = true;
+          this.showStatus = true;
           console.log('Form data submitted successfully:', response);
         },
         (error) => {
-          // Handle error if the request fails
+          this.serverStatus = false;
+          this.showStatus = true;
           console.error('Error submitting form data:', error);
         }
       );

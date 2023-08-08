@@ -85,10 +85,20 @@ canvas {
 .submit-btn {
   @include btn(#ff4081);
 }
+.submit-btn:disabled {
+  @include btn(rgba(204, 143, 164, 0.875));
+
+  &:hover {
+    cursor: not-allowed;
+  }
+}
 .clear-btn {
   margin-left: 0.5rem;
   @include btn(#f44336);
 }
 .btn:hover {
   @include btn-hover;
+}
+.status {
+  margin-top: 2rem;
 }
