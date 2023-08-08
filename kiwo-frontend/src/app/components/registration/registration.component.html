@@ -1,1 +1,7 @@
-<app-form></app-form>
+<div class="form-container" *ngIf="appdata">
+  <h3>Melde dich noch heute an!</h3>
+  <h2>{{ appdata.registration }}</h2>
+  <hr />
+  <app-form></app-form>
+  <hr />
+</div>

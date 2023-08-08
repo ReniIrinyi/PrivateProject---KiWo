@@ -30,6 +30,7 @@ ul {
     display: flex;
     justify-self: center;
     @include font-p-small;
+    font-weight: 500;
 
     @include respond(large-phone, landscape) {
       padding-top: 0;
@@ -45,7 +46,7 @@ ul {
     }
   }
   li a:hover {
-    transform: scale(1.05);
+    color: #ff4081;
   }
 
   & li {

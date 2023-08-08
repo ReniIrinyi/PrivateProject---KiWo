@@ -117,9 +117,9 @@
   @include font-p-small;
   text-transform: uppercase;
   text-decoration: none;
-  border: 0.5px solid rgba(58, 57, 57, 0.397);
+  border: 0.2px solid rgba(58, 57, 57, 0.397);
   background-color: transparent;
-  box-shadow: 0.3em 0.3em 0 0 var(--color8), inset 0.3em 0.3em 0 0 var(--color5);
+  box-shadow: 3px 3px 0 0 #f2ff35, inset 3px 3px 0 0 #f25fd0;
   border-radius: 5px;
   z-index: 1000;
   transition: all 1s;
@@ -127,21 +127,25 @@
 }
 
 @mixin banner-btn-hover {
-  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.5), inset 6em 5em 0 0 $purple;
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.5), inset 60px 50px 0 0 $purple;
   color: $sand-dark;
 }
 
-@mixin contact-btn {
-  font-size: 1.4rem !important;
-  padding: 1.3rem 2.3rem !important;
+@mixin btn($color) {
+  transition: all 0.5s;
   border-radius: 5px;
-  background-color: transparent;
-  color: var(--secondary-color--dark);
-  box-shadow: 0.3em 0.3em 0 0 var(--color8), inset 0.3em 0.3em 0 0 var(--color1) !important;
+  background-color: $color;
+  color: #fff !important;
+  padding: 1rem;
+  @include font-p-small;
+  font-weight: 400 !important;
+  letter-spacing: 1.2px;
+  border: none;
+  box-shadow: none;
 }
-@mixin contact-btn-hover {
-  color: var(--secondary-color--dark) !important;
-  box-shadow: 0 0 0 0 var(--color8), inset 6em 3.5em 0 0 var(--color1) !important;
+
+@mixin btn-hover {
+  filter: brightness(1.05);
 }
 @mixin text-btn {
   text-transform: uppercase;

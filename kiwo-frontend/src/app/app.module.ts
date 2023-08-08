@@ -17,6 +17,12 @@ import { RegistrationComponent } from './components/registration/registration.co
 import { LinksComponent } from './components/links/links.component';
 import { ShareLinksComponent } from './components/share-links/share-links.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSelectModule } from '@angular/material/select';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 @NgModule({
   declarations: [
@@ -41,6 +47,12 @@ import { ContactComponent } from './components/contact/contact.component';
     ReactiveFormsModule,
     HttpClientModule,
     FontAwesomeModule,
+    BrowserAnimationsModule,
+    MatSelectModule,
+    MatCheckboxModule,
+    MatNativeDateModule,
+    MatInputModule,
+    MatDatepickerModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

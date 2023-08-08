@@ -11,6 +11,7 @@ import { DataService } from 'src/app/service/DataService';
 })
 export class FormComponent implements OnInit {
   form: FormGroup;
+  selectArray: any = ['ja', 'nein', ''];
   appdata: any = [];
   labels: any;
   days: any;

@@ -20,8 +20,8 @@
     align-self: center;
     height: 2rem;
     width: 2rem;
-    fill: $red;
-    color: $black;
+    fill: #ff4081;
+    color: #fff;
   }
 
   & a {
@@ -30,6 +30,6 @@
     transition: all 1s;
   }
   & a:hover {
-    transform: scale(1.05);
+    color: $blue;
   }
 }
