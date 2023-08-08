@@ -1,0 +1,101 @@
+<div class="form-container" *ngIf="appdata">
+  <h1>Melde dich noch heute an!</h1>
+  <p>{{ appdata.registration }}</p>
+  <hr />
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-left">
+      <div class="form-input-container" *ngFor="let label of labelsArray">
+        <label [for]="label" class="form-input-label">{{ label }}</label>
+        <ng-container [ngSwitch]="label">
+          <input
+            *ngSwitchCase="'Geburtsdatum'"
+            [id]="label"
+            type="date"
+            [formControlName]="label"
+            class="form-input"
+            [placeholder]="label"
+            required
+          />
+          <textarea
+            *ngSwitchCase="'Nachricht'"
+            [id]="label"
+            [formControlName]="label"
+            class="form-input"
+            [placeholder]="label"
+            required
+          ></textarea>
+          <input
+            *ngSwitchDefault
+            [id]="label"
+            type="text"
+            [formControlName]="label"
+            class="form-input"
+            [placeholder]="label"
+            required
+          />
+        </ng-container>
+      </div>
+    </div>
+
+    <div class="form-right">
+      <div class="checkbox-container">
+        <p>Ich kann an einem oder mehreren Halbtagen mithelfen:</p>
+        <div class="form-check-container" *ngFor="let day of daysArray">
+          <label for="toggle-{{ day }}" class="form-check-label"></label>
+          <input
+            id="toggle-{{ day }}"
+            type="checkbox"
+            class="form-check"
+            name="Tag:"
+            value="{{ day }}"
+          />
+          <p>{{ day }}</p>
+        </div>
+
+        <div
+          class="form-option"
+          *ngFor="let option of optionsArray; let i = index"
+        >
+          <label for="option-{{ i }}">{{ option }} </label>
+          <select
+            id="option-{{ i }}"
+            name="option-{{ i }}"
+            class="option"
+            required
+          >
+            <option value="Ja">Ja</option>
+            <option value="Nein">Nein</option>
+            <option value=""></option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-validator">
+        <div class="conditions">
+          <label for="accept-conditions"></label>
+          <input
+            id="accept-conditions"
+            type="checkbox"
+            formControlName="verbindlich"
+          />
+          <p>
+            Ich habe die Bedingungen zur Kenntnis genommen und bin damit
+            einverstanden.
+          </p>
+        </div>
+        <div class="signature">
+          <p>
+            Wir weisen darauf hin, dass die Anmeldung verbindlich ist. Bitte
+            bestätige die Richtigkeit der Angaben mit deiner Unterschrift.
+          </p>
+          <canvas id="signatureCanvas" #signatureCanvas></canvas>
+          <button type="button" (click)="clearSignature()">Löschen</button>
+        </div>
+        <button class="submit-btn" type="submit" [disabled]="!form.valid">
+          Absenden
+        </button>
+        <div id="status"></div>
+      </div>
+    </div>
+  </form>
+</div>

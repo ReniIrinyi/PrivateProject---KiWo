@@ -1,0 +1,85 @@
+@import "../../../styles.scss";
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  justify-content: space-between;
+}
+
+ul {
+  display: flex;
+  align-items: center;
+  padding-top: 10rem;
+  flex-direction: column;
+  @include respond(large-phone, landscape) {
+    padding-top: 0;
+    flex-direction: row;
+  }
+  @include respond(tablet) {
+    padding-top: 0;
+    flex-direction: row;
+  }
+  @include respond(desktop) {
+    padding-top: 0;
+    flex-direction: row;
+  }
+
+  & li a {
+    position: relative;
+    display: flex;
+    justify-self: center;
+    @include font-p-small;
+
+    @include respond(large-phone, landscape) {
+      padding-top: 0;
+      flex-direction: row;
+    }
+    @include respond(tablet) {
+      padding-top: 0;
+      flex-direction: row;
+    }
+    @include respond(desktop) {
+      padding-top: 0;
+      flex-direction: row;
+    }
+  }
+  li a:hover {
+    transform: scale(1.05);
+  }
+
+  & li {
+    display: flex;
+  }
+  & li:not(:nth-of-type(1)) {
+    padding-left: 4rem;
+
+    @include respond(small-phone) {
+      padding-top: 2rem;
+      padding-left: 0;
+    }
+    @include respond(small-phone, landscape) {
+      padding-top: 2rem;
+      padding-left: 0;
+    }
+    @include respond(medium-phone) {
+      padding-top: 2rem;
+      padding-left: 0;
+    }
+    @include respond(large-phone) {
+      padding-top: 2rem;
+      padding-left: 0;
+    }
+  }
+
+  & a {
+    transition: all 0.5s;
+    text-decoration: none;
+  }
+}
+
+.share-buttons {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 3rem;
+}

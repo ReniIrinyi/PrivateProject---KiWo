@@ -1,0 +1,30 @@
+<div class="gallery">
+  <div class="gallery__container">
+    <div class="main-image-section" id="gallery">
+      <img
+        *ngFor="let img of randomImgs; let i = index"
+        id="main-view"
+        class="main-view"
+        alt="Pictures from KIWO"
+        src="{{ img }}"
+        [style.opacity]="i === currentIndex ? opacity : 0"
+        [style.z-index]="i === currentIndex ? 1 : 0"
+        [hidden]="i !== currentIndex"
+        [style.transition-duration]="transitionDuration / 1000 + 's'"
+      />
+
+      <div class="caption-container">
+        <div id="caption">This is the caption</div>
+        <div id="info">This is info message</div>
+      </div>
+    </div>
+    <div id="thumbnails" class="thumbnails">
+      <img
+        *ngFor="let img of randomImgs; let i = index"
+        src="{{ img }}"
+        alt=""
+        (click)="changeImgOnClick(i)"
+      />
+    </div>
+  </div>
+</div>

@@ -1,0 +1,164 @@
+//LAYOUTS
+@mixin container {
+  margin-top: 0 !important;
+  margin: 0 auto;
+  max-width: 210rem;
+  overflow: hidden;
+  background-color: var(--tertiary-color);
+  border: 1px solid rgba(97, 92, 92, 0.397);
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+@mixin linkColumn {
+  display: flex;
+  flex-direction: column;
+  background-color: #fffffff5;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  width: 50%;
+  position: absolute;
+  box-shadow: rgba(78, 78, 86, 0.313) 0px 7px 29px 0px;
+}
+
+@mixin section {
+  display: flex;
+  padding: 5rem;
+  width: 100%;
+  transition: all 0.2s;
+  opacity: 1;
+}
+
+//FONTS
+@font-face {
+  font-display: swap;
+  font-family: kimperly-kg;
+  src: url(../assets/fonts/kimberly-geswein_kg-onlyhope/KGOnlyHope.ttf);
+  font-weight: 600;
+}
+@font-face {
+  font-display: swap;
+  font-family: chubby;
+  src: url(../assets/fonts/chubby-dotty/ChubbyDotty.ttf);
+}
+
+@mixin font-h1-home {
+  color: inherit;
+  font-family: kimperly-kg, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1rem;
+  font-size: 2.6rem;
+  line-height: 1;
+  background-image: linear-gradient(
+    60deg,
+    #5f86f2,
+    #a65ff2,
+    #f25fd0,
+    #f25f61,
+    #ceac50,
+    #93d053,
+    #4bc367,
+    #4fc4c2
+  );
+  -webkit-background-clip: text;
+  color: #0000;
+}
+@mixin font-h1 {
+  color: inherit;
+  font-family: kimperly-kg, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.5rem;
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+@mixin font-h2-home {
+  color: inherit;
+  font-family: kimperly-kg, sans-serif;
+  font-weight: 400;
+  font-size: 0.8rem;
+  letter-spacing: 4px;
+  line-height: 1.5;
+}
+@mixin font-h2 {
+  color: inherit;
+  font-family: inherit;
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 1.2;
+  letter-spacing: normal;
+}
+@mixin font-h3 {
+  color: inherit;
+  font-family: inherit;
+  font-weight: 300;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+}
+@mixin font-p {
+  color: inherit;
+  font-family: inherit;
+  font-weight: 300;
+  font-size: 1.2rem;
+  line-height: 1.3;
+}
+
+@mixin font-p-small {
+  color: inherit;
+  font-family: inherit;
+  font-weight: 300;
+  font-size: 0.8rem;
+  line-height: 1.1;
+  letter-spacing: 1px;
+}
+
+//BUTTONS
+@mixin banner-btn {
+  cursor: pointer;
+  @include font-p-small;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 0.5px solid rgba(58, 57, 57, 0.397);
+  background-color: transparent;
+  box-shadow: 0.3em 0.3em 0 0 var(--color8), inset 0.3em 0.3em 0 0 var(--color5);
+  border-radius: 5px;
+  z-index: 1000;
+  transition: all 1s;
+  padding: 1rem;
+}
+
+@mixin banner-btn-hover {
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.5), inset 6em 5em 0 0 $purple;
+  color: $sand-dark;
+}
+
+@mixin contact-btn {
+  font-size: 1.4rem !important;
+  padding: 1.3rem 2.3rem !important;
+  border-radius: 5px;
+  background-color: transparent;
+  color: var(--secondary-color--dark);
+  box-shadow: 0.3em 0.3em 0 0 var(--color8), inset 0.3em 0.3em 0 0 var(--color1) !important;
+}
+@mixin contact-btn-hover {
+  color: var(--secondary-color--dark) !important;
+  box-shadow: 0 0 0 0 var(--color8), inset 6em 3.5em 0 0 var(--color1) !important;
+}
+@mixin text-btn {
+  text-transform: uppercase;
+  transition: all 0.5s;
+  text-decoration: none;
+  @include font-p-small;
+}
+@mixin btn-text-hover {
+  transform: scale(1.05);
+  color: #5f86f2;
+}
+@mixin btn-social {
+  display: flex;
+  align-self: center;
+  justify-self: center;
+  width: 3rem;
+  height: 3rem;
+  fill: var(--secondary-color--dark);
+  color: vr(--secondary-color--dark);
+}

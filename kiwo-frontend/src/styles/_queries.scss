@@ -1,0 +1,62 @@
+/*========================
+MEDIA QUERIES
+========================*/
+@mixin respond($breakpoint, $orientation: portrait) {
+  @if $breakpoint == small-phone {
+    @if $orientation == portrait {
+      @media only screen and (max-width: 30em) and (orientation: portrait) {
+        @content;
+      }
+    } @else if $orientation == landscape {
+      @media only screen and (max-height: 30em) and (orientation: landscape) {
+        @content;
+      }
+    } @else {
+      @error "Invalid orientation: #{$orientation}.";
+    }
+  } @else if $breakpoint == medium-phone {
+    @if $orientation == portrait {
+      @media only screen and (min-width: 30.063em) and (max-width: 47.937em) and (orientation: portrait) {
+        @content;
+      }
+    } @else if $orientation == landscape {
+      @media only screen and (min-height: 30.063em) and (max-height: 47.937em) and (orientation: landscape) {
+        @content;
+      }
+    } @else {
+      @error "Invalid orientation: #{$orientation}.";
+    }
+  } @else if $breakpoint == large-phone {
+    @if $orientation == portrait {
+      @media only screen and (min-width: 48em) and (max-width: 63.937em) and (orientation: portrait) {
+        @content;
+      }
+    } @else if $orientation == landscape {
+      @media only screen and (min-height: 48em) and (max-height: 63.937em) and (orientation: landscape) {
+        @content;
+      }
+    } @else {
+      @error "Invalid orientation: #{$orientation}.";
+    }
+  } @else if $breakpoint == tablet {
+    @if $orientation == portrait {
+      @media only screen and (min-width: 64em) and (max-width: 74.937em) and (orientation: portrait) {
+        @content;
+      }
+    } @else if $orientation == landscape {
+      @media only screen and (min-height: 64em) and (max-height: 74.937em) and (orientation: landscape) {
+        @content;
+      }
+    } @else {
+      @error "Invalid orientation: #{$orientation}.";
+    }
+  } @else if $breakpoint == desktop {
+    @media only screen and (min-width: 75em) {
+      @content;
+    }
+  } @else {
+    @error "Invalid breakpoint: #{$breakpoint}.";
+  }
+}
+/*========================
+========================*/

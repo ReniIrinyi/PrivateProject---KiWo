@@ -1,0 +1,35 @@
+@import "../../../styles.scss";
+
+.footer-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  background-color: $sand;
+  height: 5rem;
+  @include font-p;
+  letter-spacing: 1.1px;
+
+  & > * {
+    display: flex;
+    margin-left: 0.5rem;
+  }
+
+  svg {
+    align-self: center;
+    height: 2rem;
+    width: 2rem;
+    fill: $red;
+    color: $black;
+  }
+
+  & a {
+    color: inherit;
+    text-decoration: none;
+    transition: all 1s;
+  }
+  & a:hover {
+    transform: scale(1.05);
+  }
+}

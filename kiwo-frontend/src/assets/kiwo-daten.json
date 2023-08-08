@@ -1,0 +1,83 @@
+{
+  "Anmeldung": {
+    "status": "active",
+    "contentActive": "Dann melde dich über unser Kontakformular an.",
+    "contentInactive": "Leider ist die Anmeldung für die KiWo abgelaufen. Du kannst dich per E-Mail oder telefonisch über die nächste KiWo informieren.",
+    "infoActive": "Die nächste Kinderwoche findet ab dem 11.04.2023 (Dienstag) bis 14.04.2023 (Freitag) in Uerkheim statt. Wir freuen uns auf eine unvergessliche Woche mit viel Spass, Singen, Games, Basteln,Theater, guter Gemeinschaft und viel Freude.",
+    "infoInactive": "Die nächste Kinderwoche startet nach Ostern 2024. Wir freuen uns auf eine unvergessliche Woche mit viel Spass, Singen, Games, Basteln, Theater, guter Gemeinschaft und viel Freude.",
+    "service": "Dienstag bis Freitag: Bottenwil, Gemeinde-Parkplatz ab 13.40 Uhr / an 17:15 Uhr",
+    "flyer": "./assets/Einladungsflyer-KiWo.pdf",
+    "tel": "079 835 21 82"
+  },
+  "Registration": {
+    "registration": "Anmelden bis Freitag, 31. März 2023",
+    "days": ["Dienstag, Mittwoch, Donnerstag, Freitag "],
+    "labels": [
+      "Betreff,Name des Kindes,Vorname,Nachname,Geburtsdatum,Anschrift,Wohnort,Email,Telefon,Nachricht"
+    ],
+    "options": [
+      "Wir benötigen Fahrdienst ab Gemeindeparkplatz Bottenwil,Wir bringen etwas zum Zvieri mit,Wir sind mit der Veröffentlichung von Fotos unseres Kindes einverstanden."
+    ]
+  },
+
+  "Team": [
+    {
+      "img": "./assets/img/aboutus-section/aboutus--1.jpg",
+      "name": "Benjamin Rodriguez",
+      "position": "Pfarrer",
+      "text": "Seit 2019 bin ich Pfarrer in Uerkheim. In der KiWo kommt eine meiner kreativen Seiten zum Zug und ich freue mich, dass ich Kinder unseres Tales in der KiWo in einem lockeren Rahmen kennenlernen kann."
+    },
+    {
+      "img": "./assets/img/aboutus-section/aboutus--2.jpg",
+      "name": "Tabea Kaufmann",
+      "position": "Berufsschullehrerin",
+      "text": "Ich wohne mit meiner Familie in Bottenwil. Mit Kindern zu Arbeiten und mit ihnen Abenteuer zu erleben, bereitet mir viel Spass. Es ist mir ein Herzensanliegen den Kindern die biblischen Geschichten zu erzählen und ihnen auf diese Weise Gottes Liebe näher zu bringen. "
+    },
+    {
+      "img": "./assets/img/aboutus-section/aboutus--3.jpg",
+      "name": "Andreas Steiner",
+      "position": "Pfarrer",
+      "text": "Als Pfarrer der Vorstatt Chele Bottenwil ist es für mich ein Geschenk, mit Kindern zusammen Geschichten aus der Bibel zu entdecken und zu erleben."
+    },
+    {
+      "img": "./assets/img/aboutus-section/aboutus--4.jpg",
+      "name": "Christine Steiner",
+      "position": "Familienfrau",
+      "text": "Ich bin gerne mit Kindern unterwegs und freue mich auf die strahlenden Kinderaugen beim gemeinsamen Singen, Spielen und Geschichten hören."
+    },
+    {
+      "img": "./assets/img/aboutus-section/aboutus--5.jpg",
+      "name": "Claudia Panier",
+      "position": "Katechetisch tätig in Uerkheim",
+      "text": "Als Katechetin bereitet es mir grosse Freude, mit Kindern die Bibel und die Grundlagen des christlichen Glaubens zu erforschen."
+    }
+  ],
+
+  "KiwoImages": {
+    "img1": "./assets/img/gallery/kiwo202301.jpg",
+    "img2": "./assets/img/gallery/kiwo202302.jpg",
+    "img3": "./assets/img/gallery/kiwo202303.jpg",
+    "img4": "./assets/img/gallery/kiwo202304.jpg",
+    "img5": "./assets/img/gallery/kiwo202305.jpg",
+    "img6": "./assets/img/gallery/kiwo202306.jpg",
+    "img7": "./assets/img/gallery/kiwo202306.jpg",
+    "img8": "./assets/img/gallery/kiwo202308.jpg",
+    "img9": "./assets/img/gallery/kiwo202309.jpg",
+    "img10": "./assets/img/gallery/kiwo202310.jpg",
+    "img11": "./assets/img/gallery/kiwo202310.jpg",
+    "img12": "./assets/img/gallery/kiwo202312.jpg",
+    "img13": "./assets/img/gallery/kiwo202313.jpg",
+    "img14": "./assets/img/gallery/kiwo202314.jpg",
+    "img15": "./assets/img/gallery/kiwo202315.jpg",
+    "img16": "./assets/img/gallery/kiwo202316.jpg",
+    "img17": "./assets/img/gallery/kiwo202317.jpg",
+    "img18": "./assets/img/gallery/kiwo202318.jpg",
+    "img19": "./assets/img/gallery/kiwo202319.jpg",
+    "img20": "./assets/img/gallery/kiwo202320.jpg",
+    "img21": "./assets/img/gallery/kiwo202321.jpg",
+    "img22": "./assets/img/gallery/kiwo202322.jpg",
+    "img23": "./assets/img/gallery/kiwo202323.jpg",
+    "img24": "./assets/img/gallery/kiwo202324.jpg",
+    "img25": "./assets/img/gallery/kiwo202324.jpg"
+  }
+}

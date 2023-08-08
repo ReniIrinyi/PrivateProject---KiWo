@@ -1,0 +1,73 @@
+/* ------------- Colors ---------------------- */
+:root {
+  --color1: #5ff2f0;
+  --color2: #a65ff2;
+  --color3: #62b8ff;
+  --color4: #f2cb5f;
+  --color5: #f25fd0;
+  --color6: #5ff281;
+  --color7: #abf25f;
+  --color8: #f2ff35;
+
+  --primary-color: rgb(242, 95, 97);
+  --secondary-color: #b6602f;
+  --secondary-color--light: #62b8ff;
+  --secondary-color--night: #81b4de;
+  --secondary-color--dark: #1b1007;
+  --tertiary-color: #fcfaf7;
+  --tertiary-color--dark: rgb(236, 229, 219);
+  --white: #fff;
+  /* ------------- Colors Day/Night Switcher ---------------------- */
+  /** sunny side **/
+  --blue-background: #c2e9f6;
+  --blue-border: #72cce3;
+  --blue-color: #96dcee;
+  --yellow-background: #fffaa8;
+  --yellow-border: #f5eb71;
+}
+.highligted-bunt--inverse {
+  background-image: linear-gradient(
+    110deg,
+    hsl(179, 85%, 66%),
+    hsl(134, 85%, 66%),
+    hsl(89, 85%, 66%),
+    hsl(44, 85%, 66%),
+    hsl(359, 85%, 66%),
+    hsl(314, 85%, 66%),
+    hsl(269, 85%, 66%),
+    hsl(224, 85%, 66%)
+  );
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.highligted-bunt {
+  background-image: linear-gradient(
+    60deg,
+    hsl(224, 85%, 66%),
+    hsl(269, 85%, 66%),
+    hsl(314, 85%, 66%),
+    hsl(359, 85%, 66%),
+    hsl(44, 56%, 56%),
+    hsl(89, 57%, 57%),
+    hsl(134, 50%, 53%),
+    hsl(179, 50%, 54%)
+  );
+
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.highligted {
+  background-image: linear-gradient(to left, #3f9cc4, #00b0fb);
+  -webkit-background-clip: text;
+  color: transparent;
+  transition: all 0.2s;
+}
+
+$sand: #fcfaf7;
+$sand-dark: rgb(236, 229, 219);
+$blue: #00b0fb;
+$red: rgb(242, 95, 97);
+$yellow: #f2ff35;
+$purple: #f25fd0;
+$black: #1b1007;

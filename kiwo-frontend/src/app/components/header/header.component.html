@@ -1,0 +1,22 @@
+<div class="header-container" [class.sticky]="isSticky | async">
+  <div class="header-content">
+    <div class="navbar-logo">
+      <a href="#home"
+        ><img
+          src="../../../assets/img/logo-wettbewerb.png"
+          alt="refkirche logo"
+      /></a>
+    </div>
+    <div class="btn">
+      <fa-icon
+        (click)="changeIcon()"
+        *ngIf="isSmallScreen"
+        [icon]="currentIcon"
+        class="toggle-icon"
+      ></fa-icon>
+    </div>
+    <div class="links">
+      <app-links></app-links>
+    </div>
+  </div>
+</div>

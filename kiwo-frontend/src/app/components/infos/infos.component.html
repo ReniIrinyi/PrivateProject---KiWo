@@ -1,0 +1,93 @@
+<div class="infos-content">
+  <ng-container *ngIf="appdata">
+    <div class="left">
+      <h2>Save the Date</h2>
+      <p>
+        {{
+          appdata.status === "active"
+            ? appdata.infoActive
+            : appdata.infoInactive
+        }}
+      </p>
+      <p class="btn">
+        <a
+          href="{{ appdata.flyer }}"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-text"
+        >
+          Flyer herunterladen
+        </a>
+      </p>
+      <h3>Zielgruppe</h3>
+      <p>1. Kindergarten bis 6. Klasse</p>
+      <h3>Kosten</h3>
+      <p>
+        Die Kinderwoche ist kostenlos. Wer gerne etwas beisteuert, darf am
+        Abschlussabend etwas ins Kässeli geben.
+      </p>
+      <div *ngIf="appdata.status == 'active'">
+        <h3 class="header--h3">Fahrdienst</h3>
+        <p>
+          {{ appdata.service }}
+        </p>
+      </div>
+
+      <h3>Hinweise</h3>
+      <p>Bitte wetterfeste Kleidung und Schuhe anziehen.</p>
+
+      <h3>Versicherung</h3>
+      <p>Versicherung ist Sache der Eltern.</p>
+    </div>
+
+    <div class="right">
+      <h2>
+        Wissenswertes rund um die
+        <span class="highligted-bunt"> KIWO </span>
+      </h2>
+
+      <h3>Pumptrack</h3>
+      <p>
+        Neben der Mehrzweckhalle Uerkheim ist ein Pumptrack. Für die Benutzung
+        des Pumptracks ist ein Helm zwingend mitzubringen!
+      </p>
+
+      <h3>Fotos</h3>
+      <p>
+        Es werden während der Kinderwoche Fotos von den Kindern gemacht und
+        diese für Berichterstattung benutzt. Wir sind froh wenn Sie uns durch
+        Ankreuzen auf dem Anmeldung die Erlaubnis dafür geben. Ohne Ihr
+        Einverständnis werden keine Einzelbilder Ihres Kindes veröffentlicht.
+      </p>
+      <h3>Wir suchen Verstärkung</h3>
+      <p>
+        Wir suchen noch ein paar fleissige Hände und aufmerksame Augen. Wenn
+        Eltern, Grosseltern, Geschwister (ab 7.Kl) oder Bekannte uns an einem
+        oder mehreren Nachmittagen unterstützen möchten, dann notiert es bitte
+        gleich auf der Anmeldung.
+      </p>
+      <h3>Weitere Fragen?</h3>
+      <p>
+        Bei Fragen gibt <strong>Claudia Panier</strong> unter
+
+        <strong>
+          <a href="tel:0041{{ appdata.tel }}"> {{ appdata.tel }} </a>
+        </strong>
+        gerne Auskunft.
+      </p>
+    </div>
+    <div class="center">
+      <p>Machts du auch mit?</p>
+
+      <a href="#contact-page" class="btn-text">
+        {{
+          appdata.status === "active"
+            ? appdata.contentActive
+            : appdata.contentInactive
+        }}
+        &rarr;
+      </a>
+    </div>
+  </ng-container>
+  <app-share-links></app-share-links>
+</div>

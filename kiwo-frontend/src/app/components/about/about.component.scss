@@ -1,0 +1,39 @@
+@import "../../../styles.scss";
+
+.container {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  padding: 5rem 1rem;
+}
+
+.text {
+  padding: 3rem 1rem;
+  display: flex;
+  width: 80%;
+  flex-direction: column;
+  justify-items: center;
+}
+
+h2 {
+  @include font-h2;
+}
+
+p {
+  @include font-p;
+  margin-top: 2rem;
+}
+.btn {
+  align-self: center;
+  justify-self: center;
+
+  & a {
+    @include text-btn;
+  }
+
+  & a:hover {
+    @include btn-text-hover;
+  }
+}

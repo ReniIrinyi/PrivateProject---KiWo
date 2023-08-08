@@ -1,0 +1,92 @@
+@import "../../../styles.scss";
+
+.infos {
+  height: auto;
+  width: 100%;
+  align-items: center;
+}
+
+.infos-content {
+  background-color: $sand;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  position: relative;
+  height: auto;
+  margin: 0 auto;
+  width: 100%;
+  height: 90%;
+  padding: 1rem;
+
+  @include respond(desktop) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 70% 15% 15%;
+    padding: 5rem;
+  }
+
+  & .btn {
+    @include text-btn;
+    margin-top: 0.5rem;
+  }
+
+  & .btn a {
+    color: $blue;
+    font-weight: 400;
+  }
+  & .btn:hover {
+    @include btn-text-hover;
+  }
+}
+.left,
+.right,
+.center {
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  & h3 {
+    @include font-p-small;
+    text-transform: uppercase;
+    font-weight: 400;
+    margin-top: 1rem;
+  }
+  & p,
+  a {
+    @include font-p-small;
+    justify-self: center;
+    align-self: center;
+    width: 80%;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  & h2 {
+    @include font-h3;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+}
+.center {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+
+  & a {
+    @include text-btn;
+  }
+  & a:hover {
+    @include btn-text-hover;
+  }
+  & p {
+    margin-bottom: 1rem;
+  }
+}
+app-share-links {
+  z-index: 20;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+}
