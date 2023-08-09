@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2cefd76d-493c-425f-9f41-a95f8a3000e9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/kiwo-backend/src/main/java/com/kiwobackend/config/MultipartConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kiwo-backend/src/main/java/com/kiwobackend/controller/SubmissionController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kiwo-backend/src/main/java/com/kiwobackend/dao/SubmissionRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kiwo-backend/src/main/java/com/kiwobackend/entity/Submission.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kiwo-backend/src/main/java/com/kiwobackend/service/EmailService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kiwo-backend/src/main/java/com/kiwobackend/service/SubmissionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kiwo-backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/kiwo-backend/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kiwo-backend/src/main/java/com/kiwobackend/KiwoBackendApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/kiwo-backend/src/main/java/com/kiwobackend/KiwoBackendApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kiwo-backend/src/main/java/com/kiwobackend/controller/SubmissionsController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kiwo-backend/src/main/java/com/kiwobackend/dao/SubmissionsRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kiwo-backend/src/main/java/com/kiwobackend/entity/Submissions.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kiwo-backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/kiwo-backend/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kiwo-frontend/src/app/components/form/form.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/kiwo-frontend/src/app/components/form/form.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kiwo-frontend/src/app/components/form/form.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/kiwo-frontend/src/app/components/form/form.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kiwo-frontend/src/assets/kiwo-daten.json" beforeDir="false" afterPath="$PROJECT_DIR$/kiwo-frontend/src/assets/kiwo-daten.json" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 6
+}]]></component>
+  <component name="ProjectId" id="2Tks8JpXt7mixiMHstaPBfLffQ4" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/renatairinyi/Documents/GitHub/PrivateProject---KiWo"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2cefd76d-493c-425f-9f41-a95f8a3000e9" name="Changes" comment="" />
+      <created>1691598251413</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1691598251413</updated>
+    </task>
+    <servers />
+  </component>
+</project>

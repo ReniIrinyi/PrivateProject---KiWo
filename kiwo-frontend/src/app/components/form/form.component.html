@@ -1,14 +1,19 @@
-<form class="registration" [formGroup]="form" (ngSubmit)="onSubmit()">
+<form
+  class="registration"
+  [formGroup]="form"
+  (ngSubmit)="onSubmit()"
+  enctype="multipart/form-data"
+>
   <div class="form-left">
     <div class="form-input" *ngFor="let label of labelsArray; let i = index">
       <ng-container [ngSwitch]="label">
-        <ng-container *ngSwitchCase="'Geburtsdatum'">
+        <ng-container *ngSwitchCase="'geburtsdatum'">
           <mat-form-field>
             <input
               matInput
               [matDatepicker]="picker"
               placeholder="Geburtsdatum: MM/DD/YYYY"
-              formControlName="{{ label }}"
+              formControlName="geburtsdatum"
             />
             <mat-datepicker-toggle
               matSuffix
@@ -18,16 +23,16 @@
             <mat-hint></mat-hint>
           </mat-form-field>
         </ng-container>
-        <ng-container *ngSwitchCase="'Nachricht'">
+        <ng-container *ngSwitchCase="'nachricht'">
           <mat-form-field>
-            <mat-label>{{ label }} </mat-label>
-            <textarea matInput></textarea>
+            <mat-label>{{ label | titlecase }} </mat-label>
+            <textarea matInput formControlName="nachricht"></textarea>
           </mat-form-field>
         </ng-container>
         <ng-container *ngSwitchDefault>
-          <mat-form-field class="example-full-width">
-            <mat-label>{{ label }}</mat-label>
-            <input matInput />
+          <mat-form-field>
+            <mat-label>{{ label | titlecase }}</mat-label>
+            <input matInput formControlName="{{ label }}" />
           </mat-form-field>
         </ng-container>
       </ng-container>
@@ -41,8 +46,8 @@
       </div>
       <div class="form-checks">
         <div class="form-check-container" *ngFor="let day of daysArray">
-          <label>{{ day }}</label>
-          <mat-checkbox></mat-checkbox>
+          <label>{{ day | titlecase }}</label>
+          <mat-checkbox [formControlName]="day"></mat-checkbox>
         </div>
       </div>
     </div>
@@ -57,10 +62,9 @@
             Wir benötigen Fahrdienst ab Gemeindeparkplatz Bottenwil.</mat-label
           >
           <mat-label *ngIf="option == 'zvieri'">
-            Wir bringen etwas zum Zvieri mit,Wir sind mit der Veröffentlichung
-            von Fotos unseres Kindes einverstanden.</mat-label
+            Wir bringen etwas zum Zvieri mit.</mat-label
           >
-          <mat-label *ngIf="option == 'fotosErlaubnis'"
+          <mat-label *ngIf="option == 'fotoserlaubnis'"
             >Wir sind mit der Veröffentlichung von Fotos unseres Kindes
             einverstanden.</mat-label
           >
@@ -73,7 +77,7 @@
     </div>
     <div class="form-validator">
       <div class="signature">
-        <mat-checkbox>
+        <mat-checkbox formControlName="verbindlich">
           Ich habe die Bedingungen zur Kenntnis genommen und bin damit
           einverstanden.</mat-checkbox
         >
@@ -85,9 +89,7 @@
         <canvas id="signatureCanvas" #signatureCanvas></canvas>
 
         <div class="btn-container">
-          <button (click)="onSubmit()" class="btn submit-btn" type="submit ">
-            Absenden
-          </button>
+          <button class="btn submit-btn" type="submit ">Absenden</button>
           <button
             class="btn clear-btn"
             type="button"

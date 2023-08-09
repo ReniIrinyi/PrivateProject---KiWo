@@ -11,11 +11,7 @@ import { DataService } from 'src/app/service/DataService';
 })
 export class FormComponent implements OnInit {
   form: FormGroup;
-  selectArray: any = ['ja', 'nein', ''];
   appdata: any = [];
-  labels: any;
-  days: any;
-  options: any;
   labelsArray: any[] = [];
   daysArray: any[] = [];
   optionsArray: any[] = [];
@@ -29,9 +25,9 @@ export class FormComponent implements OnInit {
     private dataService: DataService
   ) {
     this.form = this.fb.group({
-      anmeldung: ['', Validators.required],
-      name: ['', Validators.required],
+      betreff: ['', Validators.required],
       vorname: ['', Validators.required],
+      nachname: ['', Validators.required],
       geburtsdatum: ['', Validators.required],
       klasse: ['', Validators.required],
       anschrift: ['', Validators.required],
@@ -46,30 +42,45 @@ export class FormComponent implements OnInit {
       freitag: [false],
       fahrdienst: ['Ja', Validators.required],
       zvieri: ['Ja', Validators.required],
-      fotosErlaubnis: ['Ja', Validators.required],
+      fotoserlaubnis: ['Ja', Validators.required],
       verbindlich: [false, Validators.required],
-      signature: [''],
+      signatureImageFile: [''],
     });
   }
 
   ngOnInit(): void {
     this.getData();
-    this.labelsArray.forEach((label) => {
-      this.form.addControl(label, this.fb.control('', Validators.required));
-    });
   }
 
   getData() {
     this.dataService.getDataObservable().subscribe((data) => {
       this.appdata = this.dataService.registration;
-      this.days = this.dataService.registration.days;
-      this.daysArray = this.days[0].split(',');
 
-      this.options = this.dataService.registration.options;
-      this.optionsArray = this.options[0].split(',');
+      this.daysArray = this.appdata.days[0]
+        .split(',')
+        .map((day: any) => day.toLowerCase());
 
-      this.labels = this.dataService.registration.labels;
-      this.labelsArray = this.labels[0].split(',');
+      this.optionsArray = this.appdata.options[0]
+        .split(',')
+        .map((option: any) => option.toLowerCase());
+
+      this.labelsArray = this.appdata.labels[0]
+        .split(',')
+        .map((label: any) => label.toLowerCase());
+
+      // Add form controls based on labelsArray, daysArray, and optionsArray
+      this.labelsArray.forEach((label) => {
+        this.form.addControl(label, this.fb.control('', Validators.required));
+      });
+      this.daysArray.forEach((day) => {
+        this.form.addControl(day, this.fb.control(false));
+      });
+      this.optionsArray.forEach((option) => {
+        this.form.addControl(
+          option,
+          this.fb.control('ja', Validators.required)
+        );
+      });
     });
   }
 
@@ -92,25 +103,27 @@ export class FormComponent implements OnInit {
   updateSignatureInput(): void {
     if (this.signaturePad) {
       const signatureDataUrl = this.signaturePad.toDataURL();
-      console.log('Signature Data URL:', signatureDataUrl);
-      this.form.get('signature')?.setValue(signatureDataUrl);
+      if (!signatureDataUrl.startsWith('data:image/png;base64,')) {
+        console.error('Invalid signature data URL format');
+        return;
+      }
+      this.form.get('signatureImageFile')?.setValue(signatureDataUrl);
     }
   }
 
   onSubmit() {
     this.updateSignatureInput();
-    console.log('clicked');
-    // if (this.form.valid) {
-    // Convert signature data URL to a file if needed
-    const signatureFile = this.dataURLtoFile(
-      this.form.value.signature,
+
+    // if (this.form.valid)
+    console.log(this.form.value.signatureImageFile);
+    const signatureImage = this.dataURLtoFile(
+      this.form.value.signatureImageFile,
       'signature.png'
     );
-
     const formData = new FormData();
-    formData.append('anmeldung', this.form.value.anmeldung);
-    formData.append('name', this.form.value.name);
+    formData.append('betreff', this.form.value.betreff);
     formData.append('vorname', this.form.value.vorname);
+    formData.append('nachname', this.form.value.nachname);
     formData.append('geburtsdatum', this.form.value.geburtsdatum);
     formData.append('klasse', this.form.value.klasse);
     formData.append('anschrift', this.form.value.anschrift);
@@ -118,18 +131,14 @@ export class FormComponent implements OnInit {
     formData.append('email', this.form.value.email);
     formData.append('telefon', this.form.value.telefon);
     formData.append('nachricht', this.form.value.nachricht);
-    formData.append('montag', this.form.value.montag);
-    formData.append('dienstag', this.form.value.dienstag);
-    formData.append('mittwoch', this.form.value.mittwoch);
-    formData.append('donnerstag', this.form.value.donnerstag);
-    formData.append('freitag', this.form.value.freitag);
     formData.append('fahrdienst', this.form.value.fahrdienst);
     formData.append('zvieri', this.form.value.zvieri);
-    formData.append('fotosErlaubnis', this.form.value.fotosErlaubnis);
+    formData.append('fotoserlaubnis', this.form.value.fotoserlaubnis);
     formData.append('verbindlich', this.form.value.verbindlich);
-
-    // Append the signature file to the formData
-    formData.append('signature', signatureFile);
+    formData.append('signatureImageFile', signatureImage);
+    for (const day of this.daysArray) {
+      formData.append(day, this.form.value[day]);
+    }
 
     // Send the formData to the server
     this.http.post('http://localhost:8080/api/submit', formData).subscribe(
@@ -147,26 +156,25 @@ export class FormComponent implements OnInit {
   }
 
   // Helper function to convert data URL to a File object
-  private dataURLtoFile(dataURL: string, fileName: string): File {
-    const arr = dataURL.split(',');
-    const mimeMatch = arr[0].match(/:(.*?);/);
-    console.log(arr);
-    console.log(mimeMatch);
+  dataURLtoFile(dataurl: string, filename: string): File {
+    console.log('Data URL:', dataurl);
 
-    if (!mimeMatch || mimeMatch.length < 2) {
+    const arr = dataurl.split(',');
+    const mimeMatch = arr[0].match(/^data:(.*?);/); // Update the regex here
+    console.log('mimeMatch:', mimeMatch); // Add this line
+
+    if (!mimeMatch) {
       throw new Error('Invalid data URL format');
     }
-
     const mime = mimeMatch[1];
+    console.log('mime:', mime); // Add this line
+
     const bstr = atob(arr[1]);
-    const n = bstr.length;
+    let n = bstr.length;
     const u8arr = new Uint8Array(n);
-
-    for (let i = 0; i < n; i++) {
-      u8arr[i] = bstr.charCodeAt(i);
+    while (n--) {
+      u8arr[n] = bstr.charCodeAt(n);
     }
-
-    console.log(mime);
-    return new File([u8arr], fileName, { type: mime });
+    return new File([u8arr], filename, { type: mime });
   }
 }

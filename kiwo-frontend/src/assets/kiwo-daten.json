@@ -11,11 +11,11 @@
   },
   "Registration": {
     "registration": "Anmelden bis Freitag, 31. März 2023",
-    "days": ["Dienstag, Mittwoch, Donnerstag, Freitag "],
+    "days": ["Montag,Dienstag,Mittwoch,Donnerstag,Freitag"],
     "labels": [
-      "Betreff,Name des Kindes,Vorname,Nachname,Geburtsdatum,Anschrift,Wohnort,Email,Telefon,Nachricht"
+      "Betreff,Vorname,Nachname,Klasse,Geburtsdatum,Anschrift,Wohnort,Email,Telefon,Nachricht"
     ],
-    "options": ["fahrdienst,zvieri,fotosErlaubnis"]
+    "options": ["fahrdienst,zvieri,fotoserlaubnis"]
   },
 
   "Team": [
