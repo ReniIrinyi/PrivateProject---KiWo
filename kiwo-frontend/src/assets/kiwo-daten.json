@@ -15,9 +15,7 @@
     "labels": [
       "Betreff,Name des Kindes,Vorname,Nachname,Geburtsdatum,Anschrift,Wohnort,Email,Telefon,Nachricht"
     ],
-    "options": [
-      "Wir benötigen Fahrdienst ab Gemeindeparkplatz Bottenwil,Wir bringen etwas zum Zvieri mit,Wir sind mit der Veröffentlichung von Fotos unseres Kindes einverstanden."
-    ]
+    "options": ["fahrdienst,zvieri,fotosErlaubnis"]
   },
 
   "Team": [
