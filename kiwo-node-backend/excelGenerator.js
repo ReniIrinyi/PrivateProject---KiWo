@@ -1,9 +1,16 @@
 const ExcelJS = require("exceljs");
-const sharp = require("sharp");
 const fs = require("fs").promises;
 const path = require("path");
 
-async function processSubmissions(submissions, columnIndex, workbook, sheet) {
+async function processSubmissions(
+  submissions,
+  columnIndex,
+  workbook,
+  sheet,
+  imagesFolder
+) {
+  const imagePaths = [];
+
   for (const submission of submissions) {
     const dataRow = sheet.addRow([
       submission.id,
@@ -22,104 +29,40 @@ async function processSubmissions(submissions, columnIndex, workbook, sheet) {
       submission.zvieri,
       submission.fotoserlaubnis,
       submission.verbindlich,
-      "", //placeholder for img
+      "", // Placeholder for img
     ]);
+
     if (submission.signatureImage) {
       try {
-        console.log("Adding image to Excel...");
-
-        addImageToCell(
-          dataRow,
-          submission.signatureImage,
-          columnIndex,
-          workbook,
-          sheet
-        );
-      } catch (error) {
-        console.error("Error adding image to Excel:", error);
-      }
-    } else {
-      console.log("Invalid image data for submission:", submission.id);
-    }
-  }
-}
-
-async function generateExcelFile(submissions, filePath, imagesFolder) {
-  const columnIndex = 17;
-  const workbook = new ExcelJS.Workbook();
-  const sheet = workbook.addWorksheet("Anmeldungen");
-  const imagePaths = [];
-  for (const submission of submissions) {
-    if (submission.signatureImage) {
-      const imageName = `signature_${submission.id}.png`;
-      const imagePath = path.join(imagesFolder, imageName);
-
-      try {
+        const imageName = `signature_${submission.id}.png`;
+        const imagePath = path.join(imagesFolder, imageName);
         const base64ImageData = Buffer.from(
           submission.signatureImage,
           "base64"
-        ).toString("base64");
-        const imageBuffer = Buffer.from(base64ImageData, "base64");
-        console.log(imageBuffer);
-        await fs.writeFile(imagePath, imageBuffer);
+        );
+
+        await fs.writeFile(imagePath, base64ImageData);
         imagePaths.push(imagePath);
+        addImageToCell(dataRow, imagePath, columnIndex, workbook, sheet);
       } catch (error) {
         console.error("Error saving image:", error);
       }
     }
   }
-
-  addTimeStamp(sheet, "Last Updated: " + getCurrentTimestamp());
-
-  // Create headers
-  const headerRow = sheet.addRow([
-    "Anmeldung-Nr",
-    "Betreff",
-    "Vorname",
-    "Nachname",
-    "Geburtsdatum",
-    "Klasse",
-    "Anschrift",
-    "Wohnort",
-    "Email",
-    "Telefon",
-    "Nachricht",
-    "An folgenden Tagen kann ich helfen:",
-    "Fahrdienst",
-    "Zvieri",
-    "Veroeffentlichung des Fotos",
-    "Verbindlich angemeldet",
-    "Unterschrift",
-  ]);
-
-  headerRow.eachCell((cell) => {
-    cell.font = { bold: true };
-  });
-
-  await processSubmissions(submissions, columnIndex, workbook, sheet);
-
-  for (let i = 1; i <= headerRow.cellCount; i++) {
-    sheet.getColumn(i).width = 15; // Adjust column width
-  }
-  for (let i = 0; i < imagePaths.length; i++) {
-    const imgPath = imagePaths[i];
-    const dataRow = sheet.getRow(i + 2); // +2 because of header row
-    addImageToCell(dataRow, imgPath, columnIndex, workbook);
-  }
-  // Write the workbook to the file
-  try {
-    await workbook.xlsx.writeFile(filePath);
-    console.log("Excel file generated successfully.");
-  } catch (error) {
-    console.error("Error generating Excel file:", error);
-  }
 }
 
-function addImageToCell(row, imageBuffer, columnIndex, workbook, sheet) {
-  const image = workbook.addImage({
-    buffer: imageBuffer,
-    extension: "png",
-  });
+async function addImageToCell(row, imagePath, columnIndex, workbook, sheet) {
+  const imageBuffer = await fs.readFile(imagePath);
+  console.log(imageBuffer);
+  try {
+    image = workbook.addImage({
+      buffer: imageBuffer,
+      extension: "png",
+    });
+  } catch (error) {
+    console.error("Error adding image to cell:", error);
+    return;
+  }
 
   const cell = row.getCell(columnIndex);
   cell.alignment = { vertical: "middle", horizontal: "center" };
@@ -138,6 +81,10 @@ function addImageToCell(row, imageBuffer, columnIndex, workbook, sheet) {
     br: { col: columnIndex + 1, row: row.number + 1 },
     editAs: "oneCell",
   });
+}
+
+function getCurrentTimestamp() {
+  return new Date().toISOString();
 }
 
 function getSelectedDays(submission) {
@@ -163,11 +110,62 @@ function getSelectedDays(submission) {
 }
 
 function addTimeStamp(sheet, text) {
-  const footer = sheet.addRow([text]);
+  const footerRow = sheet.addRow([text]);
+  const cell = footerRow.getCell(1);
+  cell.alignment = { vertical: "middle", horizontal: "center" };
+  cell.font = { italic: true };
 }
 
-function getCurrentTimestamp() {
-  return new Date().toISOString();
+async function generateExcelFile(submissions, filePath, imagesFolder) {
+  const columnIndex = 17;
+  const workbook = new ExcelJS.Workbook();
+  const sheet = workbook.addWorksheet("Anmeldungen");
+
+  addTimeStamp(sheet, "Last Updated: " + getCurrentTimestamp());
+
+  // Create headers
+  const headerRow = sheet.addRow([
+    "Anmeldung-Nr",
+    "Betreff",
+    "Vorname",
+    "Nachname",
+    "Geburtsdatum",
+    "Klasse",
+    "Anschrift",
+    "Wohnort",
+    "Email",
+    "Telefon",
+    "Nachricht",
+    "An folgenden Tagen kann ich helfen:",
+    "Fahrdienst",
+    "Zvieri",
+    "Veroeffentlichung des Fotos",
+    "Verbindlich angemeldet",
+    "Unterschrift",
+  ]);
+
+  headerRow.font = { bold: true };
+
+  await processSubmissions(
+    submissions,
+    columnIndex,
+    workbook,
+    sheet,
+    imagesFolder
+  );
+
+  for (let i = 1; i <= headerRow.cellCount; i++) {
+    sheet.getColumn(i).width = 15; // Adjust column width
+  }
+
+  // Write the workbook to the file
+  try {
+    await workbook.xlsx.writeFile(filePath);
+
+    console.log("Excel file generated successfully.");
+  } catch (error) {
+    console.error("Error generating Excel file:", error);
+  }
 }
 
 module.exports = {

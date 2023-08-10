@@ -1,11 +1,12 @@
 const Sequelize = require("sequelize");
-const sequelize = require("./db"); // Your Sequelize instance
+const sequelize = require("./sequelize");
+const { DataTypes } = require("sequelize");
 
-const Submission = sequelize.define("form_submission", {
+const Submission = sequelize.define("form_submissions", {
   betreff: Sequelize.STRING,
   vorname: Sequelize.STRING,
   nachname: Sequelize.STRING,
-  geburtsdatum: Sequelize.STRING,
+  geburtsdatum: DataTypes.DATE,
   klasse: Sequelize.STRING,
   anschrift: Sequelize.STRING,
   wohnort: Sequelize.STRING,
@@ -20,8 +21,10 @@ const Submission = sequelize.define("form_submission", {
   fahrdienst: Sequelize.STRING,
   zvieri: Sequelize.STRING,
   fotoserlaubnis: Sequelize.STRING,
-  verbindlich: Sequelize.STRING,
+  verbindlich: Sequelize.BOOLEAN,
   signatureImage: Sequelize.BLOB, // Change to Sequelize.BLOB for binary data
+  createdAt: DataTypes.DATE,
+  updatedAt: DataTypes.DATE,
 });
 
-module.exports = submission;
+module.exports = Submission;
