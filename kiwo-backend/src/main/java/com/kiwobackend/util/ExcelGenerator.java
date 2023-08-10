@@ -2,6 +2,7 @@ package com.kiwobackend.util;
 
 import com.kiwobackend.entity.Submission;
 import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.ss.util.CellRangeAddress;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.FileOutputStream;
@@ -11,12 +12,28 @@ import java.util.Date;
 import java.util.List;
 
 public class ExcelGenerator {
-    public static void generateExcelFile(List<Submission> submissions, String filePath) throws IOException {
-        String timestamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
 
+
+
+    public static void generateExcelFile(List<Submission> submissions, String filePath) throws IOException {
 
         Workbook workbook = new XSSFWorkbook();
         Sheet sheet = workbook.createSheet("Anmeldungen");
+
+        addTimeStamp(sheet, "Last Updated: " + getCurrentTimestamp());
+
+        //adding merged region for image
+        int imageColumnIndex = 16; // Column index where the image will be placed
+        int imageRowIndex = 16+1; // Row index where the image will be placed
+
+        int mergedRegionWidth = 2; // Number of columns to merge
+        int mergedRegionHeight = 4; // Number of rows to merge
+
+        CellRangeAddress mergedRegion = new CellRangeAddress(
+                imageRowIndex, imageRowIndex + mergedRegionHeight - 1,
+                imageColumnIndex, imageColumnIndex + mergedRegionWidth - 1
+        );
+
 
         // Create headers
         Row headerRow = sheet.createRow(0);
@@ -51,7 +68,7 @@ public class ExcelGenerator {
         headerRow.createCell(15).setCellValue("Verbindlich angemeldet");
         headerRow.createCell(16).setCellValue("Unterschrift");
 
-        addFooter(sheet, "Last Updated: " + getCurrentTimestamp());
+
 
         // Populate data
         for (int i = 0; i < submissions.size(); i++) {
@@ -75,10 +92,20 @@ public class ExcelGenerator {
             dataRow.createCell(14).setCellValue(submission.getFotoserlaubnis());
             dataRow.createCell(15).setCellValue(submission.getVerbindlich());
 
+
+            dataRow.setHeight((short) -1);
+            float existingHeight = dataRow.getHeightInPoints();
+            float newHeight = existingHeight * 2; // Double the height
+            dataRow.setHeightInPoints(newHeight);
             Cell headerCell = headerRow.createCell(16);
-            headerCell.setCellValue("Unterschrift");
-            addImageToCell(dataRow, submission.getSignatureImage(), 20);
+            headerCell.setCellValue("Unterschrift"+" ".repeat(15));
+            addImageToCell(sheet, dataRow, submission.getSignatureImage(), 16);
+
         }
+        for (int i = 0; i < headerRow.getLastCellNum(); i++) {
+            sheet.autoSizeColumn(i);
+        }
+
 
         // Write the workbook to the file
         try (FileOutputStream fileOut = new FileOutputStream(filePath)) {
@@ -88,7 +115,7 @@ public class ExcelGenerator {
         workbook.close();
     }
 
-    private static void addImageToCell(Row row, byte[] imageBytes, int columnIndex) {
+    private static void addImageToCell(Sheet sheet, Row row, byte[] imageBytes, int columnIndex) {
         Drawing<?> drawing = row.getSheet().createDrawingPatriarch();
         CreationHelper helper = row.getSheet().getWorkbook().getCreationHelper();
 
@@ -96,8 +123,24 @@ public class ExcelGenerator {
         anchor.setCol1(columnIndex);
         anchor.setRow1(row.getRowNum());
 
-        Picture picture = drawing.createPicture(anchor, row.getSheet().getWorkbook().addPicture(imageBytes, Workbook.PICTURE_TYPE_PNG));
-        picture.resize();
+        int pictureIndex = row.getSheet().getWorkbook().addPicture(imageBytes, Workbook.PICTURE_TYPE_PNG);
+        Picture picture = drawing.createPicture(anchor, pictureIndex);
+
+    //    picture.resize(.5,.5);
+        int imageWidth = (int) picture.getImageDimension().getWidth();
+        int imageHeight = (int) picture.getImageDimension().getHeight();
+
+        double cellWidth = sheet.getColumnWidthInPixels(columnIndex);
+        double cellHeight = row.getHeightInPoints();
+
+        double widthScaleFactor = cellWidth / imageWidth;
+        double heightScaleFactor = cellHeight / imageHeight;
+        double scaleFactor = Math.min(widthScaleFactor, heightScaleFactor);
+
+        picture.resize(.8,scaleFactor);
+        // Move the top-left corner of the image within the cell
+        anchor.setDx1(0);
+        anchor.setDy1(0);
     }
     private static String getSelectedDays(Submission submission) {
         StringBuilder daysBuilder = new StringBuilder();
@@ -121,11 +164,9 @@ public class ExcelGenerator {
         }
         return daysBuilder.toString();
     }
-    private static void addFooter(Sheet sheet, String footerText) {
-        Footer footer = sheet.getFooter();
-        footer.setLeft(footerText);
-        footer.setCenter("");
-        footer.setRight("");
+    private static void addTimeStamp(Sheet sheet, String text) {
+        Row footer = sheet.createRow(0);
+        footer.createCell(0).setCellValue(text);
     }
     private static String getCurrentTimestamp() {
         return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
