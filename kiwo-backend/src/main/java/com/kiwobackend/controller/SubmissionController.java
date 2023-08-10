@@ -3,6 +3,7 @@ package com.kiwobackend.controller;
 import com.kiwobackend.dao.SubmissionRepo;
 import com.kiwobackend.entity.Submission;
 import com.kiwobackend.service.EmailService;
+import com.kiwobackend.util.ExcelGenerator;
 import jakarta.mail.MessagingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -14,11 +15,34 @@ import java.util.List;
 @RestController
 @RequestMapping("/api")
 public class SubmissionController {
-
+    private ExcelGenerator ExcelGenerator;
     @Autowired
     private SubmissionRepo submissionRepo;
     @Autowired
     private EmailService emailService;
+
+  @CrossOrigin(origins = "http://localhost:4200")
+    @PostMapping("/submit")
+    public ResponseEntity<String> submitForm(
+            @ModelAttribute("submission") Submission submission) throws MessagingException, IOException {
+
+        MultipartFile signatureImage = submission.getSignatureImageFile();
+        if (signatureImage != null && !signatureImage.isEmpty()) {
+            byte[] signatureImageBytes = signatureImage.getBytes();
+            submission.setSignatureImage(signatureImageBytes);
+        }
+
+        submissionRepo.save(submission);
+
+        List<Submission> allSubmissions = submissionRepo.findAll();
+       // emailService.sendEmailWithSubmissionData(allSubmissions);
+        String filePath = "/Users/renatairinyi/Documents/GitHub/PrivateProject---KiWo/submissions.xlsx";
+        ExcelGenerator.generateExcelFile(allSubmissions, filePath);
+
+        String responseMessage = "Form submitted successfully.";
+        return ResponseEntity.ok("{\"message\": \"" + responseMessage + "\"}");
+    }
+}
 
 
 
@@ -43,23 +67,3 @@ public class SubmissionController {
         return ResponseEntity.ok("{\"message\": \"" + responseMessage + "\"}");
     }
     */
-  @CrossOrigin(origins = "http://localhost:4200")
-    @PostMapping("/submit")
-    public ResponseEntity<String> submitForm(
-            @ModelAttribute("submission") Submission submission) throws MessagingException, IOException {
-
-        MultipartFile signatureImage = submission.getSignatureImageFile();
-        if (signatureImage != null && !signatureImage.isEmpty()) {
-            byte[] signatureImageBytes = signatureImage.getBytes();
-            submission.setSignatureImage(signatureImageBytes);
-        }
-
-        submissionRepo.save(submission);
-
-        List<Submission> allSubmissions = submissionRepo.findAll();
-        emailService.sendEmailWithSubmissionData(allSubmissions);
-
-        String responseMessage = "Form submitted successfully.";
-        return ResponseEntity.ok("{\"message\": \"" + responseMessage + "\"}");
-    }
-}

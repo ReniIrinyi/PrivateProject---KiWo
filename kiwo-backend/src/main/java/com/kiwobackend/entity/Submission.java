@@ -6,7 +6,7 @@ import lombok.Setter;
 import org.springframework.web.multipart.MultipartFile;
 
 @Entity
-@Table(name="form_submissions")
+@Table(name="form_submission")
 @Getter
 @Setter
 //@Data- known error

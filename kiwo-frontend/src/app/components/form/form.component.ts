@@ -96,7 +96,7 @@ export class FormComponent implements OnInit {
   clearSignature(): void {
     if (this.signaturePad) {
       this.signaturePad.clear();
-      this.form.get('signature')?.setValue('');
+      this.form.get('signatureImageFile')?.setValue('');
     }
   }
 
@@ -114,12 +114,12 @@ export class FormComponent implements OnInit {
   onSubmit() {
     this.updateSignatureInput();
 
-    // if (this.form.valid)
-    console.log(this.form.value.signatureImageFile);
+    // if (this.form.valid) {
     const signatureImage = this.dataURLtoFile(
       this.form.value.signatureImageFile,
-      'signature.png'
+      'signatureImage.png'
     );
+
     const formData = new FormData();
     formData.append('betreff', this.form.value.betreff);
     formData.append('vorname', this.form.value.vorname);
@@ -135,10 +135,14 @@ export class FormComponent implements OnInit {
     formData.append('zvieri', this.form.value.zvieri);
     formData.append('fotoserlaubnis', this.form.value.fotoserlaubnis);
     formData.append('verbindlich', this.form.value.verbindlich);
-    formData.append('signatureImageFile', signatureImage);
     for (const day of this.daysArray) {
       formData.append(day, this.form.value[day]);
     }
+    formData.append('signatureImageFile', signatureImage);
+
+    formData.forEach((data, key) => {
+      console.log(`${key}: ${data}`);
+    });
 
     // Send the formData to the server
     this.http.post('http://localhost:8080/api/submit', formData).subscribe(
@@ -154,20 +158,17 @@ export class FormComponent implements OnInit {
       }
     );
   }
+  // }
 
   // Helper function to convert data URL to a File object
   dataURLtoFile(dataurl: string, filename: string): File {
-    console.log('Data URL:', dataurl);
-
     const arr = dataurl.split(',');
-    const mimeMatch = arr[0].match(/^data:(.*?);/); // Update the regex here
-    console.log('mimeMatch:', mimeMatch); // Add this line
+    const mimeMatch = arr[0].match(/^data:(.*?);/);
 
     if (!mimeMatch) {
       throw new Error('Invalid data URL format');
     }
     const mime = mimeMatch[1];
-    console.log('mime:', mime); // Add this line
 
     const bstr = atob(arr[1]);
     let n = bstr.length;
