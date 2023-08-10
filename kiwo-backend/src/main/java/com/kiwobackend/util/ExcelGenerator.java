@@ -2,7 +2,6 @@ package com.kiwobackend.util;
 
 import com.kiwobackend.entity.Submission;
 import org.apache.poi.ss.usermodel.*;
-import org.apache.poi.ss.util.CellRangeAddress;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.FileOutputStream;
@@ -13,27 +12,12 @@ import java.util.List;
 
 public class ExcelGenerator {
 
-
-
     public static void generateExcelFile(List<Submission> submissions, String filePath) throws IOException {
 
         Workbook workbook = new XSSFWorkbook();
         Sheet sheet = workbook.createSheet("Anmeldungen");
 
         addTimeStamp(sheet, "Last Updated: " + getCurrentTimestamp());
-
-        //adding merged region for image
-        int imageColumnIndex = 16; // Column index where the image will be placed
-        int imageRowIndex = 16+1; // Row index where the image will be placed
-
-        int mergedRegionWidth = 2; // Number of columns to merge
-        int mergedRegionHeight = 4; // Number of rows to merge
-
-        CellRangeAddress mergedRegion = new CellRangeAddress(
-                imageRowIndex, imageRowIndex + mergedRegionHeight - 1,
-                imageColumnIndex, imageColumnIndex + mergedRegionWidth - 1
-        );
-
 
         // Create headers
         Row headerRow = sheet.createRow(0);
@@ -126,7 +110,6 @@ public class ExcelGenerator {
         int pictureIndex = row.getSheet().getWorkbook().addPicture(imageBytes, Workbook.PICTURE_TYPE_PNG);
         Picture picture = drawing.createPicture(anchor, pictureIndex);
 
-    //    picture.resize(.5,.5);
         int imageWidth = (int) picture.getImageDimension().getWidth();
         int imageHeight = (int) picture.getImageDimension().getHeight();
 
