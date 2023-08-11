@@ -57,9 +57,11 @@ router.post(
         new Date(), // createdAt value
         new Date(), // updatedAt value
       ];
+
       db.query(insertQuery, values, async (err, result) => {
+        console.log(submissionData);
+        console.log(imageBuffer);
         if (err) {
-          console.log(submissionData);
           console.error("Error inserting data:", err);
           res.status(500).json({ error: "Internal Server Error" });
           return;
@@ -72,10 +74,12 @@ router.post(
         });
 
         const allSubmissions = await retrieveAllSubmissions();
+
         const filePath =
           "/Users/renatairinyi/Documents/GitHub/PrivateProject---KiWo/submissions.xlsx";
         const imagesFolder =
           "/Users/renatairinyi/Documents/GitHub/PrivateProject---KiWo/unterschriften";
+
         await ExcelGenerator.generateExcelFile(
           allSubmissions,
           filePath,
@@ -94,7 +98,6 @@ router.post(
 // Implement a function to retrieve all submissions from the database
 async function retrieveAllSubmissions() {
   return new Promise((resolve, reject) => {
-  
     Submission.findAll()
       .then((results) => {
         resolve(results);

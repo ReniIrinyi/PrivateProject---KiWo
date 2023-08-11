@@ -28,7 +28,7 @@ async function processSubmissions(
       submission.fahrdienst,
       submission.zvieri,
       submission.fotoserlaubnis,
-      submission.verbindlich,
+      submission.verbindlich ? "Ja" : "Nein",
       "", // Placeholder for img
     ]);
 
@@ -36,13 +36,9 @@ async function processSubmissions(
       try {
         const imageName = `signature_${submission.id}.png`;
         const imagePath = path.join(imagesFolder, imageName);
-        const base64ImageData = Buffer.from(
-          submission.signatureImage,
-          "base64"
-        );
-
-        await fs.writeFile(imagePath, base64ImageData);
+        await fs.writeFile(imagePath, submission.signatureImage);
         imagePaths.push(imagePath);
+        //BUG in addImageToCell
         addImageToCell(dataRow, imagePath, columnIndex, workbook, sheet);
       } catch (error) {
         console.error("Error saving image:", error);
@@ -51,36 +47,39 @@ async function processSubmissions(
   }
 }
 
-async function addImageToCell(row, imagePath, columnIndex, workbook, sheet) {
-  const imageBuffer = await fs.readFile(imagePath);
-  console.log(imageBuffer);
+async function addImageToCell(
+  dataRow,
+  imagePath,
+  columnIndex,
+  workbook,
+  sheet
+) {
   try {
-    image = workbook.addImage({
+    const imageBuffer = await fs.readFile(imagePath);
+    workbook.addImage({
       buffer: imageBuffer,
       extension: "png",
+      tl: { col: columnIndex, row: dataRow.number },
+      br: { col: columnIndex + 1, row: dataRow.number + 1 },
+      editAs: "oneCell",
     });
+
+    const cell = dataRow.getCell(columnIndex);
+    cell.alignment = { vertical: "middle", horizontal: "center" };
+    cell.value = {
+      richText: [
+        {
+          text: "Unterschrift",
+          font: { size: 12, bold: true },
+        },
+      ],
+      hyperlink: imagePath,
+      hyperlinkTooltip: "Click to view image",
+    };
   } catch (error) {
     console.error("Error adding image to cell:", error);
     return;
   }
-
-  const cell = row.getCell(columnIndex);
-  cell.alignment = { vertical: "middle", horizontal: "center" };
-  cell.value = {
-    richText: [
-      {
-        text: "Unterschrift",
-        font: { size: 12, bold: true },
-      },
-    ],
-    hyperlink: "placeholder",
-    hyperlinkTooltip: "Click to view image",
-  };
-  workbook.addImage(image, {
-    tl: { col: columnIndex, row: row.number },
-    br: { col: columnIndex + 1, row: row.number + 1 },
-    editAs: "oneCell",
-  });
 }
 
 function getCurrentTimestamp() {
