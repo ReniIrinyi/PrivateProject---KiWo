@@ -15,7 +15,7 @@
         class="toggle-icon"
       ></fa-icon>
     </div>
-    <div class="links">
+    <div [ngClass]="{ 'links-bigScreen': !isSmallScreen }" class="links">
       <app-links></app-links>
     </div>
   </div>

@@ -38,18 +38,9 @@
   transition: all 1s;
   justify-content: center;
   z-index: 9;
-
-  @include respond(small-phone) {
-    @include linkColumn;
-  }
-  @include respond(small-phone, landscape) {
-    @include linkColumn;
-  }
-  @include respond(medium-phone) {
-    @include linkColumn;
-  }
-  @include respond(large-phone) {
-    @include linkColumn;
+  @include linkColumn;
+  &-bigScreen {
+    @include linkRow;
   }
 }
 app-links {

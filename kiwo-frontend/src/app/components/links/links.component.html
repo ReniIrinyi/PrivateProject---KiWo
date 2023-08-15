@@ -1,7 +1,9 @@
 <div class="container">
-  <ul>
+  <ul class="list" [ngClass]="{ 'list-bigScreen': !isSmallScreen }">
     <li>
       <a
+        class="list-item"
+        [ngClass]="{ 'list-item-bigScreen': !isSmallScreen }"
         (click)="changeIcon()"
         routerLink="/home"
         (click)="scrollTo('home')"
@@ -11,6 +13,8 @@
     </li>
     <li>
       <a
+        class="list-item"
+        [ngClass]="{ 'list-item-bigScreen': !isSmallScreen }"
         (click)="changeIcon()"
         routerLink="/home"
         (click)="scrollTo('gallery')"
@@ -20,6 +24,8 @@
     </li>
     <li>
       <a
+        class="list-item"
+        [ngClass]="{ 'list-item-bigScreen': !isSmallScreen }"
         (click)="changeIcon()"
         routerLink="/home"
         (click)="scrollTo('infos')"
@@ -29,6 +35,8 @@
     </li>
     <li>
       <a
+        class="list-item"
+        [ngClass]="{ 'list-item-bigScreen': !isSmallScreen }"
         (click)="changeIcon()"
         routerLink="/home"
         (click)="scrollTo('aboutus')"
@@ -38,16 +46,14 @@
     </li>
     <li>
       <a
+        class="list-item"
+        [ngClass]="{ 'list-item-bigScreen': !isSmallScreen }"
         (click)="changeIcon()"
         routerLink="/home"
-        (click)="scrollTo('contacts')"
+        (click)="scrollTo('register')"
         href="javascript:void(0)"
-        >Kontakt</a
+        >Kontakt & Anmeldung</a
       >
-    </li>
-
-    <li>
-      <a (click)="changeIcon()" routerLink="/impressum">Datenschutzerklärung</a>
     </li>
   </ul>
 

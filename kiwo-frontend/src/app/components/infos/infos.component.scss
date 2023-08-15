@@ -1,9 +1,11 @@
 @import "../../../styles.scss";
 
 .infos {
+  display: flex;
+  flex-direction: column;
   height: auto;
-  width: 100%;
   align-items: center;
+  margin: 0 auto;
 }
 
 .infos-content {
@@ -11,20 +13,13 @@
   display: flex;
   flex-direction: column;
   text-align: center;
-  position: relative;
-  height: auto;
-  margin: 0 auto;
-  width: 100%;
-  height: 90%;
   padding: 1rem;
-
-  @include respond(desktop) {
+  border-radius: 5px;
+  box-shadow: rgba(75, 75, 77, 0.313) 0px 1px 11px 0px;
+  &-bigScreen {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 70% 15% 15%;
-    padding: 5rem;
   }
-
   & .btn {
     @include text-btn;
     margin-top: 0.5rem;
@@ -50,6 +45,7 @@
     text-transform: uppercase;
     font-weight: 400;
     margin-top: 1rem;
+    margin-bottom: 0.5rem;
   }
   & p,
   a {
@@ -73,6 +69,11 @@
   flex-direction: column;
   justify-content: center;
   text-align: center;
+
+  &-bigScreen {
+    grid-column: 1/3;
+    grid-row: 2/3;
+  }
 
   & a {
     @include text-btn;

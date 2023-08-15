@@ -1,4 +1,8 @@
-<div id="infos" class="infos-content">
+<div
+  id="infos"
+  [ngClass]="{ 'infos-content-bigScreen': !isSmallScreen }"
+  class="infos-content"
+>
   <ng-container *ngIf="appdata">
     <div class="left">
       <h2>Save the Date</h2>
@@ -76,10 +80,14 @@
         gerne Auskunft.
       </p>
     </div>
-    <div class="center">
+    <div  [ngClass]="{ 'center-bigScreen': !isSmallScreen }" class="center">
       <p>Machts du auch mit?</p>
 
-      <a href="#contact-page" class="btn-text">
+      <a
+        (click)="scrollTo('register')"
+        href="javascript:void(0)"
+        class="btn-text"
+      >
         {{
           appdata.status === "active"
             ? appdata.contentActive
@@ -87,7 +95,7 @@
         }}
         &rarr;
       </a>
+      <app-share-links></app-share-links>
     </div>
   </ng-container>
-  <app-share-links></app-share-links>
 </div>

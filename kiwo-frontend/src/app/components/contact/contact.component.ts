@@ -9,4 +9,11 @@ import { faFacebook } from '@fortawesome/free-brands-svg-icons';
 export class ContactComponent {
   faHouse = faHouse;
   faFacebook = faFacebook;
+
+  scrollTo(page: string) {
+    const element = document.getElementById(page);
+    if (page) {
+      element?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
 }

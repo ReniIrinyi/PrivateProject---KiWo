@@ -5,77 +5,36 @@
   height: 100%;
   width: 100%;
   justify-content: space-between;
+  padding-right: 1rem;
 }
 
-ul {
+.list {
   display: flex;
   align-items: center;
   padding-top: 10rem;
   flex-direction: column;
-  @include respond(large-phone, landscape) {
-    padding-top: 0;
+  &-bigScreen {
+    padding-top: 0rem !important;
     flex-direction: row;
   }
-  @include respond(tablet) {
-    padding-top: 0;
-    flex-direction: row;
-  }
-  @include respond(desktop) {
-    padding-top: 0;
-    flex-direction: row;
-  }
+}
 
-  & li a {
-    position: relative;
-    display: flex;
-    justify-self: center;
-    @include font-p-small;
-    font-weight: 500;
-
-    @include respond(large-phone, landscape) {
-      padding-top: 0;
-      flex-direction: row;
-    }
-    @include respond(tablet) {
-      padding-top: 0;
-      flex-direction: row;
-    }
-    @include respond(desktop) {
-      padding-top: 0;
-      flex-direction: row;
-    }
+.list-item {
+  @include font-p-small;
+  transition: all 0.5s;
+  text-decoration: none;
+  position: relative;
+  display: flex;
+  justify-self: center;
+  font-weight: 500;
+  padding-bottom: 1rem;
+  &-bigScreen {
+    padding-top: 0rem !important;
+    padding-right: 3rem !important;
+    padding-bottom: 0rem !important;
   }
-  li a:hover {
+  &:hover {
     color: #ff4081;
-  }
-
-  & li {
-    display: flex;
-  }
-  & li:not(:nth-of-type(1)) {
-    padding-left: 4rem;
-
-    @include respond(small-phone) {
-      padding-top: 2rem;
-      padding-left: 0;
-    }
-    @include respond(small-phone, landscape) {
-      padding-top: 2rem;
-      padding-left: 0;
-    }
-    @include respond(medium-phone) {
-      padding-top: 2rem;
-      padding-left: 0;
-    }
-    @include respond(large-phone) {
-      padding-top: 2rem;
-      padding-left: 0;
-    }
-  }
-
-  & a {
-    transition: all 0.5s;
-    text-decoration: none;
   }
 }
 

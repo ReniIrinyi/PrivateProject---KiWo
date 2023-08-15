@@ -1,8 +1,11 @@
 <div id="aboutus" class="aboutus-container">
   <h1>Triff das Kiwo-Team</h1>
-  <div class="slide">
+  <div [ngClass]="{ 'slide-bigScreen': !isSmallScreen }" class="slide">
     <div class="components" *ngIf="appdata.length > 0">
-      <div class="components-content">
+      <div
+        [ngClass]="{ 'components-content-bigScreen': !isSmallScreen }"
+        class="components-content"
+      >
         <div class="component-left">
           <img
             [src]="appdata[currentIndex].img"
@@ -24,21 +27,21 @@
         </div>
       </div>
     </div>
-    <div class="btn-container">
-      <span>
-        <fa-icon (click)="changePageOnClick(-1)" [icon]="faArrowLeft"></fa-icon>
-      </span>
-      <div class="dots">
-        <fa-icon
-          class="dot"
-          *ngFor="let data of appdata; let i = index"
-          [icon]="faDotCircle"
-          [ngClass]="{ 'active-dot': i === currentIndex }"
-        ></fa-icon>
-      </div>
-      <span>
-        <fa-icon (click)="changePageOnClick(1)" [icon]="faArrowRight"></fa-icon>
-      </span>
+  </div>
+  <div class="btn-container">
+    <span>
+      <fa-icon (click)="changePageOnClick(-1)" [icon]="faArrowLeft"></fa-icon>
+    </span>
+    <div class="dots">
+      <fa-icon
+        class="dot"
+        *ngFor="let data of appdata; let i = index"
+        [icon]="faDotCircle"
+        [ngClass]="{ 'active-dot': i === currentIndex }"
+      ></fa-icon>
     </div>
+    <span>
+      <fa-icon (click)="changePageOnClick(1)" [icon]="faArrowRight"></fa-icon>
+    </span>
   </div>
 </div>

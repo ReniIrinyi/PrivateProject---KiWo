@@ -5,6 +5,7 @@ import {
   faChevronRight,
   faCircle,
 } from '@fortawesome/free-solid-svg-icons';
+import { ScreenSizeService } from 'src/app/service/ScreenSizeService';
 
 @Component({
   selector: 'app-aboutus',
@@ -12,15 +13,22 @@ import {
   styleUrls: ['./aboutus.component.scss'],
 })
 export class AboutusComponent implements OnInit {
-  constructor(private dataService: DataService) {}
+  constructor(
+    private dataService: DataService,
+    private screenSizeService: ScreenSizeService
+  ) {}
   faArrowLeft = faChevronLeft;
   faArrowRight = faChevronRight;
   faDotCircle = faCircle;
   appdata: any[] = [];
   currentIndex = 0;
+  isSmallScreen = false;
 
   ngOnInit(): void {
     this.getData();
+    this.screenSizeService.isSmallScreen$.subscribe((isSmall) => {
+      this.isSmallScreen = isSmall;
+    });
   }
 
   getData() {

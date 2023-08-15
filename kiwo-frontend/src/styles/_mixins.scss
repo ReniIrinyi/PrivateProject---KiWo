@@ -19,6 +19,27 @@
   position: absolute;
   box-shadow: rgba(78, 78, 86, 0.313) 0px 7px 29px 0px;
 }
+@mixin columnComponent {
+  grid-template-columns: 40% 60%;
+  grid-template-rows: 1fr;
+}
+
+@mixin linkRow {
+  flex-direction: row;
+  background-color: none;
+  right: 0;
+  top: auto;
+  height: auto;
+  width: auto;
+  box-shadow: none;
+}
+
+@mixin gridContact {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 2rem;
+  paddig: 1rem;
+}
 
 @mixin section {
   display: flex;
@@ -127,7 +148,7 @@
 }
 
 @mixin banner-btn-hover {
-  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.5), inset 60px 50px 0 0 $purple;
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.5), inset 60px 50px 0 0 #f25fd0;
   color: $sand-dark;
 }
 
@@ -145,7 +166,7 @@
 }
 
 @mixin btn-hover {
-  filter: brightness(1.05);
+  color: $purple;
 }
 @mixin text-btn {
   text-transform: uppercase;
@@ -154,8 +175,7 @@
   @include font-p-small;
 }
 @mixin btn-text-hover {
-  transform: scale(1.05);
-  color: #5f86f2;
+  color: $purple;
 }
 @mixin btn-social {
   display: flex;

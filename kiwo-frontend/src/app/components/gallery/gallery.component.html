@@ -1,5 +1,9 @@
-<div id="gallery" class="gallery">
-  <div class="gallery__container">
+<div
+  [ngClass]="{ 'gallery-bigScreen': !isSmallScreen }"
+  id="gallery"
+  class="gallery"
+>
+  <div class="gallery-container">
     <div class="main-image-section" id="gallery">
       <img
         *ngFor="let img of randomImgs; let i = index"

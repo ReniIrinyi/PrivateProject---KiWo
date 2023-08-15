@@ -6,6 +6,7 @@
   height: 100%;
   width: 100%;
   align-items: center;
+  margin: 5rem 0 5rem 0;
 
   & h1 {
     @include font-h1;
@@ -14,18 +15,18 @@
     margin-bottom: 1rem;
   }
   & .slide {
-    display: grid;
+    display: flex;
     overflow: hidden;
-    grid-template-columns: 1fr;
-    grid-template-rows: 95% 5%;
     justify-content: center;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     background-color: white;
     border-radius: 5px;
     width: 70%;
-    height: auto;
+    height: 40rem;
     margin: 0 auto;
-    padding-bottom: 1rem;
+    &-bigScreen {
+      height: 30rem !important;
+    }
   }
 }
 
@@ -40,6 +41,9 @@
     justify-content: center;
     height: 100%;
     margin: 0 auto;
+    &-bigScreen {
+      @include columnComponent;
+    }
   }
 }
 .component-left {
@@ -84,6 +88,7 @@
   flex-direction: row;
   width: 100%;
   justify-content: space-evenly;
+  padding-top: 1rem;
 
   & span {
     display: flex;
@@ -99,7 +104,7 @@
   & span {
     display: flex;
     top: 47%;
-    z-index: 1000;
+    z-index: 10;
     cursor: pointer;
   }
   & span:first-of-type {

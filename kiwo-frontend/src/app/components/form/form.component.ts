@@ -3,28 +3,18 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import SignaturePad from 'signature_pad';
 import { HttpClient } from '@angular/common/http';
 import { DataService } from 'src/app/service/DataService';
-
+import { ScreenSizeService } from 'src/app/service/ScreenSizeService';
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.scss'],
 })
 export class FormComponent implements OnInit {
-  form: FormGroup;
-  appdata: any = [];
-  labelsArray: any[] = [];
-  daysArray: any[] = [];
-  optionsArray: any[] = [];
-  signaturePad: SignaturePad | undefined;
-  serverStatus: boolean = false;
-  showStatus: boolean = false;
-  errorMessage: string | undefined;
-  verbindlich: boolean | undefined;
-
   constructor(
     private fb: FormBuilder,
     private http: HttpClient,
-    private dataService: DataService
+    private dataService: DataService,
+    private screenSizeService: ScreenSizeService
   ) {
     this.form = this.fb.group({
       betreff: ['', Validators.required],
@@ -50,8 +40,23 @@ export class FormComponent implements OnInit {
     });
   }
 
+  form: FormGroup;
+  appdata: any = [];
+  labelsArray: any[] = [];
+  daysArray: any[] = [];
+  optionsArray: any[] = [];
+  signaturePad: SignaturePad | undefined;
+  serverStatus: boolean = false;
+  showStatus: boolean = false;
+  errorMessage: string | undefined;
+  verbindlich: boolean | undefined;
+  isSmallScreen = false;
+
   ngOnInit(): void {
     this.getData();
+    this.screenSizeService.isSmallScreen$.subscribe((isSmall) => {
+      this.isSmallScreen = isSmall;
+    });
   }
 
   getData() {

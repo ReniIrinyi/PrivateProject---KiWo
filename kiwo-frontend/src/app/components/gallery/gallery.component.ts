@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/service/DataService';
 import { interval } from 'rxjs';
+import { ScreenSizeService } from 'src/app/service/ScreenSizeService';
 
 @Component({
   selector: 'app-gallery',
@@ -14,10 +15,17 @@ export class GalleryComponent implements OnInit {
   intervalTime = 8000;
   transitionDuration = 1000;
   opacity = 1;
-  constructor(private dataService: DataService) {}
+  isSmallScreen = false;
+  constructor(
+    private dataService: DataService,
+    private screenSizeService: ScreenSizeService
+  ) {}
 
   ngOnInit(): void {
     this.getData();
+    this.screenSizeService.isSmallScreen$.subscribe((isSmall) => {
+      this.isSmallScreen = isSmall;
+    });
   }
 
   getData() {

@@ -2,6 +2,8 @@ import { Component, HostListener, OnInit } from '@angular/core';
 import { ScrollService } from 'src/app/service/ScrollService';
 import { IconService } from 'src/app/service/IconService';
 import { Observable } from 'rxjs';
+import { ScreenSizeService } from 'src/app/service/ScreenSizeService';
+import { faBars, faX } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-header',
@@ -11,13 +13,17 @@ import { Observable } from 'rxjs';
 export class HeaderComponent implements OnInit {
   constructor(
     private scrollService: ScrollService,
-    private iconService: IconService
+    private iconService: IconService,
+    private screenSizeService: ScreenSizeService
   ) {}
   isSmallScreen = false;
   currentIcon: any;
 
   ngOnInit(): void {
-    this.checkDevicewidth();
+    this.screenSizeService.isSmallScreen$.subscribe((isSmall) => {
+      this.isSmallScreen = isSmall;
+      this.moveLinksToRights();
+    });
     this.iconService.currentIcon$.subscribe((icon) => {
       this.currentIcon = icon;
     });
@@ -26,11 +32,6 @@ export class HeaderComponent implements OnInit {
   // Returns an Observable that indicates the sticky status.
   get isSticky(): Observable<boolean> {
     return this.scrollService.isSticky$;
-  }
-
-  @HostListener('window:resize', ['$event'])
-  onResize(event: any) {
-    this.checkDevicewidth();
   }
 
   @HostListener('window:scroll', [])
@@ -45,13 +46,7 @@ export class HeaderComponent implements OnInit {
     const isSticky = scrollPosition >= homeSectionHeight;
     this.scrollService.setIsSticky(isSticky);
   }
-  checkDevicewidth() {
-    this.isSmallScreen = false;
-    if (window.innerWidth < 1000) {
-      this.isSmallScreen = true;
-    }
-    this.moveLinksToRights();
-  }
+
   changeIcon() {
     const links = document.querySelector('.links');
     if (

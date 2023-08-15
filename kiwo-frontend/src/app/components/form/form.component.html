@@ -1,8 +1,10 @@
 <form
+  id="register"
   class="registration"
   [formGroup]="form"
   (ngSubmit)="onSubmit()"
   enctype="multipart/form-data"
+  [ngClass]="{ 'registration-bigScreen': !isSmallScreen }"
 >
   <div class="form-left">
     <div class="form-input" *ngFor="let label of labelsArray; let i = index">
