@@ -21,7 +21,7 @@ const Submission = sequelize.define("form_submissions", {
   fahrdienst: Sequelize.STRING,
   zvieri: Sequelize.STRING,
   fotoserlaubnis: Sequelize.STRING,
-  verbindlich: Sequelize.BOOLEAN,
+  verbindlich: Sequelize.STRING,
   signatureImage: Sequelize.BLOB, // Change to Sequelize.BLOB for binary data
   createdAt: DataTypes.DATE,
   updatedAt: DataTypes.DATE,

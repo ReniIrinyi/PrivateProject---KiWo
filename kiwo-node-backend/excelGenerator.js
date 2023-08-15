@@ -9,8 +9,6 @@ async function processSubmissions(
   sheet,
   imagesFolder
 ) {
-  const imagePaths = [];
-
   for (const submission of submissions) {
     const dataRow = sheet.addRow([
       submission.id,
@@ -28,7 +26,7 @@ async function processSubmissions(
       submission.fahrdienst,
       submission.zvieri,
       submission.fotoserlaubnis,
-      submission.verbindlich ? "Ja" : "Nein",
+      submission.verbindlich,
       "", // Placeholder for img
     ]);
 
@@ -37,9 +35,9 @@ async function processSubmissions(
         const imageName = `signature_${submission.id}.png`;
         const imagePath = path.join(imagesFolder, imageName);
         await fs.writeFile(imagePath, submission.signatureImage);
-        imagePaths.push(imagePath);
-        //BUG in addImageToCell
-        addImageToCell(dataRow, imagePath, columnIndex, workbook, sheet);
+        const imageBuffer = await fs.readFile(imagePath);
+
+        addImageToCell(dataRow, imageBuffer, columnIndex, workbook, sheet);
       } catch (error) {
         console.error("Error saving image:", error);
       }
@@ -49,33 +47,20 @@ async function processSubmissions(
 
 async function addImageToCell(
   dataRow,
-  imagePath,
+  imageBuffer,
   columnIndex,
   workbook,
   sheet
 ) {
   try {
-    const imageBuffer = await fs.readFile(imagePath);
-    workbook.addImage({
+    const imageId = workbook.addImage({
       buffer: imageBuffer,
       extension: "png",
-      tl: { col: columnIndex, row: dataRow.number },
-      br: { col: columnIndex + 1, row: dataRow.number + 1 },
-      editAs: "oneCell",
     });
-
-    const cell = dataRow.getCell(columnIndex);
-    cell.alignment = { vertical: "middle", horizontal: "center" };
-    cell.value = {
-      richText: [
-        {
-          text: "Unterschrift",
-          font: { size: 12, bold: true },
-        },
-      ],
-      hyperlink: imagePath,
-      hyperlinkTooltip: "Click to view image",
-    };
+    sheet.addImage(imageId, {
+      tl: { col: columnIndex, row: dataRow.number },
+      ext: { width: 120, height: 120 },
+    });
   } catch (error) {
     console.error("Error adding image to cell:", error);
     return;

@@ -30,7 +30,6 @@ export class GalleryComponent implements OnInit {
 
   getRandomImgs() {
     const shuffledImgs = this.shuffleArray(this.imgs);
-    console.log(shuffledImgs);
     for (const img of shuffledImgs) {
       if (!this.randomImgs.includes(img)) {
         this.randomImgs.push(img);

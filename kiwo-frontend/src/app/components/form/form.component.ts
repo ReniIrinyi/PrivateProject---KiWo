@@ -40,9 +40,9 @@ export class FormComponent implements OnInit {
       mittwoch: [false],
       donnerstag: [false],
       freitag: [false],
-      fahrdienst: ['Ja', Validators.required],
-      zvieri: ['Ja', Validators.required],
-      fotoserlaubnis: ['Ja', Validators.required],
+      fahrdienst: ['Nein', Validators.required],
+      zvieri: ['Nein', Validators.required],
+      fotoserlaubnis: ['Nein', Validators.required],
       verbindlich: [false, Validators.required],
       signatureImageFile: [''],
     });
@@ -134,22 +134,20 @@ export class FormComponent implements OnInit {
     formData.append('fahrdienst', this.form.value.fahrdienst);
     formData.append('zvieri', this.form.value.zvieri);
     formData.append('fotoserlaubnis', this.form.value.fotoserlaubnis);
-    formData.append('verbindlich', this.form.value.verbindlich);
+    formData.append(
+      'verbindlich',
+      this.form.value.verbindlich == true ? 'Ja' : 'Nein'
+    );
     for (const day of this.daysArray) {
       formData.append(day, this.form.value[day]);
     }
     formData.append('signatureImageFile', signatureImage);
-
-    formData.forEach((data, key) => {
-      console.log(`${key}: ${data}`);
-    });
 
     // Send the formData to the server
     this.http.post('http://localhost:8080/api/submit', formData).subscribe(
       (response) => {
         this.serverStatus = true;
         this.showStatus = true;
-        console.log('Form data submitted successfully:', response);
       },
       (error) => {
         this.serverStatus = false;
