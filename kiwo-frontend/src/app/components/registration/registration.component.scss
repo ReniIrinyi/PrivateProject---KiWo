@@ -13,6 +13,8 @@ hr {
   display: flex;
   flex-direction: column;
   padding: 1rem;
+  background-color: $blue;
+  margin-top: 5rem;
 
   & h3 {
     @include font-h3;

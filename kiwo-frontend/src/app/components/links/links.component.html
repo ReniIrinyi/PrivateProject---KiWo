@@ -1,17 +1,53 @@
 <div class="container">
   <ul>
-    <li><a href="#home">Home</a></li>
-    <li><a href="#programm">Programm</a></li>
-    <li><a href="#infos">Infos</a></li>
-    <li><a href="#aboutus">Unser Team</a></li>
-    <li><a href="#contact">Kontakt</a></li>
     <li>
       <a
-        (click)="scrollTo('techstack')"
-        routerLink="/impressum"
+        (click)="changeIcon()"
+        routerLink="/home"
+        (click)="scrollTo('home')"
         href="javascript:void(0)"
-        >Impressum</a
+        >Home</a
       >
+    </li>
+    <li>
+      <a
+        (click)="changeIcon()"
+        routerLink="/home"
+        (click)="scrollTo('gallery')"
+        href="javascript:void(0)"
+        >Gallery</a
+      >
+    </li>
+    <li>
+      <a
+        (click)="changeIcon()"
+        routerLink="/home"
+        (click)="scrollTo('infos')"
+        href="javascript:void(0)"
+        >Infos</a
+      >
+    </li>
+    <li>
+      <a
+        (click)="changeIcon()"
+        routerLink="/home"
+        (click)="scrollTo('aboutus')"
+        href="javascript:void(0)"
+        >Unser Team</a
+      >
+    </li>
+    <li>
+      <a
+        (click)="changeIcon()"
+        routerLink="/home"
+        (click)="scrollTo('contacts')"
+        href="javascript:void(0)"
+        >Kontakt</a
+      >
+    </li>
+
+    <li>
+      <a (click)="changeIcon()" routerLink="/impressum">Datenschutzerklärung</a>
     </li>
   </ul>
 

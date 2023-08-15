@@ -1,6 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
-import { faBars, faX } from '@fortawesome/free-solid-svg-icons';
 import { ScrollService } from 'src/app/service/ScrollService';
+import { IconService } from 'src/app/service/IconService';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -9,14 +9,18 @@ import { Observable } from 'rxjs';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  constructor(private scrollService: ScrollService) {}
+  constructor(
+    private scrollService: ScrollService,
+    private iconService: IconService
+  ) {}
   isSmallScreen = false;
-  faBars = faBars;
-  faX = faX;
-  currentIcon = faBars;
+  currentIcon: any;
 
   ngOnInit(): void {
     this.checkDevicewidth();
+    this.iconService.currentIcon$.subscribe((icon) => {
+      this.currentIcon = icon;
+    });
   }
 
   // Returns an Observable that indicates the sticky status.
@@ -28,7 +32,7 @@ export class HeaderComponent implements OnInit {
   onResize(event: any) {
     this.checkDevicewidth();
   }
-  
+
   @HostListener('window:scroll', [])
   handleScroll() {
     const homeSectionHeight =
@@ -50,11 +54,13 @@ export class HeaderComponent implements OnInit {
   }
   changeIcon() {
     const links = document.querySelector('.links');
-    if (this.currentIcon === faBars) {
-      this.currentIcon = faX;
+    if (
+      this.iconService.getCurrentIconValue() === this.iconService.icons.faBars
+    ) {
+      this.iconService.toggleIcon();
       links?.classList.remove('transformX');
     } else {
-      this.currentIcon = faBars;
+      this.iconService.toggleIcon();
       links?.classList.add('transformX');
     }
   }

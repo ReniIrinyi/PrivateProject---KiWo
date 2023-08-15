@@ -23,6 +23,16 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { ImpressumComponent } from './components/impressum/impressum.component';
+import { RouterModule, Routes } from '@angular/router';
+import { MainComponent } from './components/main/main.component';
+
+const appRoutes: Routes = [
+  { path: 'home', component: MainComponent },
+  { path: 'impressum', component: ImpressumComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '**', redirectTo: '/home', pathMatch: 'full' },
+];
 
 @NgModule({
   declarations: [
@@ -39,6 +49,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     LinksComponent,
     ShareLinksComponent,
     ContactComponent,
+    ImpressumComponent,
+    MainComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,6 +65,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     MatNativeDateModule,
     MatInputModule,
     MatDatepickerModule,
+    RouterModule.forRoot(appRoutes),
   ],
   providers: [],
   bootstrap: [AppComponent],
