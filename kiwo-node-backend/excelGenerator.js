@@ -57,9 +57,14 @@ async function addImageToCell(
       buffer: imageBuffer,
       extension: "png",
     });
+    const imageHeight = 50;
+    const rowHeight = Math.floor(imageHeight * 0.75);
+    sheet.getRow(dataRow.number).height = rowHeight;
+
     sheet.addImage(imageId, {
-      tl: { col: columnIndex, row: dataRow.number },
-      ext: { width: 120, height: 120 },
+      tl: { col: columnIndex - 1, row: dataRow.number - 1 },
+      ext: { width: 100, height: imageHeight },
+      editAs: "oneCell",
     });
   } catch (error) {
     console.error("Error adding image to cell:", error);

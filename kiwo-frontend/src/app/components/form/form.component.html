@@ -77,10 +77,14 @@
     </div>
     <div class="form-validator">
       <div class="signature">
+        <p class="status-invalid" *ngIf="!form.get('verbindlich')?.value">
+          Sie müssen den Bedingungen zustimmen, um das Formular abzusenden.
+        </p>
         <mat-checkbox formControlName="verbindlich">
           Ich habe die Bedingungen zur Kenntnis genommen und bin damit
           einverstanden.</mat-checkbox
         >
+
         <p>
           Wir weisen darauf hin, dass die Anmeldung verbindlich ist. Bitte
           bestätige die Richtigkeit der Angaben mit deiner Unterschrift.
@@ -107,6 +111,9 @@
             Oops! Es gab ein Problem beim Absenden deines Formulars. Bitte
             versuche es erneut!
           </p>
+        </div>
+        <div *ngIf="!showStatus" class="status status-invalid">
+          <p *ngIf="errorMessage">{{ errorMessage }}</p>
         </div>
       </div>
     </div>

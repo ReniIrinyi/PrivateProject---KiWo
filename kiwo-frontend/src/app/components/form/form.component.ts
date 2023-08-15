@@ -18,6 +18,8 @@ export class FormComponent implements OnInit {
   signaturePad: SignaturePad | undefined;
   serverStatus: boolean = false;
   showStatus: boolean = false;
+  errorMessage: string | undefined;
+  verbindlich: boolean | undefined;
 
   constructor(
     private fb: FormBuilder,
@@ -114,49 +116,60 @@ export class FormComponent implements OnInit {
   onSubmit() {
     this.updateSignatureInput();
 
-    // if (this.form.valid) {
-    const signatureImage = this.dataURLtoFile(
-      this.form.value.signatureImageFile,
-      'signatureImage.png'
-    );
+    if (this.form.valid && this.form.get('verbindlich')?.value) {
+      const signatureImage = this.dataURLtoFile(
+        this.form.value.signatureImageFile,
+        'signatureImage.png'
+      );
 
-    const formData = new FormData();
-    formData.append('betreff', this.form.value.betreff);
-    formData.append('vorname', this.form.value.vorname);
-    formData.append('nachname', this.form.value.nachname);
-    formData.append('geburtsdatum', this.form.value.geburtsdatum);
-    formData.append('klasse', this.form.value.klasse);
-    formData.append('anschrift', this.form.value.anschrift);
-    formData.append('wohnort', this.form.value.wohnort);
-    formData.append('email', this.form.value.email);
-    formData.append('telefon', this.form.value.telefon);
-    formData.append('nachricht', this.form.value.nachricht);
-    formData.append('fahrdienst', this.form.value.fahrdienst);
-    formData.append('zvieri', this.form.value.zvieri);
-    formData.append('fotoserlaubnis', this.form.value.fotoserlaubnis);
-    formData.append(
-      'verbindlich',
-      this.form.value.verbindlich == true ? 'Ja' : 'Nein'
-    );
-    for (const day of this.daysArray) {
-      formData.append(day, this.form.value[day]);
-    }
-    formData.append('signatureImageFile', signatureImage);
-
-    // Send the formData to the server
-    this.http.post('http://localhost:8080/api/submit', formData).subscribe(
-      (response) => {
-        this.serverStatus = true;
-        this.showStatus = true;
-      },
-      (error) => {
-        this.serverStatus = false;
-        this.showStatus = true;
-        console.error('Error submitting form data:', error);
+      const formData = new FormData();
+      formData.append('betreff', this.form.value.betreff);
+      formData.append('vorname', this.form.value.vorname);
+      formData.append('nachname', this.form.value.nachname);
+      formData.append('geburtsdatum', this.form.value.geburtsdatum);
+      formData.append('klasse', this.form.value.klasse);
+      formData.append('anschrift', this.form.value.anschrift);
+      formData.append('wohnort', this.form.value.wohnort);
+      formData.append('email', this.form.value.email);
+      formData.append('telefon', this.form.value.telefon);
+      formData.append('nachricht', this.form.value.nachricht);
+      formData.append('fahrdienst', this.form.value.fahrdienst);
+      formData.append('zvieri', this.form.value.zvieri);
+      formData.append('fotoserlaubnis', this.form.value.fotoserlaubnis);
+      formData.append(
+        'verbindlich',
+        this.form.value.verbindlich == true ? 'Ja' : 'Nein'
+      );
+      for (const day of this.daysArray) {
+        formData.append(day, this.form.value[day]);
       }
-    );
+      formData.append('signatureImageFile', signatureImage);
+
+      // Send the formData to the server
+      this.http.post('http://localhost:8080/api/submit', formData).subscribe(
+        (response) => {
+          this.serverStatus = true;
+          this.showStatus = true;
+        },
+        (error) => {
+          this.serverStatus = false;
+          this.showStatus = true;
+          console.error('Error submitting form data:', error);
+        }
+      );
+    } else {
+      // Form is not valid, provide suggestions on missing fields
+      const invalidFormControls = [];
+      for (const controlName in this.form.controls) {
+        if (this.form.controls[controlName].invalid) {
+          invalidFormControls.push(controlName.toUpperCase());
+        }
+      }
+      this.errorMessage = `Bitte füllen Sie die folgenden Felder aus: ${invalidFormControls.join(
+        ', '
+      )}`;
+    }
   }
-  // }
 
   // Helper function to convert data URL to a File object
   dataURLtoFile(dataurl: string, filename: string): File {
