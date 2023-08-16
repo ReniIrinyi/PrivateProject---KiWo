@@ -4,6 +4,7 @@ import SignaturePad from 'signature_pad';
 import { HttpClient } from '@angular/common/http';
 import { DataService } from 'src/app/service/DataService';
 import { ScreenSizeService } from 'src/app/service/ScreenSizeService';
+import { DatePipe } from '@angular/common';
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
@@ -14,7 +15,8 @@ export class FormComponent implements OnInit {
     private fb: FormBuilder,
     private http: HttpClient,
     private dataService: DataService,
-    private screenSizeService: ScreenSizeService
+    private screenSizeService: ScreenSizeService,
+    private datePipe: DatePipe
   ) {
     this.form = this.fb.group({
       betreff: ['', Validators.required],
@@ -51,9 +53,14 @@ export class FormComponent implements OnInit {
   errorMessage: string | undefined;
   verbindlich: boolean | undefined;
   isSmallScreen = false;
+  hasSignature = false;
 
   ngOnInit(): void {
     this.getData();
+    this.checkScreenWidth();
+  }
+
+  checkScreenWidth() {
     this.screenSizeService.isSmallScreen$.subscribe((isSmall) => {
       this.isSmallScreen = isSmall;
     });
@@ -97,6 +104,15 @@ export class FormComponent implements OnInit {
     ) as HTMLCanvasElement;
     if (canvas) {
       this.signaturePad = new SignaturePad(canvas);
+
+      canvas.addEventListener('click', () => {
+        this.hasSignature = true;
+      });
+      canvas.addEventListener('touchend', () => {
+        this.hasSignature = true;
+      });
+
+      this.signaturePad.on();
     }
   }
 
@@ -104,6 +120,7 @@ export class FormComponent implements OnInit {
     if (this.signaturePad) {
       this.signaturePad.clear();
       this.form.get('signatureImageFile')?.setValue('');
+      this.hasSignature = false;
     }
   }
 
@@ -126,12 +143,16 @@ export class FormComponent implements OnInit {
         this.form.value.signatureImageFile,
         'signatureImage.png'
       );
+      const formattedDate =
+        this.datePipe.transform(this.form.value.geburtsdatum, 'yyyy-MM-dd') ||
+        '';
 
       const formData = new FormData();
       formData.append('betreff', this.form.value.betreff);
       formData.append('vorname', this.form.value.vorname);
       formData.append('nachname', this.form.value.nachname);
-      formData.append('geburtsdatum', this.form.value.geburtsdatum);
+      formData.append('geburtsdatum', formattedDate);
+      console.log(this.form.value.geburtsdatum);
       formData.append('klasse', this.form.value.klasse);
       formData.append('anschrift', this.form.value.anschrift);
       formData.append('wohnort', this.form.value.wohnort);
@@ -170,9 +191,12 @@ export class FormComponent implements OnInit {
           invalidFormControls.push(controlName.toUpperCase());
         }
       }
-      this.errorMessage = `Bitte füllen Sie die folgenden Felder aus: ${invalidFormControls.join(
-        ', '
-      )}`;
+      //   this.errorMessage =
+      //     invalidFormControls.length > 0
+      //       ? `Bitte füllen Sie die folgenden Felder aus: ${invalidFormControls.join(
+      //           ', '
+      //         )}`
+      //       : 'Sie müssen den Bedingungen zustimmen, um das Formular abzusenden.';
     }
   }
 

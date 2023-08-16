@@ -103,21 +103,21 @@ canvas {
 }
 .submit-btn:disabled {
   @include btn(rgba(204, 143, 164, 0.875));
-
   &:hover {
     cursor: not-allowed;
   }
-}
-.form-validator {
-  display: flex;
-  flex-direction: column;
 }
 .clear-btn {
   margin-left: 0.5rem;
   @include btn(#f44336);
 }
-.btn:hover {
+.btn:hover,
+.submit-btn:hover {
   @include btn-hover;
+}
+.form-validator {
+  display: flex;
+  flex-direction: column;
 }
 .status {
   margin-top: 2rem;

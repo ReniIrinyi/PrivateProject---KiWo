@@ -2,8 +2,10 @@
   [ngClass]="{ 'gallery-bigScreen': !isSmallScreen }"
   id="gallery"
   class="gallery"
+  (click)="closeFullScreenImage(); $event.stopPropagation()"
 >
   <div class="gallery-container">
+    <!-- Slideshow Main Images -->
     <div class="main-image-section" id="gallery">
       <img
         *ngFor="let img of randomImgs; let i = index"
@@ -15,6 +17,7 @@
         [style.z-index]="i === currentIndex ? 1 : 0"
         [hidden]="i !== currentIndex"
         [style.transition-duration]="transitionDuration / 1000 + 's'"
+        (click)="openFullScreenImage(i); $event.stopPropagation()"
       />
 
       <div class="caption-container">
@@ -22,6 +25,7 @@
         <div id="info">This is info message</div>
       </div>
     </div>
+    <!-- Thumbnails -->
     <div id="thumbnails" class="thumbnails">
       <img
         *ngFor="let img of randomImgs; let i = index"
@@ -29,6 +33,20 @@
         alt=""
         (click)="changeImgOnClick(i)"
       />
+    </div>
+    <!-- Full-Screen Image Overlay -->
+    <div
+      class="full-screen-overlay"
+      *ngIf="fullScreenImageIndex !== null"
+      [ngClass]="{ 'full-screen-overlay-bigScreen': !isSmallScreen }"
+    >
+      <div
+        [ngClass]="{ 'full-screen-image-container-bigScreen': !isSmallScreen }"
+        class="full-screen-image-container"
+      >
+        <img [src]="randomImgs[fullScreenImageIndex]" alt="Full-Screen Image" />
+        <div class="close-button" (click)="closeFullScreenImage()">Close</div>
+      </div>
     </div>
   </div>
 </div>

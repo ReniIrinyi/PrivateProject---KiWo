@@ -26,6 +26,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { ImpressumComponent } from './components/impressum/impressum.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MainComponent } from './components/main/main.component';
+import { DatePipe } from '@angular/common';
 
 const appRoutes: Routes = [
   { path: 'home', component: MainComponent },
@@ -67,7 +68,7 @@ const appRoutes: Routes = [
     MatDatepickerModule,
     RouterModule.forRoot(appRoutes),
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

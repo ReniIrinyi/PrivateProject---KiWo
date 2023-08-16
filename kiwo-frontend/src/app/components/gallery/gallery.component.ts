@@ -16,6 +16,8 @@ export class GalleryComponent implements OnInit {
   transitionDuration = 1000;
   opacity = 1;
   isSmallScreen = false;
+  fullScreenImageIndex: number | null = null;
+
   constructor(
     private dataService: DataService,
     private screenSizeService: ScreenSizeService
@@ -35,7 +37,13 @@ export class GalleryComponent implements OnInit {
       this.changeImg();
     });
   }
+  openFullScreenImage(index: number) {
+    this.fullScreenImageIndex = index;
+  }
 
+  closeFullScreenImage() {
+    this.fullScreenImageIndex = null;
+  }
   getRandomImgs() {
     const shuffledImgs = this.shuffleArray(this.imgs);
     for (const img of shuffledImgs) {
@@ -67,9 +75,11 @@ export class GalleryComponent implements OnInit {
   }
 
   changeToNextImage() {
-    setTimeout(() => {
-      this.opacity = 1;
-    }, this.transitionDuration);
-    this.currentIndex = (this.currentIndex + 1) % this.randomImgs.length;
+    if (this.fullScreenImageIndex === null) {
+      setTimeout(() => {
+        this.opacity = 1;
+      }, this.transitionDuration);
+      this.currentIndex = (this.currentIndex + 1) % this.randomImgs.length;
+    }
   }
 }

@@ -37,7 +37,7 @@
     hsl(269, 85%, 66%),
     hsl(224, 85%, 66%)
   );
-  -webkit-background-clip: text;
+
   color: transparent;
 }
 
@@ -54,12 +54,11 @@
     hsl(179, 50%, 54%)
   );
 
-  -webkit-background-clip: text;
   color: transparent;
 }
 .highligted {
   background-image: linear-gradient(to left, #3f9cc4, #00b0fb);
-  -webkit-background-clip: text;
+
   color: transparent;
   transition: all 0.2s;
 }
@@ -69,6 +68,5 @@ $sand-dark: rgb(236, 229, 219);
 $blue: #00b0fb;
 $red: rgb(242, 95, 97);
 $yellow: #f2ff35;
-$purple: #f25fd0;
 $black: #1b1007;
 $purple: #ff4081;

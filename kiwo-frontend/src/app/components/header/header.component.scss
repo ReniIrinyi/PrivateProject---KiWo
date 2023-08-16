@@ -49,6 +49,7 @@ app-links {
 }
 .btn {
   display: flex;
+
   z-index: inherit;
   font-size: 1.7rem;
   cursor: pointer;
@@ -61,10 +62,11 @@ app-links {
 }
 
 fa-icon {
+  color: rgba(63, 63, 63, 0.915);
   transition: all 1s;
 }
 fa-icon:hover {
-  transform: scale(1.2);
+  color: $purple;
 }
 
 .transformX {

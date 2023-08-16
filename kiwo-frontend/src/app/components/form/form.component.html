@@ -14,7 +14,7 @@
             <input
               matInput
               [matDatepicker]="picker"
-              placeholder="Geburtsdatum: MM/DD/YYYY"
+              placeholder="Geburtsdatum:"
               formControlName="geburtsdatum"
             />
             <mat-datepicker-toggle
@@ -95,7 +95,13 @@
         <canvas id="signatureCanvas" #signatureCanvas></canvas>
 
         <div class="btn-container">
-          <button class="btn submit-btn" type="submit ">Absenden</button>
+          <button
+            class="btn submit-btn"
+            type="submit"
+            [disabled]="!form.valid || !form.get('verbindlich')?.value"
+          >
+            Absenden
+          </button>
           <button
             class="btn clear-btn"
             type="button"
@@ -114,9 +120,9 @@
             versuche es erneut!
           </p>
         </div>
-        <div *ngIf="!showStatus" class="status status-invalid">
+        <!-- <div *ngIf="!showStatus" class="status status-invalid">
           <p *ngIf="errorMessage">{{ errorMessage }}</p>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
