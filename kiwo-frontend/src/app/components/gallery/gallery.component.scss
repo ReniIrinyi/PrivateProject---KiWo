@@ -1,30 +1,22 @@
-.gallery {
-  margin-top: 5rem;
-  margin-bottom: 5rem;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
-  display: flex;
-  height: 50vh;
-  width: 100%;
-  overflow: hidden;
+@import "../../../styles.scss";
 
+.gallery {
+  @include section;
+  height: 50vh;
+  overflow: hidden;
+  padding: 0;
   &-bigScreen {
-    height: 90vh;
-    width: 70%;
+    height: 80vh;
+    width: 80%;
   }
 }
 
 .gallery-container {
-  display: flex;
+  @include container;
   position: relative;
+  border: 1px solid rgba(97, 92, 92, 0.397);
   width: 99%;
   height: 90%;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  border: 1px solid rgba(97, 92, 92, 0.397);
-  border-radius: 5px;
-  overflow: hidden;
 }
 
 .main-image-section {
@@ -50,8 +42,6 @@
   height: 100px;
   bottom: -100px;
   opacity: 0;
-  -webkit-transition: all 1s ease;
-  -moz-transition: all 1s ease;
   transition: all 1s ease;
 }
 
@@ -67,9 +57,6 @@ img {
   opacity: 0.8;
   cursor: pointer;
   object-fit: cover;
-
-  -webkit-transition: opacity 0.3s ease 0s;
-  -moz-transition: opacity 0.3s ease 0s;
   transition: opacity 0.3s ease 0s;
 }
 

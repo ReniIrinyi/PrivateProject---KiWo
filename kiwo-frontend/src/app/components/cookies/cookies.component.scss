@@ -1,0 +1,38 @@
+@import "../../../styles.scss";
+
+.cookies-notification {
+  @include font-p;
+  position: fixed;
+  z-index: 1000;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: underline;
+  transition: all 0.5s;
+
+  &:hover {
+    color: $purple;
+  }
+}
+
+.btn-accept {
+  @include btn(#7d7d7d);
+  padding: 0.5rem 1rem;
+  &:hover {
+    @include btn-hover;
+  }
+}
+.btn {
+  color: $black !important;
+  margin-left: 1rem;
+  @include btn-border;
+  padding: 0.5rem 1rem;
+  &:hover {
+    color: #fff !important;
+    background-color: #7d7d7d;
+  }
+}

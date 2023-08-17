@@ -76,47 +76,22 @@
     <div class="list">
       <ul>
         <li>
-          <a
-            routerLink="/home"
-            (click)="scrollTo('home')"
-            href="javascript:void(0)"
-            >Home</a
-          >
+          <a (click)="handleLinkClick('home')">Home</a>
         </li>
         <li>
-          <a
-            routerLink="/home"
-            (click)="scrollTo('gallery')"
-            href="javascript:void(0)"
-            >Gallery</a
-          >
+          <a (click)="handleLinkClick('gallery')">Gallery</a>
         </li>
         <li>
-          <a
-            routerLink="/home"
-            (click)="scrollTo('infos')"
-            href="javascript:void(0)"
-            >Infos</a
-          >
+          <a (click)="handleLinkClick('infos')">Infos</a>
         </li>
         <li>
-          <a
-            routerLink="/home"
-            (click)="scrollTo('aboutus')"
-            href="javascript:void(0)"
-            >Unser Team</a
-          >
+          <a (click)="handleLinkClick('aboutus')">Unser Team</a>
         </li>
         <li>
-          <a
-            routerLink="/home"
-            (click)="scrollTo('contacts')"
-            href="javascript:void(0)"
-            >Kontakt</a
-          >
+          <a (click)="handleLinkClick('contacts')">Kontakt & Anmeldung</a>
         </li>
         <li>
-          <a routerLink="/impressum" href="javascript:void(0)"
+          <a (click)="handleLinkClickTo('/impressum', '')"
             >Datenschutzerklärung</a
           >
         </li>

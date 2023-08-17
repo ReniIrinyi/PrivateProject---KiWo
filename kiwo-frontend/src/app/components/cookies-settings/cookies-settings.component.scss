@@ -1,0 +1,41 @@
+@import "../../../styles.scss";
+
+.cookies-container {
+  padding: 1rem;
+}
+.mat-dialog-title {
+  padding: 1rem;
+}
+
+.mat-dialog-content {
+  padding: 1rem;
+}
+
+.mat-checkbox {
+  margin-bottom: 1rem;
+  @include font-p;
+}
+.mat-dialog-actions {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
+.btn-accept {
+  @include btn(#7d7d7d);
+  color: inherit;
+  padding: 0.5rem 1rem;
+  &:hover {
+    @include btn-hover;
+  }
+}
+.btn {
+  color: $black !important;
+  margin-left: 1rem;
+  color: inherit;
+  @include btn-border;
+  padding: 0.5rem 1rem;
+  &:hover {
+    background-color: #7d7d7d;
+    color: #fff !important;
+  }
+}

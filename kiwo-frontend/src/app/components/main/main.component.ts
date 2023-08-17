@@ -8,6 +8,7 @@ import { DataService } from 'src/app/service/DataService';
 })
 export class MainComponent implements OnInit {
   constructor(private dataService: DataService) {}
+  //status=active ? open registration : close registration
   status: any = [];
 
   ngOnInit(): void {

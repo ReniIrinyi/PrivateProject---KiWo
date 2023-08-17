@@ -23,10 +23,15 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatCardModule } from '@angular/material/card';
+import { MatDialogModule } from '@angular/material/dialog';
+
 import { ImpressumComponent } from './components/impressum/impressum.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MainComponent } from './components/main/main.component';
 import { DatePipe } from '@angular/common';
+import { CookiesComponent } from './components/cookies/cookies.component';
+import { CookiesSettingsComponent } from './components/cookies-settings/cookies-settings.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: MainComponent },
@@ -52,6 +57,8 @@ const appRoutes: Routes = [
     ContactComponent,
     ImpressumComponent,
     MainComponent,
+    CookiesComponent,
+    CookiesSettingsComponent,
   ],
   imports: [
     BrowserModule,
@@ -67,6 +74,8 @@ const appRoutes: Routes = [
     MatInputModule,
     MatDatepickerModule,
     RouterModule.forRoot(appRoutes),
+    MatCardModule,
+    MatDialogModule,
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent],

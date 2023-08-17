@@ -1,11 +1,12 @@
+@import "../../../styles.scss";
+
+app-about {
+  @include section;
+}
 app-aboutus {
-  padding: 3rem 1rem;
-  height: auto;
-  width: 100%;
+  @include section;
 }
 app-infos {
-  display: flex;
-  flex-direction: column;
-  max-width: 100%;
-  padding: 1rem;
+  @include section;
+  width: 80%;
 }

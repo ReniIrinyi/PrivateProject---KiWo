@@ -1,5 +1,7 @@
 @import "../../../styles.scss";
-
+a {
+  cursor: pointer;
+}
 .contacts {
   margin: 0 auto;
   display: flex;
@@ -14,6 +16,7 @@
   & p,
   a {
     @include font-p-small;
+    font-size: 0.9rem;
     text-decoration: none;
     letter-spacing: normal;
     align-self: center;

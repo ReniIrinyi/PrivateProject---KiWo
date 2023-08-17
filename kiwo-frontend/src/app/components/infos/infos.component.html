@@ -80,14 +80,10 @@
         gerne Auskunft.
       </p>
     </div>
-    <div  [ngClass]="{ 'center-bigScreen': !isSmallScreen }" class="center">
-      <p>Machts du auch mit?</p>
+    <div [ngClass]="{ 'center-bigScreen': !isSmallScreen }" class="center">
+      <h3>Machts du auch mit?</h3>
 
-      <a
-        (click)="scrollTo('register')"
-        href="javascript:void(0)"
-        class="btn-text"
-      >
+      <a (click)="handleLinkClick('contacts')" class="btn-text">
         {{
           appdata.status === "active"
             ? appdata.contentActive

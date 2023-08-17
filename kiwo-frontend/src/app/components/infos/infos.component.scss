@@ -1,21 +1,17 @@
 @import "../../../styles.scss";
 
 .infos {
-  display: flex;
-  flex-direction: column;
-  height: auto;
-  align-items: center;
-  margin: 0 auto;
+  @include section;
+  padding: 0;
 }
 
 .infos-content {
-  background-color: $sand;
-  display: flex;
+  @include container;
   flex-direction: column;
+  background-color: $sand;
   text-align: center;
   padding: 1rem;
-  border-radius: 5px;
-  box-shadow: rgba(75, 75, 77, 0.313) 0px 1px 11px 0px;
+
   &-bigScreen {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -59,7 +55,6 @@
 
   & h2 {
     @include font-h3;
-    text-transform: uppercase;
     margin-bottom: 1rem;
   }
 }
@@ -80,9 +75,6 @@
   }
   & a:hover {
     @include btn-text-hover;
-  }
-  & p {
-    margin-bottom: 1rem;
   }
 }
 app-share-links {

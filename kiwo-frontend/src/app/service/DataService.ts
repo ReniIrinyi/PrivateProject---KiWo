@@ -8,7 +8,7 @@ import { AppData } from '../model/AppData';
 })
 export class DataService {
   private dataSubject = new ReplaySubject<AppData>(1);
-
+  //status=active ? open registration : close registration
   private projectUrl = './assets/kiwo-daten.json';
   team: any[] = [];
   anmeldung: any = {};

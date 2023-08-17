@@ -1,7 +1,6 @@
-
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
-@use '@angular/material' as mat;
+@use "@angular/material" as mat;
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -20,13 +19,15 @@ $kiwo-frontend-warn: mat.define-palette(mat.$red-palette);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$kiwo-frontend-theme: mat.define-light-theme((
-  color: (
-    primary: $kiwo-frontend-primary,
-    accent: $kiwo-frontend-accent,
-    warn: $kiwo-frontend-warn,
+$kiwo-frontend-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $kiwo-frontend-primary,
+      accent: $kiwo-frontend-accent,
+      warn: $kiwo-frontend-warn,
+    ),
   )
-));
+);
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
@@ -38,5 +39,34 @@ $kiwo-frontend-theme: mat.define-light-theme((
 @import "./styles/mixins";
 @import "./styles/queries";
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+  font-family: "Montserrat", sans-serif !important;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #fff;
+  font-size: 62.5%;
+  line-height: 1;
+  max-width: 140rem;
+  margin: 0 auto;
+  overflow-x: hidden;
+  color: $black;
+  @include respond(large-phone) {
+    font-size: 80.5%;
+  }
+  @include respond(large-phone, landscape) {
+    font-size: 80.5%;
+  }
+  @include respond(tablet) {
+    font-size: 90.5%;
+  }
+  @include respond(tablet, landscape) {
+    font-size: 90.5%;
+  }
+  @include respond(desktop) {
+    font-size: 90.5%;
+  }
+}

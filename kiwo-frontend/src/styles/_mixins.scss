@@ -1,17 +1,28 @@
 //LAYOUTS
-@mixin container {
-  margin-top: 0 !important;
+
+@mixin section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  padding: 5rem 0rem;
+  width: 100%;
+  height: auto;
   margin: 0 auto;
-  max-width: 210rem;
+  background-color: #fff;
+}
+
+@mixin container {
+  display: flex;
+  margin: 0 auto;
   overflow: hidden;
-  background-color: var(--tertiary-color);
-  border: 1px solid rgba(97, 92, 92, 0.397);
+  border-radius: 5px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 @mixin linkColumn {
   display: flex;
   flex-direction: column;
-  background-color: #fffffff5;
+  background-color: #fff;
   right: 0;
   top: 0;
   height: 100vh;
@@ -38,15 +49,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 2rem;
-  paddig: 1rem;
-}
-
-@mixin section {
-  display: flex;
-  padding: 5rem;
-  width: 100%;
-  transition: all 0.2s;
-  opacity: 1;
+  paddig: 5rem 1rem;
 }
 
 //FONTS
@@ -55,11 +58,6 @@
   font-family: kimperly-kg;
   src: url(../assets/fonts/kimberly-geswein_kg-onlyhope/KGOnlyHope.ttf);
   font-weight: 600;
-}
-@font-face {
-  font-display: swap;
-  font-family: chubby;
-  src: url(../assets/fonts/chubby-dotty/ChubbyDotty.ttf);
 }
 
 @mixin font-h1-home {
@@ -82,6 +80,21 @@
   );
   -webkit-background-clip: text;
   color: #0000;
+  @include respond(large-phone) {
+    font-size: 4rem;
+  }
+  @include respond(large-phone, landscape) {
+    font-size: 4rem;
+  }
+  @include respond(tablet) {
+    font-size: 4rem;
+  }
+  @include respond(tablet, landscape) {
+    font-size: 4rem;
+  }
+  @include respond(desktop) {
+    font-size: 4rem;
+  }
 }
 @mixin font-h1 {
   color: inherit;
@@ -96,9 +109,24 @@
   color: inherit;
   font-family: kimperly-kg, sans-serif;
   font-weight: 400;
-  font-size: 0.8rem;
+  font-size: 1rem;
   letter-spacing: 4px;
   line-height: 1.5;
+  @include respond(large-phone) {
+    font-size: 1.7rem;
+  }
+  @include respond(large-phone, landscape) {
+    font-size: 1.7rem;
+  }
+  @include respond(tablet) {
+    font-size: 1.7rem;
+  }
+  @include respond(tablet, landscape) {
+    font-size: 1.7rem;
+  }
+  @include respond(desktop) {
+    font-size: 1.7rem;
+  }
 }
 @mixin font-h2 {
   color: inherit;
@@ -119,7 +147,7 @@
   color: inherit;
   font-family: inherit;
   font-weight: 300;
-  font-size: 1.2rem;
+  font-size: 14px;
   line-height: 1.3;
 }
 
@@ -127,7 +155,7 @@
   color: inherit;
   font-family: inherit;
   font-weight: 300;
-  font-size: 0.8rem;
+  font-size: 12px;
   line-height: 1.1;
   letter-spacing: 1px;
 }
@@ -152,6 +180,21 @@
   color: $sand-dark;
 }
 
+@mixin btn-border {
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.5s;
+  border-radius: 5px;
+  background-color: transparent;
+  color: inherit;
+  border: 0.2px solid rgba(58, 57, 57, 0.397);
+  padding: 1rem;
+  @include font-p-small;
+  font-weight: 400 !important;
+  letter-spacing: 1.2px;
+  box-shadow: none;
+}
+
 @mixin btn($color) {
   cursor: pointer;
   transition: all 0.5s;
@@ -167,9 +210,10 @@
 }
 
 @mixin btn-hover {
-  filter: brightness(1.2);
+  filter: brightness(1.1);
 }
 @mixin text-btn {
+  cursor: pointer;
   text-transform: uppercase;
   transition: all 0.5s;
   text-decoration: none;
@@ -184,6 +228,4 @@
   justify-self: center;
   width: 3rem;
   height: 3rem;
-  fill: var(--secondary-color--dark);
-  color: vr(--secondary-color--dark);
 }

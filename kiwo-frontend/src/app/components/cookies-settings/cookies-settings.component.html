@@ -1,0 +1,22 @@
+<div class="cookies-container">
+  <h1 mat-dialog-title>Cookie-Einstellungen</h1>
+  <div mat-dialog-content>
+    <p>
+      Diese Website verwendet Cookies, um sicherzustellen, dass Sie die beste
+      Erfahrung auf unserer Website erhalten. Bitte treffen Sie Ihre Auswahl
+      unten:
+    </p>
+    <mat-checkbox [(ngModel)]="cookiesAccepted">
+      Diese Website darf Cookies verwenden
+    </mat-checkbox>
+  </div>
+  <div mat-dialog-actions>
+    <button class="btn-accept" mat-button (click)="onSaveClick()">
+      Speichern
+    </button>
+    <button class="btn" mat-button (click)="onCancelClick()">Abbrechen</button>
+    <button class="btn" mat-button (click)="onRejectAllClick()">
+      Alle Cookies ablehnen
+    </button>
+  </div>
+</div>

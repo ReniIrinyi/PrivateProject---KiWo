@@ -1,0 +1,26 @@
+<mat-card
+  class="cookies-notification"
+  *ngIf="!cookiesAccepted || !cookiesRejected"
+>
+  <mat-card-content>
+    <p>
+      Wir verwenden Cookies, um die Benutzerfreundlichkeit unserer Website zu
+      verbessern. Durch die weitere Nutzung unserer Webseite stimmen Sie der
+      Verwendung von Cookies gemäß unserer Cookie-Richtlinie zu.
+      <a (click)="handleLinkClickTo('/impressum', '')">Weitere Informationen</a>
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button
+      class="btn-accept"
+      mat-raised-button
+      color="primary"
+      (click)="acceptCookies()"
+    >
+      Akzeptieren
+    </button>
+    <button class="btn" mat-button color="accent" (click)="openSettings()">
+      Einstellungen
+    </button>
+  </mat-card-actions>
+</mat-card>

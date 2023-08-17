@@ -5,9 +5,7 @@
         class="list-item"
         [ngClass]="{ 'list-item-bigScreen': !isSmallScreen }"
         (click)="changeIcon()"
-        routerLink="/home"
-        (click)="scrollTo('home')"
-        href="javascript:void(0)"
+        (click)="handleLinkClick('home')"
         >Home</a
       >
     </li>
@@ -16,9 +14,7 @@
         class="list-item"
         [ngClass]="{ 'list-item-bigScreen': !isSmallScreen }"
         (click)="changeIcon()"
-        routerLink="/home"
-        (click)="scrollTo('gallery')"
-        href="javascript:void(0)"
+        (click)="handleLinkClick('gallery')"
         >Gallery</a
       >
     </li>
@@ -27,9 +23,7 @@
         class="list-item"
         [ngClass]="{ 'list-item-bigScreen': !isSmallScreen }"
         (click)="changeIcon()"
-        routerLink="/home"
-        (click)="scrollTo('infos')"
-        href="javascript:void(0)"
+        (click)="handleLinkClick('infos')"
         >Infos</a
       >
     </li>
@@ -38,9 +32,7 @@
         class="list-item"
         [ngClass]="{ 'list-item-bigScreen': !isSmallScreen }"
         (click)="changeIcon()"
-        routerLink="/home"
-        (click)="scrollTo('aboutus')"
-        href="javascript:void(0)"
+        (click)="handleLinkClick('aboutus')"
         >Unser Team</a
       >
     </li>
@@ -49,9 +41,7 @@
         class="list-item"
         [ngClass]="{ 'list-item-bigScreen': !isSmallScreen }"
         (click)="changeIcon()"
-        routerLink="/home"
-        (click)="scrollTo('register')"
-        href="javascript:void(0)"
+        (click)="handleLinkClick('contacts')"
         >Kontakt & Anmeldung</a
       >
     </li>

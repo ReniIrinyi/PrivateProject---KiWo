@@ -15,15 +15,10 @@
     margin-bottom: 1rem;
   }
   & .slide {
-    display: flex;
-    overflow: hidden;
-    justify-content: center;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    background-color: white;
-    border-radius: 5px;
+    @include container;
+    background-color: #fff;
     width: 70%;
-    height: 40rem;
-    margin: 0 auto;
+    height: 50rem;
     &-bigScreen {
       height: 30rem !important;
     }
@@ -88,7 +83,7 @@
   flex-direction: row;
   width: 100%;
   justify-content: space-evenly;
-  padding-top: 4rem;
+  padding-top: 2rem;
 
   & span {
     display: flex;
