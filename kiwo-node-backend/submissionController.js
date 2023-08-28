@@ -10,10 +10,16 @@ const fs = require("fs");
 const properties = require("properties-parser");
 const config = properties.read("./app.properties");
 
-const filePath =
-  "/Users/renatairinyi/Documents/GitHub/PrivateProject---KiWo/submissions.xlsx";
-const imagesFolder =
-  "/Users/renatairinyi/Documents/GitHub/PrivateProject---KiWo/unterschriften";
+//production ? use DB-PROD properties for dbConfig : use DB-DEV
+const production = config.production === "true";
+
+const filePath = production
+  ? config.PRODTabelleFilePath
+  : config.DEVTabelleFilePath;
+const imagesFolder = production
+  ? config.PRODPicFilePath
+  : config.DEVPicFilePath;
+
 router.post(
   "/submit",
   upload.single("signatureImageFile"),
@@ -21,6 +27,7 @@ router.post(
     try {
       const submissionData = req.body;
       const imageBuffer = req.file.buffer;
+      console.log(submissionData);
       //Validate form-data
       const birthdate = submissionData.geburtsdatum
         ? new Date(submissionData.geburtsdatum)

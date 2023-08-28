@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { DataService } from 'src/app/service/DataService';
 import { ScreenSizeService } from 'src/app/service/ScreenSizeService';
 import { DatePipe } from '@angular/common';
+
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
@@ -55,9 +56,15 @@ export class FormComponent implements OnInit {
   isSmallScreen = false;
   hasSignature = false;
 
+  //  production=true ? open use serverProdUrl : use serverDevUrl
+  production: any;
+  serverUrl: any;
+
   ngOnInit(): void {
     this.getData();
+    this.getUrl();
     this.checkScreenWidth();
+    console.log(this.serverUrl);
   }
 
   checkScreenWidth() {
@@ -65,8 +72,15 @@ export class FormComponent implements OnInit {
       this.isSmallScreen = isSmall;
     });
   }
-
+  getUrl() {
+    if (this.production === 'true') {
+      this.serverUrl = this.dataService.anmeldung.serverProdUrl;
+    } else {
+      this.serverUrl = this.dataService.anmeldung.serverDevUrl;
+    }
+  }
   getData() {
+    this.production = this.dataService.anmeldung.production;
     this.dataService.getDataObservable().subscribe((data) => {
       this.appdata = this.dataService.registration;
 
@@ -172,14 +186,17 @@ export class FormComponent implements OnInit {
       formData.append('signatureImageFile', signatureImage);
 
       // Send the formData to the server
-      this.http.post('http://localhost:8080/api/submit', formData).subscribe(
+      this.http.post(`${this.serverUrl}/api/submit`, formData).subscribe(
         (response) => {
           this.serverStatus = true;
           this.showStatus = true;
+          this.form.reset();
         },
         (error) => {
           this.serverStatus = false;
           this.showStatus = true;
+
+          console.log(`${this.serverUrl}/api/submit`);
           console.error('Error submitting form data:', error);
         }
       );

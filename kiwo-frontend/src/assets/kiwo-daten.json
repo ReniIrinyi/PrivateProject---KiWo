@@ -1,5 +1,8 @@
 {
   "Anmeldung": {
+    "production": "false",
+    "serverProdUrl": "https://kiwo-uerkental.ch",
+    "serverDevUrl": "http://localhost:8080",
     "status": "active",
     "contentActive": "Dann melde dich über unser Kontakformular an.",
     "contentInactive": "Leider ist die Anmeldung für die KiWo abgelaufen. Du kannst dich per E-Mail oder telefonisch über die nächste KiWo informieren.",

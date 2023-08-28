@@ -34,10 +34,11 @@ import { CookiesComponent } from './components/cookies/cookies.component';
 import { CookiesSettingsComponent } from './components/cookies-settings/cookies-settings.component';
 
 const appRoutes: Routes = [
+  { path: '', component: MainComponent },
   { path: 'home', component: MainComponent },
   { path: 'impressum', component: ImpressumComponent },
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: '**', redirectTo: '/home', pathMatch: 'full' },
+  { path: '', redirectTo: '', pathMatch: 'full' },
+  { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 
 @NgModule({

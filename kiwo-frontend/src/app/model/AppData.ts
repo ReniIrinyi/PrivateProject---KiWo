@@ -6,6 +6,9 @@ export interface AppData {
 }
 
 interface Anmeldung {
+  production: string;
+  serverProdUrl: string;
+  serverDevUrl: string;
   status: string;
   contentActive: string;
   contentInactive: string;

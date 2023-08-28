@@ -17,7 +17,6 @@ export class RegistrationComponent implements OnInit {
 
   getData() {
     this.dataService.getDataObservable().subscribe((data) => {
-      //status=active ? open registration : close registration
       this.appdata = this.dataService.registration;
     });
   }

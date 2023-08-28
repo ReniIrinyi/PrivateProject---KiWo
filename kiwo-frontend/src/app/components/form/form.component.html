@@ -16,6 +16,8 @@
               [matDatepicker]="picker"
               placeholder="Geburtsdatum:"
               formControlName="geburtsdatum"
+              autocomplete="birthdate"
+              id="geburtsdatum"
             />
             <mat-datepicker-toggle
               matSuffix
@@ -28,13 +30,23 @@
         <ng-container *ngSwitchCase="'nachricht'">
           <mat-form-field>
             <mat-label>{{ label | titlecase }} </mat-label>
-            <textarea matInput formControlName="nachricht"></textarea>
+            <textarea
+              matInput
+              id="nachricht"
+              formControlName="nachricht"
+              autocomplete="off"
+            ></textarea>
           </mat-form-field>
         </ng-container>
         <ng-container *ngSwitchDefault>
           <mat-form-field>
             <mat-label>{{ label | titlecase }}</mat-label>
-            <input matInput formControlName="{{ label }}" />
+            <input
+              matInput
+              formControlName="{{ label }}"
+              id="{{ label }}"
+              autocomplete="on"
+            />
           </mat-form-field>
         </ng-container>
       </ng-container>
