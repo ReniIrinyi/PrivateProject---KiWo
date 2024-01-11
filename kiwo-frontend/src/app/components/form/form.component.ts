@@ -64,7 +64,6 @@ export class FormComponent implements OnInit {
     this.getData();
     this.getUrl();
     this.checkScreenWidth();
-    console.log(this.serverUrl);
   }
 
   checkScreenWidth() {
@@ -95,6 +94,7 @@ export class FormComponent implements OnInit {
       this.labelsArray = this.appdata.labels[0]
         .split(',')
         .map((label: any) => label.toLowerCase());
+
 
       // Add form controls based on labelsArray, daysArray, and optionsArray
       this.labelsArray.forEach((label) => {

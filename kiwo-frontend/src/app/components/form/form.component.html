@@ -7,49 +7,60 @@
   [ngClass]="{ 'registration-bigScreen': !isSmallScreen }"
 >
   <div class="form-left">
-    <div class="form-input" *ngFor="let label of labelsArray; let i = index">
-      <ng-container [ngSwitch]="label">
-        <ng-container *ngSwitchCase="'geburtsdatum'">
-          <mat-form-field>
-            <input
-              matInput
-              [matDatepicker]="picker"
-              placeholder="Geburtsdatum:"
-              formControlName="geburtsdatum"
-              autocomplete="birthdate"
-              id="geburtsdatum"
-            />
-            <mat-datepicker-toggle
-              matSuffix
-              [for]="picker"
-            ></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-            <mat-hint></mat-hint>
-          </mat-form-field>
+    <div class="form-input">
+      <mat-form-field>
+        <mat-label>{{ "Name des Kindes" }} </mat-label>
+        <input
+          matInput
+          id="anschrift"
+          formControlName="anschrift"
+          autocomplete="off"
+        />
+      </mat-form-field>
+      <div *ngFor="let label of labelsArray; let i = index">
+        <ng-container [ngSwitch]="label">
+          <ng-container *ngSwitchCase="'geburtsdatum'">
+            <mat-form-field>
+              <input
+                matInput
+                [matDatepicker]="picker"
+                placeholder="Geburtsdatum:"
+                formControlName="geburtsdatum"
+                autocomplete="birthdate"
+                id="geburtsdatum"
+              />
+              <mat-datepicker-toggle
+                matSuffix
+                [for]="picker"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+              <mat-hint></mat-hint>
+            </mat-form-field>
+          </ng-container>
+          <ng-container *ngSwitchCase="'nachricht'">
+            <mat-form-field>
+              <mat-label>{{ label | titlecase }} </mat-label>
+              <textarea
+                matInput
+                id="nachricht"
+                formControlName="nachricht"
+                autocomplete="off"
+              ></textarea>
+            </mat-form-field>
+          </ng-container>
+          <ng-container *ngSwitchDefault>
+            <mat-form-field>
+              <mat-label>{{ label | titlecase }}</mat-label>
+              <input
+                matInput
+                formControlName="{{ label }}"
+                id="{{ label }}"
+                autocomplete="on"
+              />
+            </mat-form-field>
+          </ng-container>
         </ng-container>
-        <ng-container *ngSwitchCase="'nachricht'">
-          <mat-form-field>
-            <mat-label>{{ label | titlecase }} </mat-label>
-            <textarea
-              matInput
-              id="nachricht"
-              formControlName="nachricht"
-              autocomplete="off"
-            ></textarea>
-          </mat-form-field>
-        </ng-container>
-        <ng-container *ngSwitchDefault>
-          <mat-form-field>
-            <mat-label>{{ label | titlecase }}</mat-label>
-            <input
-              matInput
-              formControlName="{{ label }}"
-              id="{{ label }}"
-              autocomplete="on"
-            />
-          </mat-form-field>
-        </ng-container>
-      </ng-container>
+      </div>
     </div>
   </div>
 

@@ -16,7 +16,7 @@
     "registration": "Anmelden bis Freitag, 5. April 2024",
     "days": ["Mittwoch,Donnerstag,Freitag"],
     "labels": [
-      "Name des Kindes,Vorname,Nachname,Klasse,Geburtsdatum,Strasse und Nr.,Wohnort,Email,Telefon,Nachricht"
+      "Vorname,Nachname,Klasse,Geburtsdatum,Anschrift,Wohnort,Email,Telefon,Nachricht"
     ],
     "options": ["fahrdienst,fotoserlaubnis"]
   },
