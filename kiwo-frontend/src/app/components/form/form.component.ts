@@ -37,7 +37,7 @@ export class FormComponent implements OnInit {
       freitag: [false],
       fahrdienst: ['Nein', Validators.required],
       zvieri: ['Nein', Validators.required],
-      fotoserlaubnis: ['Nein', Validators.required],
+      fotoserlaubnis: ['Ja', Validators.required],
       verbindlich: [false, Validators.required],
       signatureImageFile: [''],
     });

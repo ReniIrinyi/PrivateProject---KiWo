@@ -10,15 +10,15 @@
     "infoInactive": "Die nächste Kinderwoche startet nach Ostern 2024. Wir freuen uns auf eine unvergessliche Woche mit viel Spass, Singen, Games, Basteln, Theater, guter Gemeinschaft und viel Freude.",
     "service": "Dienstag bis Freitag: Bottenwil, Gemeinde-Parkplatz ab 13.40 Uhr / an 17:15 Uhr",
     "flyer": "./assets/Einladungsflyer-KiWo.pdf",
-    "tel": "079 835 21 82"
+    "tel": "077 520 61 98"
   },
   "Registration": {
-    "registration": "Anmelden bis Freitag, 31. März 2023",
-    "days": ["Montag,Dienstag,Mittwoch,Donnerstag,Freitag"],
+    "registration": "Anmelden bis Freitag, 5. April 2024",
+    "days": ["Mittwoch,Donnerstag,Freitag"],
     "labels": [
-      "Betreff,Vorname,Nachname,Klasse,Geburtsdatum,Anschrift,Wohnort,Email,Telefon,Nachricht"
+      "Name des Kindes,Vorname,Nachname,Klasse,Geburtsdatum,Strasse und Nr.,Wohnort,Email,Telefon,Nachricht"
     ],
-    "options": ["fahrdienst,zvieri,fotoserlaubnis"]
+    "options": ["fahrdienst,fotoserlaubnis"]
   },
 
   "Team": [
@@ -47,10 +47,16 @@
       "text": "Ich bin gerne mit Kindern unterwegs und freue mich auf die strahlenden Kinderaugen beim gemeinsamen Singen, Spielen und Geschichten hören."
     },
     {
-      "img": "./assets/img/aboutus-section/aboutus--5.jpg",
-      "name": "Claudia Panier",
-      "position": "Katechetisch tätig in Uerkheim",
-      "text": "Als Katechetin bereitet es mir grosse Freude, mit Kindern die Bibel und die Grundlagen des christlichen Glaubens zu erforschen."
+      "img": "./assets/img/aboutus-section/default.png",
+      "name": "Renáta Irinyi",
+      "position": "Softwareentwicklerin",
+      "text": "Wir wohnen seit 2019 in Bottenwil, und die Kinderwoche ist schnell zu einem wichtigen Teil unseres Lebens geworden. Sie ermöglicht es Kindern aus Uerkenthal, Gottes Liebe in einer fröhlichen Atmosphäre zu erleben. Es ist mir eine Freude, zu sehen, wie sie dabei Freundschaften schließen und wachsen."
+    },
+    {
+      "img": "./assets/img/aboutus-section/default.png",
+      "name": "Sylvia Lütolf",
+      "position": " ",
+      "text:": " "
     }
   ],
 

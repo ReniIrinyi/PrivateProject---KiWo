@@ -92,16 +92,15 @@
     <div class="form-validator">
       <div class="signature">
         <p class="status-invalid" *ngIf="!form.get('verbindlich')?.value">
-          Sie müssen den Bedingungen zustimmen, um das Formular abzusenden.
+          Bitte bestätige die Richtigkeit der Angaben.
         </p>
         <mat-checkbox formControlName="verbindlich">
-          Ich habe die Bedingungen zur Kenntnis genommen und bin damit
-          einverstanden.</mat-checkbox
+          Ich bestätige die Richtigkeit der Angaben.</mat-checkbox
         >
 
         <p>
-          Wir weisen darauf hin, dass die Anmeldung verbindlich ist. Bitte
-          bestätige die Richtigkeit der Angaben mit deiner Unterschrift.
+          Die Anmeldung ist verbindlich. Bitte bestätige sie mit deiner
+          Unterschrift.
         </p>
 
         <canvas id="signatureCanvas" #signatureCanvas></canvas>
