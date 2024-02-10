@@ -25,21 +25,12 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
-
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ImpressumComponent } from './components/impressum/impressum.component';
-import { RouterModule, Routes } from '@angular/router';
 import { MainComponent } from './components/main/main.component';
 import { DatePipe } from '@angular/common';
 import { CookiesComponent } from './components/cookies/cookies.component';
 import { CookiesSettingsComponent } from './components/cookies-settings/cookies-settings.component';
-
-const appRoutes: Routes = [
-  { path: '', component: MainComponent },
-  { path: 'home', component: MainComponent },
-  { path: 'impressum', component: ImpressumComponent },
-  { path: '', redirectTo: '', pathMatch: 'full' },
-  { path: '**', redirectTo: '', pathMatch: 'full' },
-];
 
 @NgModule({
   declarations: [
@@ -74,9 +65,9 @@ const appRoutes: Routes = [
     MatNativeDateModule,
     MatInputModule,
     MatDatepickerModule,
-    RouterModule.forRoot(appRoutes),
     MatCardModule,
     MatDialogModule,
+    MatSnackBarModule,
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent],

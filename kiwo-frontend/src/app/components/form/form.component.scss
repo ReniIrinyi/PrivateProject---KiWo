@@ -107,6 +107,10 @@ canvas {
     cursor: not-allowed;
   }
 }
+.btn-clicked {
+  filter: brightness(1.4);
+}
+
 .clear-btn {
   margin-left: 0.5rem;
   @include btn(#f44336);

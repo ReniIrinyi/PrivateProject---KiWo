@@ -20,7 +20,7 @@ export class FormComponent implements OnInit {
     private datePipe: DatePipe
   ) {
     this.form = this.fb.group({
-      betreff: ['', Validators.required],
+      kind: ['', Validators.required],
       vorname: ['', Validators.required],
       nachname: ['', Validators.required],
       geburtsdatum: ['', Validators.required],
@@ -49,7 +49,7 @@ export class FormComponent implements OnInit {
   daysArray: any[] = [];
   optionsArray: any[] = [];
   signaturePad: SignaturePad | undefined;
-  serverStatus: boolean = false;
+  serverStatus = true;
   showStatus: boolean = false;
   errorMessage: string | undefined;
   verbindlich: boolean | undefined;
@@ -95,7 +95,6 @@ export class FormComponent implements OnInit {
         .split(',')
         .map((label: any) => label.toLowerCase());
 
-
       // Add form controls based on labelsArray, daysArray, and optionsArray
       this.labelsArray.forEach((label) => {
         this.form.addControl(label, this.fb.control('', Validators.required));
@@ -110,6 +109,14 @@ export class FormComponent implements OnInit {
         );
       });
     });
+  }
+  animateButton(event: any) {
+    const button = event.target;
+    if (this.form.valid) {
+      button.classList.add('btn-clicked');
+    } else {
+      button.classList.remove('btn-clicked');
+    }
   }
 
   ngAfterViewInit(): void {
@@ -151,6 +158,8 @@ export class FormComponent implements OnInit {
 
   onSubmit() {
     this.updateSignatureInput();
+    console.log(this.form);
+    console.log(this.form.valid);
 
     if (this.form.valid && this.form.get('verbindlich')?.value) {
       const signatureImage = this.dataURLtoFile(
@@ -162,7 +171,7 @@ export class FormComponent implements OnInit {
         '';
 
       const formData = new FormData();
-      formData.append('betreff', this.form.value.betreff);
+      formData.append('kind', this.form.value.kind);
       formData.append('vorname', this.form.value.vorname);
       formData.append('nachname', this.form.value.nachname);
       formData.append('geburtsdatum', formattedDate);
@@ -190,6 +199,7 @@ export class FormComponent implements OnInit {
         (response) => {
           this.serverStatus = true;
           this.showStatus = true;
+          console.log(this.form);
           this.form.reset();
         },
         (error) => {

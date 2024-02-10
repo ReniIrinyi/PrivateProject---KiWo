@@ -10,12 +10,7 @@
     <div>
       <mat-form-field>
         <mat-label>{{ "Name des Kindes" }} </mat-label>
-        <input
-          matInput
-          id="anschrift"
-          formControlName="anschrift"
-          autocomplete="off"
-        />
+        <input matInput id="kind" formControlName="kind" autocomplete="off" />
       </mat-form-field>
       <div *ngFor="let label of labelsArray; let i = index">
         <ng-container [ngSwitch]="label">
@@ -110,17 +105,17 @@
         >
 
         <p>
-          Die Anmeldung ist verbindlich. Bitte bestätige sie mit deiner
-          Unterschrift.
+          Ein letzter Schritt: Bitte unterschreibe elektronisch, um deine
+          Anmeldung zu bestätigen.
         </p>
 
         <canvas id="signatureCanvas" #signatureCanvas></canvas>
 
         <div class="btn-container">
           <button
+            (click)="animateButton($event)"
             class="btn submit-btn"
             type="submit"
-            [disabled]="!form.valid || !form.get('verbindlich')?.value"
           >
             Absenden
           </button>
@@ -134,12 +129,16 @@
         </div>
         <div *ngIf="showStatus" class="status">
           <p *ngIf="serverStatus">
-            Vielen Dank für deine Nachricht.
-            Bitte schaue in dein Postfach, und bestätige deine E-mail adresse.
+            Vielen Dank für deine Anmeldung! 🎉 Bitte überprüfe dein
+            E-Mail-Postfach und bestätige deine E-Mail-Adresse innerhalb der
+            nächsten Stunde, um die Anmeldung abzuschließen. Falls du keine
+            E-Mail erhalten hast, sieh bitte auch im Spam-Ordner nach.
           </p>
           <p *ngIf="!serverStatus">
-            Oops! Es gab ein Problem beim Absenden deines Formulars. Bitte
-            versuche es erneut!
+            Ups! Beim Absenden deines Formulars ist leider ein Fehler
+            aufgetreten. 😕 Bitte überprüfe deine Angaben und versuche es
+            erneut. Sollte das Problem weiterhin bestehen, kontaktiere uns bitte
+            direkt.
           </p>
         </div>
         <!-- <div *ngIf="!showStatus" class="status status-invalid">

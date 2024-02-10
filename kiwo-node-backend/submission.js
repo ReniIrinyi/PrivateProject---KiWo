@@ -3,7 +3,10 @@ const sequelize = require("./sequelize");
 const { DataTypes } = require("sequelize");
 
 const Submission = sequelize.define("form_submissions", {
-  betreff: Sequelize.STRING,
+  token: DataTypes.STRING,
+  tokenExpiresAt: DataTypes.DATE,
+  emailConfirmed: Sequelize.BOOLEAN,
+  kind: Sequelize.STRING,
   vorname: Sequelize.STRING,
   nachname: Sequelize.STRING,
   geburtsdatum: DataTypes.DATE,

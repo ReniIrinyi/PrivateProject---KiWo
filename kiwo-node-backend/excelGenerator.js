@@ -12,7 +12,7 @@ async function processSubmissions(
   for (const submission of submissions) {
     const dataRow = sheet.addRow([
       submission.id,
-      submission.betreff,
+      submission.kind,
       submission.vorname,
       submission.nachname,
       submission.geburtsdatum,
@@ -115,7 +115,7 @@ async function generateExcelFile(submissions, filePath, imagesFolder) {
   // Create headers
   const headerRow = sheet.addRow([
     "Anmeldung-Nr",
-    "Betreff",
+    "Kind",
     "Vorname",
     "Nachname",
     "Geburtsdatum",
