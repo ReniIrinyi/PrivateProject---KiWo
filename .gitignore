@@ -2,3 +2,4 @@ node_modules
 KiWo
 .parcel-cache
 dist
+kiwo-frontend/package-lock.json
