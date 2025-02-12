@@ -27,7 +27,7 @@
                 formControlName="geburtsdatum"
                 autocomplete="birthdate"
                 id="geburtsdatum"
-                maxlength="10"
+                [mask]="'00.00.0000'"
       
               />
             </mat-form-field>
@@ -39,6 +39,7 @@
                 matInput
                 id="nachricht"
                 formControlName="nachricht"
+                [rows]="5"
                 autocomplete="off"
               ></textarea>
             </mat-form-field>
@@ -105,16 +106,6 @@
       </div>
     </div>
 
-      <mat-form-field>
-        <mat-label>{{ "Anmerkungen" }} </mat-label>
-        <textarea
-          matInput
-          id="nachricht"
-          formControlName="nachricht"
-          autocomplete="off"
-        ></textarea>
-      </mat-form-field>
-
     <div class="form-option-container">
       <div
         class="form-option"
@@ -137,6 +128,15 @@
           </mat-select>
         </mat-form-field>
       </div>
+      <mat-form-field>
+        <mat-label>{{ "Anmerkungen" }} </mat-label>
+        <textarea
+          matInput
+          id="nachricht"
+          formControlName="nachricht"
+          autocomplete="off"
+        ></textarea>
+      </mat-form-field>
     </div>
     <div class="form-validator">
       <div class="signature">

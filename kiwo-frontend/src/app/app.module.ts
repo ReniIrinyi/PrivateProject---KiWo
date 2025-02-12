@@ -30,7 +30,8 @@ import { MainComponent } from './components/main/main.component';
 import { DatePipe } from '@angular/common';
 import { CookiesComponent } from './components/cookies/cookies.component';
 import { CookiesSettingsComponent } from './components/cookies-settings/cookies-settings.component';
-
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 
 @NgModule({ 
   declarations: [
@@ -66,10 +67,13 @@ import { CookiesSettingsComponent } from './components/cookies-settings/cookies-
         MatDatepickerModule,
         MatCardModule,
         MatDialogModule,
-        MatSnackBarModule],
+        MatSnackBarModule,
+        NgxMaskDirective
+      ]
+        ,
         
-        providers: [DatePipe],
+        providers: [DatePipe, provideHttpClient(withInterceptorsFromDi()),provideNgxMask()],
         bootstrap: [AppComponent], 
-    
       })
+
 export class AppModule {}
