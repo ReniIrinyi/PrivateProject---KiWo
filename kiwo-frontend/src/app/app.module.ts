@@ -54,8 +54,8 @@ import { CookiesSettingsComponent } from './components/cookies-settings/cookies-
     CookiesSettingsComponent,
   ],
   imports: [
-    BrowserModule,
     AppRoutingModule,
+    BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
