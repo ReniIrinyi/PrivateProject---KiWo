@@ -5,15 +5,11 @@
 >
   <ng-container *ngIf="appdata">
     <div class="left">
-      <h2>Save the Date</h2>
-      <p>
-        {{
-          appdata.status === "active"
-            ? appdata.infoActive
-            : appdata.infoInactive
-        }}
-      </p>
-      <p class="btn">
+      <h2>
+        <span class="highligted-bunt programms__span"> KiWo 2025 </span>
+      </h2>
+      <p></p>
+      <p style="padding-bottom:6px" class="btn">
         <a
           href="{{ appdata.flyer }}"
           target="_blank"
@@ -23,8 +19,22 @@
           Flyer herunterladen
         </a>
       </p>
+      <p>
+        {{
+          appdata.status === "active"
+            ? appdata.infoActive
+            : appdata.infoInactive
+        }}
+      </p>
+      
+      <h3>Wann</h3>
+      <p>Dienstag, 8. April bis Donnerstag, 10. April 2025. Immer von 14 bis 17 Uhr.</p>
+      <h3>Ort</h3>
+      <p>In und rund um die Turnhalle in Uerkheim</p>
+      <p> Ab 13.30 Uhr ankommen.</p>
       <h3>Zielgruppe</h3>
-      <p>1. Kindergarten bis 6. Klasse</p>
+      <p>1. Kindergarten bis 6. Klasse.</p>
+      <p>Alle Kinder sind willkommen, unabhängig von ihrer Religion. </p>
       <h3>Kosten</h3>
       <p>
         Die Kinderwoche ist kostenlos. Wer gerne etwas beisteuert, darf am
@@ -37,17 +47,16 @@
         </p>
       </div>
 
-      <h3>Hinweise</h3>
-      <p>Bitte wetterfeste Kleidung und Schuhe anziehen.</p>
+     
 
-      <h3>Versicherung</h3>
-      <p>Versicherung ist Sache der Eltern.</p>
     </div>
 
     <div class="right">
+
       <h2>
-        Wissenswertes rund um die
-        <span class="highligted-bunt"> KIWO </span>
+        <span class="highligted-bunt">
+          Wissenswertes  
+        </span>
       </h2>
 
       <h3>Pumptrack</h3>
@@ -55,6 +64,11 @@
         Neben der Mehrzweckhalle Uerkheim ist ein Pumptrack. Für die Benutzung
         des Pumptracks ist ein Helm zwingend mitzubringen!
       </p>
+
+      <h3>Versicherung</h3>
+      <p>Versicherung ist Sache der Eltern.</p>
+       <h3>Hinweise</h3>
+      <p>Bitte wetterfeste Kleidung und Schuhe anziehen.</p>
 
       <h3>Fotos</h3>
       <p>
@@ -91,7 +105,7 @@
         }}
         &rarr;
       </a>
-      <app-share-links></app-share-links>
+      <!--<app-share-links></app-share-links>-->
     </div>
   </ng-container>
 </div>

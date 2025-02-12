@@ -9,38 +9,71 @@
   <div class="form-left">
     <div>
       <mat-form-field>
-        <mat-label>{{ "Name des Kindes" }} </mat-label>
+        <mat-label>{{ "Vor- und Nachname des Kindes" }} </mat-label>
         <input matInput id="kind" formControlName="kind" autocomplete="off" />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>{{ "Vor- und Nachname der Eltern" }} </mat-label>
+        <input matInput id="vorname" formControlName="vorname" autocomplete="off" />
       </mat-form-field>
       <div *ngFor="let label of labelsArray; let i = index">
         <ng-container [ngSwitch]="label">
           <ng-container *ngSwitchCase="'geburtsdatum'">
             <mat-form-field>
+              
               <input
                 matInput
-                [matDatepicker]="picker"
-                placeholder="Geburtsdatum:"
+                placeholder="Geburtsdatum (tt.mm.jjjj)"
                 formControlName="geburtsdatum"
                 autocomplete="birthdate"
                 id="geburtsdatum"
+                maxlength="10"
+      
               />
-              <mat-datepicker-toggle
-                matSuffix
-                [for]="picker"
-              ></mat-datepicker-toggle>
-              <mat-datepicker #picker></mat-datepicker>
-              <mat-hint></mat-hint>
             </mat-form-field>
           </ng-container>
           <ng-container *ngSwitchCase="'nachricht'">
             <mat-form-field>
-              <mat-label>{{ label | titlecase }} </mat-label>
+              <mat-label>{{ "Anmerkungen" }} </mat-label>
               <textarea
                 matInput
                 id="nachricht"
                 formControlName="nachricht"
                 autocomplete="off"
               ></textarea>
+            </mat-form-field>
+          </ng-container>
+          <ng-container *ngSwitchCase="'anschrift'">
+            <mat-form-field>
+              <mat-label>{{ "Adresse" }} </mat-label>
+              <input
+                matInput
+                formControlName="anschrift"
+                id="anschrift"
+                autocomplete="on"
+              />
+            </mat-form-field>
+          </ng-container>
+          <ng-container *ngSwitchCase="'email'">
+            <mat-form-field>
+              <mat-label>{{ "Email Eltern" }} </mat-label>
+              <input
+                matInput
+                formControlName="anschrift"
+                id="anschrift"
+                autocomplete="on"
+              />
+            </mat-form-field>
+          </ng-container>
+          <ng-container *ngSwitchCase="'telefon'">
+            <mat-form-field>
+              <mat-label>{{ "Telefon Eltern" }} </mat-label>
+              <input
+                matInput
+                formControlName="anschrift"
+                id="anschrift"
+                autocomplete="on"
+              />
             </mat-form-field>
           </ng-container>
           <ng-container *ngSwitchDefault>
@@ -71,6 +104,16 @@
         </div>
       </div>
     </div>
+
+      <mat-form-field>
+        <mat-label>{{ "Anmerkungen" }} </mat-label>
+        <textarea
+          matInput
+          id="nachricht"
+          formControlName="nachricht"
+          autocomplete="off"
+        ></textarea>
+      </mat-form-field>
 
     <div class="form-option-container">
       <div
@@ -105,11 +148,8 @@
         >
 
         <p>
-          Ein letzter Schritt: Bitte unterschreibe elektronisch, um deine
-          Anmeldung zu bestätigen.
+          Ein letzter Schritt: Die Anmeldung wird gültig, sobald du sie über den Link bestätigst, der dir per Email zugestellt wurde.
         </p>
-
-        <canvas id="signatureCanvas" #signatureCanvas></canvas>
 
         <div class="btn-container">
           <button

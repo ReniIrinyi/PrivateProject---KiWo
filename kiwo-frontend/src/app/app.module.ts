@@ -32,6 +32,7 @@ import { DatePipe } from '@angular/common';
 import { CookiesComponent } from './components/cookies/cookies.component';
 import { CookiesSettingsComponent } from './components/cookies-settings/cookies-settings.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,7 +70,7 @@ import { CookiesSettingsComponent } from './components/cookies-settings/cookies-
     MatDialogModule,
     MatSnackBarModule,
   ],
-  providers: [DatePipe],
+  providers: [DatePipe,  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

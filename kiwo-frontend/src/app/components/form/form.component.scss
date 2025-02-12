@@ -99,10 +99,11 @@ canvas {
   flex-direction: row;
 }
 .submit-btn {
-  @include btn(#ff4081);
+  @include btn(#00ab1b);
 }
+
 .submit-btn:disabled {
-  @include btn(rgba(204, 143, 164, 0.875));
+  @include btn(#00ab1b6b);
   &:hover {
     cursor: not-allowed;
   }
