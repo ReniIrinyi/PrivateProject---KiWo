@@ -8,9 +8,10 @@ import {
 import { ScreenSizeService } from 'src/app/service/ScreenSizeService';
 
 @Component({
-  selector: 'app-aboutus',
-  templateUrl: './aboutus.component.html',
-  styleUrls: ['./aboutus.component.scss'],
+    selector: 'app-aboutus',
+    templateUrl: './aboutus.component.html',
+    styleUrls: ['./aboutus.component.scss'],
+    standalone: false
 })
 export class AboutusComponent implements OnInit {
   constructor(

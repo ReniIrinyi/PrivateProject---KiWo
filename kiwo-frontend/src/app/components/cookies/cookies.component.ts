@@ -6,9 +6,10 @@ import { CookiesService } from 'src/app/service/CookiesService';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-cookies',
-  templateUrl: './cookies.component.html',
-  styleUrls: ['./cookies.component.scss'],
+    selector: 'app-cookies',
+    templateUrl: './cookies.component.html',
+    styleUrls: ['./cookies.component.scss'],
+    standalone: false
 })
 export class CookiesComponent implements OnInit, OnDestroy {
   private cookiesRejectedSubscription: Subscription | undefined;

@@ -3,9 +3,10 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { CookiesService } from 'src/app/service/CookiesService';
 
 @Component({
-  selector: 'app-cookies-settings',
-  templateUrl: './cookies-settings.component.html',
-  styleUrls: ['./cookies-settings.component.scss'],
+    selector: 'app-cookies-settings',
+    templateUrl: './cookies-settings.component.html',
+    styleUrls: ['./cookies-settings.component.scss'],
+    standalone: false
 })
 export class CookiesSettingsComponent {
   cookiesAccepted: boolean;

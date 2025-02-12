@@ -5,9 +5,10 @@ import { DataService } from 'src/app/service/DataService';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
-  selector: 'app-email-confirmation',
-  templateUrl: './email-confirmation.component.html',
-  styleUrls: ['./email-confirmation.component.scss'],
+    selector: 'app-email-confirmation',
+    templateUrl: './email-confirmation.component.html',
+    styleUrls: ['./email-confirmation.component.scss'],
+    standalone: false
 })
 export class EmailConfirmationComponent implements OnInit {
   constructor(

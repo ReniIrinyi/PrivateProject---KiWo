@@ -7,9 +7,10 @@ import { ScreenSizeService } from 'src/app/service/ScreenSizeService';
 import { DatePipe } from '@angular/common';
 
 @Component({
-  selector: 'app-form',
-  templateUrl: './form.component.html',
-  styleUrls: ['./form.component.scss'],
+    selector: 'app-form',
+    templateUrl: './form.component.html',
+    styleUrls: ['./form.component.scss'],
+    standalone: false
 })
 export class FormComponent implements OnInit {
   constructor(

@@ -3,9 +3,10 @@ import { DataService } from 'src/app/service/DataService';
 import { ScreenSizeService } from 'src/app/service/ScreenSizeService';
 import { Router } from '@angular/router';
 @Component({
-  selector: 'app-infos',
-  templateUrl: './infos.component.html',
-  styleUrls: ['./infos.component.scss'],
+    selector: 'app-infos',
+    templateUrl: './infos.component.html',
+    styleUrls: ['./infos.component.scss'],
+    standalone: false
 })
 export class InfosComponent implements OnInit {
   constructor(
