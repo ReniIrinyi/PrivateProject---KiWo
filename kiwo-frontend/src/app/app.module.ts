@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -33,7 +32,8 @@ import { CookiesComponent } from './components/cookies/cookies.component';
 import { CookiesSettingsComponent } from './components/cookies-settings/cookies-settings.component';
 
 
-@NgModule({ declarations: [
+@NgModule({ 
+  declarations: [
         AppComponent,
         HeaderComponent,
         HomeComponent,
@@ -52,7 +52,8 @@ import { CookiesSettingsComponent } from './components/cookies-settings/cookies-
         CookiesComponent,
         CookiesSettingsComponent,
     ],
-    bootstrap: [AppComponent], imports: [AppRoutingModule,
+    imports: [
+      AppRoutingModule,
         BrowserModule,
         FormsModule,
         ReactiveFormsModule,
@@ -65,5 +66,10 @@ import { CookiesSettingsComponent } from './components/cookies-settings/cookies-
         MatDatepickerModule,
         MatCardModule,
         MatDialogModule,
-        MatSnackBarModule], providers: [DatePipe, provideHttpClient(withInterceptorsFromDi()),] })
+        MatSnackBarModule],
+        
+        providers: [DatePipe],
+        bootstrap: [AppComponent], 
+    
+      })
 export class AppModule {}
