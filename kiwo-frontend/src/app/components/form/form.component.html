@@ -23,25 +23,14 @@
               
               <input
                 matInput
-                placeholder="Geburtsdatum (tt.mm.jjjj)"
+                placeholder="Geburtsdatum (tt.mm.jjjj) *"
                 formControlName="geburtsdatum"
                 autocomplete="birthdate"
                 id="geburtsdatum"
+                [dropSpecialCharacters]="false"
                 [mask]="'00.00.0000'"
       
               />
-            </mat-form-field>
-          </ng-container>
-          <ng-container *ngSwitchCase="'nachricht'">
-            <mat-form-field>
-              <mat-label>{{ "Anmerkungen" }} </mat-label>
-              <textarea
-                matInput
-                id="nachricht"
-                formControlName="nachricht"
-                [rows]="5"
-                autocomplete="off"
-              ></textarea>
             </mat-form-field>
           </ng-container>
           <ng-container *ngSwitchCase="'anschrift'">
@@ -60,7 +49,7 @@
               <mat-label>{{ "Email Eltern" }} </mat-label>
               <input
                 matInput
-                formControlName="anschrift"
+                formControlName="email"
                 id="anschrift"
                 autocomplete="on"
               />
@@ -71,7 +60,7 @@
               <mat-label>{{ "Telefon Eltern" }} </mat-label>
               <input
                 matInput
-                formControlName="anschrift"
+                formControlName="telefon"
                 id="anschrift"
                 autocomplete="on"
               />
@@ -129,7 +118,7 @@
         </mat-form-field>
       </div>
       <mat-form-field>
-        <mat-label>{{ "Anmerkungen" }} </mat-label>
+        <mat-label>{{ "Anmerkungen und Notfallinfos (Allergien usw.)" }} </mat-label>
         <textarea
           matInput
           id="nachricht"

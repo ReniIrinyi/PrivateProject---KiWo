@@ -38,22 +38,19 @@ async function sendConfirmationEmail(email, token, submissionData) {
     },
   });
   const dataSummary = `
-  Name des Kindes: ${submissionData.kind}
-  Vorname: ${submissionData.vorname}
-  Nachname: ${submissionData.nachname}
+  Vor- und Nachname des Kindes: ${submissionData.kind}
+  Vor- und Nachname der Eltern: ${submissionData.vorname}
   Geburtsdatum: ${submissionData.geburtsdatum}
   Klasse: ${submissionData.klasse}
-  Anschrift: ${submissionData.anschrift}
+  Adresse: ${submissionData.anschrift}
   Wohnort: ${submissionData.wohnort}
-  Email: ${submissionData.email}
-  Telefon: ${submissionData.telefon}
-  Nachricht: ${submissionData.nachricht}
+  Email Eltern: ${submissionData.email}
+  Telefon Eltern: ${submissionData.telefon}
+  Anmerkungen und Notfallinfos (Allergien usw.): ${submissionData.nachricht}
   Ich kann an einem oder mehreren Nachmittagen mithelfen:
-  Montag: ${submissionData.montag ? "Ja" : "Nein"}
-  Dienstag: ${submissionData.dienstag ? "Ja" : "Nein"}
-  Mittwoch: ${submissionData.mittwoch ? "Ja" : "Nein"}
-  Donnerstag: ${submissionData.donnerstag ? "Ja" : "Nein"}
-  Freitag: ${submissionData.freitag ? "Ja" : "Nein"}
+  Dienstag: ${Boolean(submissionData.dienstag) ? "Ja" : "Nein"}
+  Mittwoch: ${Boolean(submissionData.mittwoch) ? "Ja" : "Nein"}
+  Donnerstag: ${Boolean(submissionData.donnerstag) ? "Ja" : "Nein"}
   Wir benötigen Fahrdienst: ${submissionData.fahrdienst}
   Wir sind mit der Veröffentlichung von Fotos unseres Kindes einverstanden: ${
     submissionData.fotoserlaubnis
@@ -82,18 +79,20 @@ router.post(
   async (req, res) => {
     try {
       const submissionData = req.body;
-      const imageBuffer = req.file.buffer;
+      console.log(submissionData)
       const token = generateToken(20);
       const expiresAt = new Date(Date.now() + 3600000);
 
-      //Validate form-data
-      const birthdate = submissionData.geburtsdatum
-        ? new Date(submissionData.geburtsdatum)
-        : null;
+      let formattedBirthdate = null;
+      const birthdateStr = submissionData.geburtsdatum; 
 
-      const formattedBirthdate = birthdate
-        ? birthdate.toISOString().slice(0, 10)
-        : null;
+      if (birthdateStr) {
+        console.log(birthdateStr); 
+        const [day, month, year] = birthdateStr.split('.');
+        formattedBirthdate = new Date(year, month - 1, day);
+      }
+      
+          console.log(formattedBirthdate)
 
       let submission = await Submission.findOne({
         where: {
@@ -126,7 +125,6 @@ router.post(
             zvieri: submissionData.zvieri,
             fotoserlaubnis: submissionData.fotoserlaubnis,
             verbindlich: submissionData.verbindlich,
-            signatureImage: imageBuffer,
             createdAt: new Date(),
             updatedAt: new Date(),
             tokenExpiresAt: expiresAt,
@@ -161,7 +159,6 @@ router.post(
           zvieri: submissionData.zvieri,
           fotoserlaubnis: submissionData.fotoserlaubnis,
           verbindlich: submissionData.verbindlich,
-          signatureImage: imageBuffer,
           createdAt: new Date(),
           updatedAt: new Date(),
           tokenExpiresAt: expiresAt,
@@ -169,7 +166,29 @@ router.post(
           token: token,
         });
       }
-
+      const dataSummary = `
+      Vor- und Nachname des Kindes: ${submissionData.kind}
+      Vor- und Nachname der Eltern: ${submissionData.vorname}
+      Geburtsdatum: ${submissionData.geburtsdatum}
+      Klasse: ${submissionData.klasse}
+      Adresse: ${submissionData.anschrift}
+      Wohnort: ${submissionData.wohnort}
+      Email Eltern: ${submissionData.email}
+      Telefon Eltern: ${submissionData.telefon}
+      Anmerkungen und Notfallinfos (Allergien usw.): ${submissionData.nachricht}
+      Ich kann an einem oder mehreren Nachmittagen mithelfen:
+      Dienstag: ${Boolean(submissionData.dienstag) ? "Ja" : "Nein"}
+      Mittwoch: ${Boolean(submissionData.mittwoch) ? "Ja" : "Nein"}
+      Donnerstag: ${Boolean(submissionData.donnerstag) ? "Ja" : "Nein"}
+      Wir benötigen Fahrdienst: ${submissionData.fahrdienst}
+      Wir sind mit der Veröffentlichung von Fotos unseres Kindes einverstanden: ${
+        submissionData.fotoserlaubnis
+      }
+      Ich bestätige die Richtigkeit der Angaben: ${
+        submissionData.verbindlich ? "Ja" : "Nein"
+      }
+      `;
+      console.log(dataSummary)
       console.log(submissionData);
       await sendConfirmationEmail(submissionData.email, token, submissionData);
       res.json({

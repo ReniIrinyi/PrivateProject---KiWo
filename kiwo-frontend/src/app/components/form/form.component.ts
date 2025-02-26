@@ -159,24 +159,12 @@ export class FormComponent implements OnInit {
 
   onSubmit() {
     this.updateSignatureInput();
-    console.log(this.form);
-    console.log(this.form.valid);
-
     if (this.form.valid && this.form.get('verbindlich')?.value) {
-      const signatureImage = this.dataURLtoFile(
-        this.form.value.signatureImageFile,
-        'signatureImage.png'
-      );
-      const formattedDate =
-        this.datePipe.transform(this.form.value.geburtsdatum, 'yyyy-MM-dd') ||
-        '';
-
       const formData = new FormData();
       formData.append('kind', this.form.value.kind);
       formData.append('vorname', this.form.value.vorname);
       formData.append('nachname', this.form.value.nachname);
-      formData.append('geburtsdatum', formattedDate);
-      console.log(this.form.value.geburtsdatum);
+      formData.append('geburtsdatum', this.form.value.geburtsdatum);
       formData.append('klasse', this.form.value.klasse);
       formData.append('anschrift', this.form.value.anschrift);
       formData.append('wohnort', this.form.value.wohnort);
@@ -193,8 +181,9 @@ export class FormComponent implements OnInit {
       for (const day of this.daysArray) {
         formData.append(day, this.form.value[day]);
       }
-      formData.append('signatureImageFile', signatureImage);
 
+      console.log(formData)
+      console.log(this.form)
       // Send the formData to the server
       this.http.post(`${this.serverUrl}/api/submit`, formData).subscribe(
         (response) => {
